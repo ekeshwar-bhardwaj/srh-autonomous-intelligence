@@ -9,7 +9,7 @@
 <style>
 /* === BASE === */
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#ffffff;color:#1a0f2a;font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased;height:100%;overflow:hidden}
+html,body{font-family:'Inter',system-ui,-apple-system,sans-serif;background:#f5f5f7;color:#1a0f2a;font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased;height:100%;overflow:hidden}
 body{display:flex;flex-direction:column}
 .topbar{flex-shrink:0}
 .view{flex:1;min-height:0;overflow:hidden}
@@ -26,7 +26,7 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
 /* === THEME VARS === light mode, magenta / pink / purple palette === */
 :root{
   /* surfaces */
-  --navy-0:#ffffff;             /* page bg */
+  --navy-0:#f5f5f7;             /* page bg */
   --navy-1:#fafafa;             /* card bg */
   --navy-2:#f4f4f6;             /* panel-ish bg */
   --navy-3:#ececf0;             /* subtle elevated */
@@ -54,9 +54,9 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;color:inhe
   --bg:var(--navy-0);
 }
 /* All three personas live in the magenta family, just different shades */
-[data-persona="exec"]{--persona:#a0226e;--persona-2:#c92a8e;--persona-soft:rgba(160,34,110,.10);--bg:#ffffff}
-[data-persona="inv"]{--persona:#9333a8;--persona-2:#b94dc8;--persona-soft:rgba(147,51,168,.10);--bg:#ffffff}
-[data-persona="ops"]{--persona:#d9359c;--persona-2:#e63b92;--persona-soft:rgba(217,53,156,.10);--bg:#ffffff}
+[data-persona="exec"]{--persona:#a0226e;--persona-2:#c92a8e;--persona-soft:rgba(160,34,110,.10);--bg:#f5f5f7}
+[data-persona="inv"]{--persona:#9333a8;--persona-2:#b94dc8;--persona-soft:rgba(147,51,168,.10);--bg:#f5f5f7}
+[data-persona="ops"]{--persona:#d9359c;--persona-2:#e63b92;--persona-soft:rgba(217,53,156,.10);--bg:#f5f5f7}
 body{background:var(--bg);color:var(--t-1);transition:background .4s ease}
 
 /* === TOPBAR === */
