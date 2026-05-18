@@ -227,8 +227,8 @@ body{background:var(--bg);color:var(--t-1);transition:background .4s ease}
 .kpi-chg.flat{background:rgba(20,10,40,.08);color:var(--t-2)}
 .kpi-val{font-size:19px;font-weight:800;color:var(--t-1);line-height:1.05;letter-spacing:-.5px}
 .kpi.hero .kpi-val{font-size:25px;color:var(--gold-2)}
-.kpi-lbl{font-size:10.5px;color:var(--t-3);margin-top:2px;font-weight:500}
-.kpi-foot{font-size:10px;color:var(--t-3);margin-top:4px;padding-top:4px;border-top:1px dashed var(--line)}
+.kpi-lbl{font-size:10.5px;color:var(--t-3);margin-top:6px;padding-top:6px;border-top:1px dashed var(--line);font-weight:500}
+.kpi-foot{font-size:10px;color:var(--t-3);margin-top:4px}
 
 /* === PANELS === */
 .panel{background:linear-gradient(180deg,rgba(20,10,40,.025),rgba(20,10,40,.005));border:1px solid var(--line-2);border-radius:10px;padding:7px 12px}
@@ -704,25 +704,25 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
 
     <div class="section-label"><span class="pulse" style="background:var(--gold);box-shadow:0 0 0 4px rgba(217,53,156,.18)"></span> Open by Persona <span style="color:var(--t-4);font-weight:500;letter-spacing:.5px;text-transform:none">· tailored CFO views</span></div>
     <div class="persona-cards">
-      <div class="pcard exec" onclick="showView('exec')" title="CFO Executive — Group-level cash flow lens: inflows from subsidiaries, FI returns, real-estate cash generation, treasury management, distribution coverage. The primary CFO board view.">
+      <div class="pcard exec" onclick="showView('exec')" title="CFO Executive Dashboard — Group cash flow, treasury, distributions, liquidity, and executive financial oversight. The primary CFO board view consolidating cash sources, distribution coverage, and group-wide financial health.">
         <div class="pcard-icon">⚓</div>
-        <div class="pcard-title">CFO Executive</div>
-        <div class="pcard-roles">GROUP CASH FLOW · DISTRIBUTION · TREASURY</div>
-        <div class="pcard-desc">Inflows from DI · money made by FI · funds given to Finance &amp; distribution · cash management</div>
+        <div class="pcard-title">CFO Executive Dashboard</div>
+        <div class="pcard-roles">GROUP CASH FLOW · TREASURY · DISTRIBUTIONS · LIQUIDITY</div>
+        <div class="pcard-desc">Group cash flow, treasury, distributions, liquidity, and executive financial oversight.</div>
         <div class="pcard-cta">Open <span style="margin-left:4px">›</span></div>
       </div>
-      <div class="pcard inv" onclick="showView('inv')" title="Direct &amp; Financial Investments — Investment Head / FP&A lens. Direct Investments: subsidiary capital deployment, dividends, intercompany position. Financial Investments: AUM, asset allocation, returns, liquidity profile, manager performance. Toggle inside.">
+      <div class="pcard inv" onclick="showView('inv')" title="Finance Intelligence — Direct investments, financial investments, capital deployment, subsidiary performance, returns, liquidity, and portfolio insights across DI, FI, and Real Estate pillars.">
         <div class="pcard-icon">📈</div>
-        <div class="pcard-title">Direct &amp; Financial Investments</div>
-        <div class="pcard-roles">DI / FI — CFO LENS · TOGGLE INSIDE</div>
-        <div class="pcard-desc">DI: capital deployment, cash flow to RHG, subsidiary health, intercompany · FI: AUM, returns, liquidity, income</div>
+        <div class="pcard-title">Finance Intelligence</div>
+        <div class="pcard-roles">DI · FI · RE — CAPITAL DEPLOYMENT · PORTFOLIO RETURNS</div>
+        <div class="pcard-desc">Direct investments, financial investments, capital deployment, subsidiary performance, returns, liquidity, and portfolio insights.</div>
         <div class="pcard-cta">Open <span style="margin-left:4px">›</span></div>
       </div>
-      <div class="pcard ops" onclick="showView('ops')" title="Operational MIS — Day-to-day operational finance lens: cost accrued vs booked, project-level budget burn, OPEX trends by function, accounts payable cycle, and reporting discipline.">
+      <div class="pcard ops" onclick="showView('ops')" title="Operational MIS &amp; Cost Intelligence — Budget vs actuals, project cost visibility, OPEX trends, cost accruals vs bookings, and operational financial monitoring across HoldCo cost centres.">
         <div class="pcard-icon">⚙️</div>
-        <div class="pcard-title">Operational MIS</div>
-        <div class="pcard-roles">CFO · COST BOOKINGS · BUDGET DISCIPLINE</div>
-        <div class="pcard-desc">Cost accrued vs booked, budget vs actual, project cost status, OPEX trend by function</div>
+        <div class="pcard-title">Operational MIS &amp; Cost Intelligence</div>
+        <div class="pcard-roles">BUDGET vs ACTUALS · OPEX TRENDS · COST ACCRUALS</div>
+        <div class="pcard-desc">Budget vs actuals, project cost visibility, OPEX trends, cost accruals vs bookings, and operational financial monitoring.</div>
         <div class="pcard-cta">Open <span style="margin-left:4px">›</span></div>
       </div>
     </div>
@@ -1126,22 +1126,22 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
       <div class="difi-pane act" id="difiPaneDI">
         <!-- DI KPI ROW · Capital Deployment & Exposure -->
         <div class="kpi-row k4">
-          <div class="kpi" onclick="openDrill('di-capex')">
+          <div class="kpi" onclick="openDrill('di-capex')" title="Cumulative equity + IC funding deployed across 9 wholly-owned subsidiaries since inception. Source: SAP FI/CO IC ledger.">
             <div class="kpi-top"><div class="kpi-icon">💼</div><span class="kpi-chg up">+4.2% YoY</span></div>
             <div class="kpi-val mono">SAR 10.2B</div>
             <div class="kpi-lbl">Total Invested Capital · 9 subs</div>
           </div>
-          <div class="kpi" onclick="openDrill('di-newcap')">
+          <div class="kpi" onclick="openDrill('di-newcap')" title="New capital deployed YTD across 2 deals — ADEC capacity expansion (SAR 120M) + Wataniya Agri capex draw (SAR 60M). Source: SAP FI/CO.">
             <div class="kpi-top"><div class="kpi-icon">➕</div><span class="kpi-chg up">SAR 180M</span></div>
             <div class="kpi-val mono">SAR 180M</div>
             <div class="kpi-lbl">New Investments YTD · 2 deals</div>
           </div>
-          <div class="kpi" onclick="openDrill('di-undrawn')">
+          <div class="kpi" onclick="openDrill('di-undrawn')" title="Approved-but-not-yet-funded commitments. ADEC SAR 120M + Wat. Agri SAR 80M expected to draw over next 12 months. Source: S/4HANA commitments ledger.">
             <div class="kpi-top"><div class="kpi-icon">📑</div><span class="kpi-chg flat">12m call</span></div>
             <div class="kpi-val mono">SAR 240M</div>
             <div class="kpi-lbl">Undrawn Commitments · ADEC, Wat. Agri</div>
           </div>
-          <div class="kpi" onclick="openDrill('cash')">
+          <div class="kpi" onclick="openDrill('cash')" title="Cash returned to RHG HoldCo from subsidiaries in Q1: dividends SAR 286M + IC repayments SAR 92M + interest SAR 34M. Source: TMS + SAP FI/CO.">
             <div class="kpi-top"><div class="kpi-icon">💰</div><span class="kpi-chg up">+12.4% YoY</span></div>
             <div class="kpi-val mono">SAR 412M</div>
             <div class="kpi-lbl">Q1 Cash Inflow to RHG</div>
@@ -1265,22 +1265,22 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
       <div class="difi-pane" id="difiPaneFI">
         <!-- FI KPI ROW · Portfolio Overview -->
         <div class="kpi-row k4">
-          <div class="kpi" onclick="openDrill('fi-aum')">
+          <div class="kpi" onclick="openDrill('fi-aum')" title="Total financial-investments book — liquid (62%) + illiquid PE/HF (38%) across 12 external fund mandates. Source: Bloomberg + custodian feeds.">
             <div class="kpi-top"><div class="kpi-icon">💼</div><span class="kpi-chg up">+8.6% YoY</span></div>
             <div class="kpi-val mono">SAR 14.2B</div>
             <div class="kpi-lbl">Total AUM · liquid + illiquid</div>
           </div>
-          <div class="kpi" onclick="openDrill('fi-ret')">
+          <div class="kpi" onclick="openDrill('fi-ret')" title="YTD total return including cash + MTM. Outperforms blended benchmark (MSCI EM + GCC Sukuk) by +260 bps. Source: Bloomberg + IPS.">
             <div class="kpi-top"><div class="kpi-icon">📈</div><span class="kpi-chg up">+120 bps</span></div>
             <div class="kpi-val mono">12.4%</div>
             <div class="kpi-lbl">Portfolio Return YTD · benchmark +9.8%</div>
           </div>
-          <div class="kpi" onclick="openDrill('fi-liq')">
+          <div class="kpi" onclick="openDrill('fi-liq')" title="AUM raisable to cash within T+5 days (Tier 1 + Tier 2). Covers 1.8x group OPEX. LCR 1.32x. Source: Treasury.">
             <div class="kpi-top"><div class="kpi-icon">💧</div><span class="kpi-chg flat">62%</span></div>
             <div class="kpi-val mono">SAR 8.8B</div>
             <div class="kpi-lbl">Liquid (T+5 redeem) · 62% AUM</div>
           </div>
-          <div class="kpi" onclick="openDrill('cash')">
+          <div class="kpi" onclick="openDrill('cash')" title="Q1 cash returned from FI book: dividends SAR 142M + realised gains SAR 92M + other distributions SAR 52M. Source: TMS.">
             <div class="kpi-top"><div class="kpi-icon">💰</div><span class="kpi-chg up">+8.2% YoY</span></div>
             <div class="kpi-val mono">SAR 286M</div>
             <div class="kpi-lbl">Q1 Income to RHG · cash basis</div>
@@ -1411,136 +1411,163 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
 
       <!-- ============ RE · CFO PANE ============ -->
       <div class="difi-pane" id="difiPaneRE">
-        <!-- RE KPI ROW · GAV / Rental Income / Occupancy / Yardi -->
+        <!-- RE KPI ROW · Portfolio Overview -->
         <div class="kpi-row k4">
-          <div class="kpi" onclick="openDrill('re')">
+          <div class="kpi" onclick="openDrill('re')" title="Gross Asset Value across 47 properties — Office, Hospitality, Logistics, Retail, Mixed-Use, Residential, Healthcare. Source: Yardi + REIDIN valuations.">
             <div class="kpi-top"><div class="kpi-icon">🏢</div><span class="kpi-chg up">+5.8% YoY</span></div>
             <div class="kpi-val mono">SAR 15.8B</div>
             <div class="kpi-lbl">Total GAV · 47 properties</div>
           </div>
-          <div class="kpi" onclick="openDrill('cash')">
+          <div class="kpi" onclick="openDrill('cash')" title="Q1 cash to RHG = gross NOI SAR 248M minus property OPEX SAR 80M. +5.6% YoY. Source: Yardi + TMS.">
             <div class="kpi-top"><div class="kpi-icon">💵</div><span class="kpi-chg up">+5.6% YoY</span></div>
             <div class="kpi-val mono">SAR 168M</div>
             <div class="kpi-lbl">Net Rental Income to RHG · cash basis</div>
           </div>
-          <div class="kpi" onclick="openDrill('re')">
+          <div class="kpi" onclick="openDrill('re')" title="Weighted-average occupancy across 47 properties. 0.6pp below 88% policy target. Retail soft (81.2%); Healthcare strongest (96%). Source: Yardi.">
             <div class="kpi-top"><div class="kpi-icon">🚪</div><span class="kpi-chg up">+1.8pp</span></div>
             <div class="kpi-val mono">87.4%</div>
             <div class="kpi-lbl">Portfolio Occupancy · target 88%</div>
           </div>
-          <div class="kpi" onclick="openDrill('re')">
+          <div class="kpi" onclick="openDrill('re')" title="Properties migrated from 6 legacy systems into Yardi single source of truth. Phase 2 GO/NO-GO at ERMC Apr 30; target Q1 2027 completion. Source: PMO.">
             <div class="kpi-top"><div class="kpi-icon">⚙️</div><span class="kpi-chg up">29 of 47</span></div>
             <div class="kpi-val mono">62%</div>
             <div class="kpi-lbl">Yardi Migration · single source of truth</div>
           </div>
         </div>
 
-        <!-- 1. PROPERTY PORTFOLIO BY ASSET CLASS -->
-        <div class="cfo-block-title"><span class="n">1</span>Property Portfolio &amp; Exposure</div>
-        <div class="panel">
-          <div class="panel-head">
-            <div class="panel-title">GAV by Asset Class <span class="panel-tag" style="background:rgba(139,26,107,.10);color:#8b1a6b;border-color:rgba(139,26,107,.32)">🏢 Yardi · REIDIN</span></div>
-            <div class="panel-meta">Total SAR 15.8B · 47 properties · sorted by GAV · scale: full bar = SAR 4.82B</div>
-          </div>
-          <div class="bar-list">
-            <div class="bar-row-v returning" title="AI: Largest asset; Class A Riyadh CBD; 92.4% occupancy; core hold"><div class="name">Riyadh Office (Class A)<span class="sub">Office · Riyadh · 8 props</span></div><div class="lbar"><div class="fill" style="width:100%"></div></div><div class="val">SAR 4,820M<span class="vsub">31% of GAV</span></div><div class="meta"><b>CORE-HOLD</b>NOI SAR 288M</div></div>
-            <div class="bar-row-v drawing" title="AI: REIT carve-out candidate; 32.4% EBITDA margin; ahead of plan"><div class="name">Hospitality Portfolio<span class="sub">Hotels · KSA · 6 props</span></div><div class="lbar"><div class="fill" style="width:55%"></div></div><div class="val">SAR 2,640M<span class="vsub">17% of GAV</span></div><div class="meta"><b>REIT CARVE</b>NOI SAR 190M</div></div>
-            <div class="bar-row-v returning" title="AI: Build-out phase; logistics demand strong; 94.2% occupancy"><div class="name">Logistics &amp; Industrial<span class="sub">Logistics · Riyadh/DMM · 7 props</span></div><div class="lbar"><div class="fill" style="width:40%"></div></div><div class="val">SAR 1,920M<span class="vsub">12% of GAV</span></div><div class="meta"><b>BUILD-OUT</b>NOI SAR 138M</div></div>
-            <div class="bar-row-v watchlist" title="AI: Retail soft; reposition strategy; 81.2% occupancy"><div class="name">Retail (High Street)<span class="sub">Retail · KSA · 5 props</span></div><div class="lbar"><div class="fill" style="width:34%"></div></div><div class="val">SAR 1,640M<span class="vsub">10% of GAV</span></div><div class="meta"><b>REPOSITION</b>NOI SAR 92M</div></div>
-            <div class="bar-row-v returning" title="AI: Mixed-use Jeddah; balanced cash flow; 86.4% occupancy"><div class="name">Mixed-Use (Jeddah)<span class="sub">Mixed-Use · Jeddah · 4 props</span></div><div class="lbar"><div class="fill" style="width:29%"></div></div><div class="val">SAR 1,380M<span class="vsub">9% of GAV</span></div><div class="meta"><b>CORE-HOLD</b>NOI SAR 88M</div></div>
-            <div class="bar-row-v returning" title="AI: Compound residential; 91.8% occupancy; steady cash"><div class="name">Residential (Compounds)<span class="sub">Residential · Riyadh · 6 props</span></div><div class="lbar"><div class="fill" style="width:26%"></div></div><div class="val">SAR 1,240M<span class="vsub">8% of GAV</span></div><div class="meta"><b>CORE-HOLD</b>NOI SAR 78M</div></div>
-            <div class="bar-row-v drawing" title="AI: Healthcare RE growth pipeline; 96% occupancy; build-out"><div class="name">Healthcare RE<span class="sub">Healthcare · KSA · 4 props</span></div><div class="lbar"><div class="fill" style="width:17%"></div></div><div class="val">SAR 820M<span class="vsub">5% of GAV</span></div><div class="meta"><b>BUILD-OUT</b>NOI SAR 52M</div></div>
-            <div class="bar-row-v consuming" title="AI: 67% occupancy; below WACC; disposal candidate Q3 2026"><div class="name">Olaya Tower B<span class="sub">Office · Riyadh · single asset</span></div><div class="lbar"><div class="fill" style="width:13%"></div></div><div class="val">SAR 620M<span class="vsub">4% of GAV</span></div><div class="meta"><b>DISPOSAL</b>NOI SAR 26M</div></div>
-            <div class="bar-row-v consuming" title="AI: Below WACC; vacancy elevated; disposal candidate"><div class="name">Sahafa Logistics Park<span class="sub">Logistics · Riyadh · 3 props</span></div><div class="lbar"><div class="fill" style="width:8%"></div></div><div class="val">SAR 380M<span class="vsub">2% of GAV</span></div><div class="meta"><b>DISPOSAL</b>NOI SAR 18M</div></div>
-            <div class="bar-row-v consuming" title="AI: Retail asset; 62% occupancy; below WACC; disposal candidate"><div class="name">Khaleej Plaza<span class="sub">Retail · Eastern Prov.</span></div><div class="lbar"><div class="fill" style="width:7%"></div></div><div class="val">SAR 340M<span class="vsub">2% of GAV</span></div><div class="meta"><b>DISPOSAL</b>NOI SAR 13M</div></div>
-          </div>
-          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:10px;padding:10px 12px;background:linear-gradient(135deg,rgba(139,26,107,.06),rgba(139,26,107,.02));border:1px solid rgba(139,26,107,.22);border-radius:10px">
-            <div style="text-align:center"><div style="font-size:9px;color:var(--green-2);font-weight:700;letter-spacing:.5px">CORE-HOLD</div><div style="font-size:18px;font-weight:800;color:var(--green-2);margin-top:2px;line-height:1">SAR 8.48B</div><div style="font-size:9.5px;color:var(--t-3);margin-top:2px">4 classes · 54% of GAV</div></div>
-            <div style="text-align:center"><div style="font-size:9px;color:#1d4ed8;font-weight:700;letter-spacing:.5px">BUILD / REIT</div><div style="font-size:18px;font-weight:800;color:#1d4ed8;margin-top:2px;line-height:1">SAR 5.38B</div><div style="font-size:9.5px;color:var(--t-3);margin-top:2px">3 classes · 34% of GAV</div></div>
-            <div style="text-align:center"><div style="font-size:9px;color:var(--amber-2);font-weight:700;letter-spacing:.5px">REPOSITION</div><div style="font-size:18px;font-weight:800;color:var(--amber-2);margin-top:2px;line-height:1">SAR 1.64B</div><div style="font-size:9.5px;color:var(--t-3);margin-top:2px">1 class · 10% of GAV</div></div>
-            <div style="text-align:center"><div style="font-size:9px;color:var(--red-2);font-weight:700;letter-spacing:.5px">DISPOSAL</div><div style="font-size:18px;font-weight:800;color:var(--red-2);margin-top:2px;line-height:1">SAR 1.34B</div><div style="font-size:9.5px;color:var(--t-3);margin-top:2px">3 assets · 8% of GAV</div></div>
-          </div>
-        </div>
-
-        <!-- 2. NET RENTAL INCOME TO RHG -->
-        <div class="cfo-block-title"><span class="n">2</span>Net Rental Income — Cash Flow to RHG <span style="color:var(--green-2);font-size:12px;font-weight:700;margin-left:10px;text-transform:none;letter-spacing:.2px">→ NOI SAR 248M · OPEX SAR 80M · Net to RHG SAR 168M (+5.6% YoY)</span></div>
-        <div style="display:grid;grid-template-columns:1.6fr 1fr;gap:14px">
+        <!-- 1. PORTFOLIO OVERVIEW -->
+        <div class="cfo-block-title"><span class="n">1</span>Portfolio Overview</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px">
           <div class="panel">
-            <div class="panel-head"><div class="panel-title">Contribution Ranking · NOI by Asset Class <span class="panel-tag" style="background:rgba(139,26,107,.10);color:#8b1a6b;border-color:rgba(139,26,107,.32)">💵 Yardi</span></div><div class="panel-meta">Q1 2026 · SAR M · ranked by net cash</div></div>
-            <div class="diverge-list">
-              <div class="diverge-axis"><span>Asset Class</span><span class="neg-axis">← Drag</span><span></span><span class="pos-axis">NOI →</span><span style="text-align:right">Q1 NOI</span><span style="text-align:right">YoY</span></div>
-              <div class="diverge-row" title="AI: Largest cash contributor; Class A Riyadh CBD office portfolio"><span class="dname">Riyadh Office (Class A)</span><span class="neg-bar"></span><span class="axis-tick"></span><span class="pos-bar"><span class="fill" style="width:100%"></span></span><span class="dval">288</span><span class="ddelta pos">+6.0%</span></div>
-              <div class="diverge-row" title="AI: REIT carve-out candidate; strong margin"><span class="dname">Hospitality Portfolio</span><span class="neg-bar"></span><span class="axis-tick"></span><span class="pos-bar"><span class="fill" style="width:66%"></span></span><span class="dval">190</span><span class="ddelta pos">+7.2%</span></div>
-              <div class="diverge-row" title="AI: Logistics demand strong"><span class="dname">Logistics &amp; Industrial</span><span class="neg-bar"></span><span class="axis-tick"></span><span class="pos-bar"><span class="fill" style="width:48%"></span></span><span class="dval">138</span><span class="ddelta pos">+7.2%</span></div>
-              <div class="diverge-row" title="AI: Retail soft; reposition strategy active"><span class="dname">Retail (High Street)</span><span class="neg-bar"></span><span class="axis-tick"></span><span class="pos-bar"><span class="fill" style="width:32%"></span></span><span class="dval">92</span><span class="ddelta amber">+5.6%</span></div>
-              <div class="diverge-row" title="AI: Mixed-use Jeddah; balanced cash"><span class="dname">Mixed-Use (Jeddah)</span><span class="neg-bar"></span><span class="axis-tick"></span><span class="pos-bar"><span class="fill" style="width:30%"></span></span><span class="dval">88</span><span class="ddelta pos">+6.4%</span></div>
-              <div class="diverge-row" title="AI: Compound residential; steady"><span class="dname">Residential (Compounds)</span><span class="neg-bar"></span><span class="axis-tick"></span><span class="pos-bar"><span class="fill" style="width:27%"></span></span><span class="dval">78</span><span class="ddelta pos">+6.3%</span></div>
-              <div class="diverge-row" title="AI: Healthcare RE pipeline; build-out"><span class="dname">Healthcare RE</span><span class="neg-bar"></span><span class="axis-tick"></span><span class="pos-bar"><span class="fill" style="width:18%"></span></span><span class="dval">52</span><span class="ddelta pos">+6.4%</span></div>
-              <div class="diverge-row" title="AI: Olaya Tower B; below WACC"><span class="dname">Olaya Tower B</span><span class="neg-bar"></span><span class="axis-tick"></span><span class="pos-bar"><span class="fill" style="width:9%"></span></span><span class="dval">26</span><span class="ddelta neg">+4.2%</span></div>
-              <div class="diverge-row consuming-row" title="AI: Below WACC; disposal candidates absorbing maintenance OPEX"><span class="dname">⚠ Disposal Tail (3 assets)</span><span class="neg-bar"><span class="fill" style="width:28%"></span></span><span class="axis-tick"></span><span class="pos-bar"></span><span class="dval" style="color:var(--red-2)">(80)</span><span class="ddelta neg">OPEX drag</span></div>
-              <div class="diverge-row total-row"><span class="dname">TOTAL Q1 · NET TO RHG</span><span class="neg-bar"></span><span class="axis-tick"></span><span class="pos-bar"><span class="fill" style="width:100%"></span></span><span class="dval">168</span><span class="ddelta pos">+5.6%</span></div>
-            </div>
-            <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:10px">
-              <div style="padding:9px 11px;background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.22);border-radius:8px"><div style="font-size:9px;color:var(--green-2);font-weight:700;letter-spacing:.5px">GROSS NOI</div><div style="font-size:17px;font-weight:800;color:var(--green-2);margin-top:2px;line-height:1">SAR 248M</div><div style="font-size:9.5px;color:var(--t-3);margin-top:2px">+6.4% YoY · all 47 props</div></div>
-              <div style="padding:9px 11px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.22);border-radius:8px"><div style="font-size:9px;color:var(--amber-2);font-weight:700;letter-spacing:.5px">RE OPEX</div><div style="font-size:17px;font-weight:800;color:var(--amber-2);margin-top:2px;line-height:1">(SAR 80M)</div><div style="font-size:9.5px;color:var(--t-3);margin-top:2px">prop. mgmt · maintenance</div></div>
-              <div style="padding:9px 11px;background:rgba(160,34,110,.06);border:1px solid rgba(160,34,110,.22);border-radius:8px"><div style="font-size:9px;color:#c92a8e;font-weight:700;letter-spacing:.5px">NET TO RHG</div><div style="font-size:17px;font-weight:800;color:#c92a8e;margin-top:2px;line-height:1">SAR 168M</div><div style="font-size:9.5px;color:var(--t-3);margin-top:2px">+5.6% YoY · cash basis</div></div>
-            </div>
+            <div class="panel-head"><div class="panel-title">Allocation by Asset Class <span class="panel-tag" style="background:rgba(139,26,107,.10);color:#8b1a6b;border-color:rgba(139,26,107,.32)">📊 Yardi · REIDIN</span></div></div>
+            <div class="chart-wrap short"><canvas id="reAllocAssetChart"></canvas></div>
           </div>
           <div class="panel">
-            <div class="panel-head"><div class="panel-title">Lease Renewals Pending <span class="panel-tag" style="background:rgba(245,158,11,.10);color:var(--amber-2);border-color:rgba(245,158,11,.32)">📅 Yardi</span></div><div class="panel-meta">Next 12 mo · SAR M cash at risk</div></div>
-            <div style="display:flex;flex-direction:column;gap:8px;padding:8px 2px">
-              <div style="padding:10px 12px;background:rgba(160,34,110,.05);border:1px solid rgba(160,34,110,.22);border-radius:8px"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:11px;color:var(--t-3);font-weight:700;letter-spacing:.4px;text-transform:uppercase">Total Pending</span><span style="font-size:18px;font-weight:800;color:var(--t-1);font-variant-numeric:tabular-nums">SAR 1.06B</span></div><div style="font-size:10px;color:var(--t-3);margin-top:3px">12 mo · 14 leases · cash at risk if not renewed</div></div>
-              <div style="padding:9px 12px;background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.22);border-radius:8px"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:11px;color:var(--green-2);font-weight:700">↑ Likely renewed (LOI signed)</span><span style="font-size:14px;font-weight:800;color:var(--green-2);font-variant-numeric:tabular-nums">SAR 720M</span></div></div>
-              <div style="padding:9px 12px;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.22);border-radius:8px"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:11px;color:var(--amber-2);font-weight:700">↻ Under negotiation</span><span style="font-size:14px;font-weight:800;color:var(--amber-2);font-variant-numeric:tabular-nums">SAR 240M</span></div></div>
-              <div style="padding:9px 12px;background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.22);border-radius:8px"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:11px;color:var(--red-2);font-weight:700">↓ At risk (no LOI)</span><span style="font-size:14px;font-weight:800;color:var(--red-2);font-variant-numeric:tabular-nums">SAR 100M</span></div></div>
-            </div>
+            <div class="panel-head"><div class="panel-title">Allocation by Geography <span class="panel-tag" style="background:rgba(139,26,107,.10);color:#8b1a6b;border-color:rgba(139,26,107,.32)">🌍 Yardi</span></div></div>
+            <div class="chart-wrap short"><canvas id="reAllocGeoChart"></canvas></div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><div class="panel-title">Allocation by Lifecycle Stage <span class="panel-tag" style="background:rgba(139,26,107,.10);color:#8b1a6b;border-color:rgba(139,26,107,.32)">⭐ Strategy</span></div></div>
+            <div class="chart-wrap short"><canvas id="reAllocStatusChart"></canvas></div>
           </div>
         </div>
 
-        <!-- 3. OPERATIONAL HEALTH BY ASSET CLASS -->
-        <div class="cfo-block-title"><span class="n">3</span>Operational Health by Asset Class</div>
-        <div class="panel">
-          <div class="panel-head">
-            <div class="panel-title">Asset Class Scorecard <span class="panel-tag" style="background:rgba(139,26,107,.10);color:#8b1a6b;border-color:rgba(139,26,107,.32)">🏢 Yardi · REIDIN</span></div>
-            <div class="panel-meta">Occupancy / NOI / cap rate / status · Q1 2026 · target occupancy 88%</div>
-          </div>
-          <div class="health-grid">
-            <div class="health-card healthy"><div class="health-card-head"><div class="health-card-name">Riyadh Office (Class A)</div><span class="stage-pill healthy">Core-Hold</span></div><div class="health-card-grid"><div><span class="k">NOI Q1</span><span class="v">SAR 288M</span></div><div><span class="k">YoY</span><span class="v up">+6.0%</span></div><div><span class="k">Occupancy</span><span class="v">92.4%</span></div><div><span class="k">Cap Rate</span><span class="v">6.0%</span></div></div><div class="lev-gauge"><div class="lev-gauge-lbl"><span>Occupancy</span><b>92.4% / 88%</b></div><div class="lev-gauge-bar"><div class="fill ok" style="width:100%"></div><div class="mark" style="left:88%"></div></div></div><div class="health-card-foot"><span>8 properties</span><span style="color:var(--green-2);font-weight:700">▲ ahead</span></div></div>
-            <div class="health-card growth"><div class="health-card-head"><div class="health-card-name">Hospitality Portfolio</div><span class="stage-pill drawing">REIT Carve</span></div><div class="health-card-grid"><div><span class="k">NOI Q1</span><span class="v">SAR 190M</span></div><div><span class="k">YoY</span><span class="v up">+7.2%</span></div><div><span class="k">Occupancy</span><span class="v">78.6%</span></div><div><span class="k">Cap Rate</span><span class="v">7.2%</span></div></div><div class="lev-gauge"><div class="lev-gauge-lbl"><span>Occupancy</span><b>78.6% / 88%</b></div><div class="lev-gauge-bar"><div class="fill warn" style="width:89%"></div><div class="mark" style="left:88%"></div></div></div><div class="health-card-foot"><span>6 hotels</span><span style="color:var(--green-2);font-weight:700">▲ REIT prep</span></div></div>
-            <div class="health-card healthy"><div class="health-card-head"><div class="health-card-name">Logistics &amp; Industrial</div><span class="stage-pill healthy">Build-Out</span></div><div class="health-card-grid"><div><span class="k">NOI Q1</span><span class="v">SAR 138M</span></div><div><span class="k">YoY</span><span class="v up">+7.2%</span></div><div><span class="k">Occupancy</span><span class="v">94.2%</span></div><div><span class="k">Cap Rate</span><span class="v">7.2%</span></div></div><div class="lev-gauge"><div class="lev-gauge-lbl"><span>Occupancy</span><b>94.2% / 88%</b></div><div class="lev-gauge-bar"><div class="fill ok" style="width:100%"></div><div class="mark" style="left:88%"></div></div></div><div class="health-card-foot"><span>7 properties</span><span style="color:var(--green-2);font-weight:700">▲ expansion</span></div></div>
-            <div class="health-card watch"><div class="health-card-head"><div class="health-card-name">Retail (High Street)</div><span class="stage-pill watchlist">Reposition</span></div><div class="health-card-grid"><div><span class="k">NOI Q1</span><span class="v">SAR 92M</span></div><div><span class="k">YoY</span><span class="v amber">+5.6%</span></div><div><span class="k">Occupancy</span><span class="v amber">81.2%</span></div><div><span class="k">Cap Rate</span><span class="v">5.6%</span></div></div><div class="lev-gauge"><div class="lev-gauge-lbl"><span>Occupancy</span><b>81.2% / 88%</b></div><div class="lev-gauge-bar"><div class="fill warn" style="width:92%"></div><div class="mark" style="left:88%"></div></div></div><div class="health-card-foot"><span>5 properties</span><span style="color:var(--amber-2);font-weight:700">⚠ soft demand</span></div></div>
-            <div class="health-card healthy"><div class="health-card-head"><div class="health-card-name">Mixed-Use (Jeddah)</div><span class="stage-pill healthy">Core-Hold</span></div><div class="health-card-grid"><div><span class="k">NOI Q1</span><span class="v">SAR 88M</span></div><div><span class="k">YoY</span><span class="v up">+6.4%</span></div><div><span class="k">Occupancy</span><span class="v">86.4%</span></div><div><span class="k">Cap Rate</span><span class="v">6.4%</span></div></div><div class="lev-gauge"><div class="lev-gauge-lbl"><span>Occupancy</span><b>86.4% / 88%</b></div><div class="lev-gauge-bar"><div class="fill warn" style="width:98%"></div><div class="mark" style="left:88%"></div></div></div><div class="health-card-foot"><span>4 properties</span><span style="color:var(--green-2);font-weight:700">▲ balanced</span></div></div>
-            <div class="health-card healthy"><div class="health-card-head"><div class="health-card-name">Residential (Compounds)</div><span class="stage-pill healthy">Core-Hold</span></div><div class="health-card-grid"><div><span class="k">NOI Q1</span><span class="v">SAR 78M</span></div><div><span class="k">YoY</span><span class="v up">+6.3%</span></div><div><span class="k">Occupancy</span><span class="v">91.8%</span></div><div><span class="k">Cap Rate</span><span class="v">6.3%</span></div></div><div class="lev-gauge"><div class="lev-gauge-lbl"><span>Occupancy</span><b>91.8% / 88%</b></div><div class="lev-gauge-bar"><div class="fill ok" style="width:100%"></div><div class="mark" style="left:88%"></div></div></div><div class="health-card-foot"><span>6 properties</span><span style="color:var(--green-2);font-weight:700">▲ steady</span></div></div>
-            <div class="health-card growth"><div class="health-card-head"><div class="health-card-name">Healthcare RE</div><span class="stage-pill drawing">Build-Out</span></div><div class="health-card-grid"><div><span class="k">NOI Q1</span><span class="v">SAR 52M</span></div><div><span class="k">YoY</span><span class="v up">+6.4%</span></div><div><span class="k">Occupancy</span><span class="v">96.0%</span></div><div><span class="k">Cap Rate</span><span class="v">6.4%</span></div></div><div class="lev-gauge"><div class="lev-gauge-lbl"><span>Occupancy</span><b>96.0% / 88%</b></div><div class="lev-gauge-bar"><div class="fill ok" style="width:100%"></div><div class="mark" style="left:88%"></div></div></div><div class="health-card-foot"><span>4 properties</span><span style="color:var(--green-2);font-weight:700">▲ pipeline</span></div></div>
-            <div class="health-card atrisk"><div class="health-card-head"><div class="health-card-name">Olaya Tower B</div><span class="stage-pill atrisk">Disposal</span></div><div class="health-card-grid"><div><span class="k">NOI Q1</span><span class="v down">SAR 26M</span></div><div><span class="k">YoY</span><span class="v down">+4.2%</span></div><div><span class="k">Occupancy</span><span class="v down">67.0%</span></div><div><span class="k">Cap Rate</span><span class="v">4.2%</span></div></div><div class="lev-gauge"><div class="lev-gauge-lbl"><span>Occupancy</span><b class="refi bad">67% breach</b></div><div class="lev-gauge-bar"><div class="fill bad" style="width:76%"></div><div class="mark" style="left:88%"></div></div></div><div class="health-card-foot"><span>1 property</span><span style="color:var(--red-2);font-weight:700">⚠ below WACC</span></div></div>
-            <div class="health-card atrisk"><div class="health-card-head"><div class="health-card-name">Disposal Tail (Sahafa + Khaleej)</div><span class="stage-pill atrisk">Disposal</span></div><div class="health-card-grid"><div><span class="k">NOI Q1</span><span class="v down">SAR 31M</span></div><div><span class="k">YoY</span><span class="v down">+4.3%</span></div><div><span class="k">Occupancy</span><span class="v down">66.5%</span></div><div><span class="k">Cap Rate</span><span class="v">4.3%</span></div></div><div class="lev-gauge"><div class="lev-gauge-lbl"><span>Occupancy</span><b class="refi bad">66.5% breach</b></div><div class="lev-gauge-bar"><div class="fill bad" style="width:76%"></div><div class="mark" style="left:88%"></div></div></div><div class="health-card-foot"><span>4 properties</span><span style="color:var(--red-2);font-weight:700">⚠ disposal Q3</span></div></div>
-          </div>
-          <div style="margin-top:10px;padding:10px 12px;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.22);border-radius:8px;font-size:11.5px;color:var(--t-2);line-height:1.55"><b style="color:var(--red-2)">Flags:</b> 12 assets below WACC (SAR 1.84B drag · 4 disposal candidates ranked) · 5 occupancy below 88% target · Retail demand soft (reposition plan May 12)</div>
-        </div>
-
-        <!-- 4. YARDI CONSOLIDATION & DISPOSAL PIPELINE -->
-        <div class="cfo-block-title"><span class="n">4</span>Yardi Consolidation &amp; Disposal Pipeline <span class="imp">In Flight</span></div>
+        <!-- 2. RETURNS & PERFORMANCE -->
+        <div class="cfo-block-title"><span class="n">2</span>Returns &amp; Performance</div>
         <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:14px">
           <div class="panel">
-            <div class="panel-head"><div class="panel-title">Yardi Migration · 6 Systems → 1 <span class="panel-tag" style="background:rgba(139,26,107,.10);color:#8b1a6b;border-color:rgba(139,26,107,.32)">⚙️ PMO · Yardi</span></div><div class="panel-meta">29 of 47 properties migrated · Phase 2 GO/NO-GO at ERMC Apr 30</div></div>
-            <div style="display:flex;flex-direction:column;gap:10px;padding:8px 2px">
-              <div style="padding:10px 12px;background:rgba(16,185,129,.05);border:1px solid rgba(16,185,129,.22);border-radius:9px"><div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px"><span style="font-size:11px;font-weight:700;color:var(--t-1)">Phase 1 · Riyadh Office + Hospitality</span><span style="font-size:11px;color:var(--green-2);font-weight:800">14 / 14 · 100%</span></div><div style="height:6px;background:rgba(20,10,40,.06);border-radius:3px;overflow:hidden"><div style="height:100%;background:linear-gradient(90deg,#10b981,#34d399);width:100%"></div></div><div style="font-size:9.5px;color:var(--t-3);margin-top:4px">Completed Jan 2026 · zero data variance</div></div>
-              <div style="padding:10px 12px;background:rgba(59,130,246,.05);border:1px solid rgba(59,130,246,.22);border-radius:9px"><div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px"><span style="font-size:11px;font-weight:700;color:var(--t-1)">Phase 2 · Logistics + Mixed-Use + Residential</span><span style="font-size:11px;color:#1d4ed8;font-weight:800">15 / 17 · 88%</span></div><div style="height:6px;background:rgba(20,10,40,.06);border-radius:3px;overflow:hidden"><div style="height:100%;background:linear-gradient(90deg,#3b82f6,#60a5fa);width:88%"></div></div><div style="font-size:9.5px;color:var(--t-3);margin-top:4px">In flight · GO/NO-GO ERMC Apr 30 · risk LOW</div></div>
-              <div style="padding:10px 12px;background:rgba(245,158,11,.05);border:1px solid rgba(245,158,11,.22);border-radius:9px"><div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:5px"><span style="font-size:11px;font-weight:700;color:var(--t-1)">Phase 3 · Retail + Healthcare + Disposal Tail</span><span style="font-size:11px;color:var(--amber-2);font-weight:800">0 / 16 · 0%</span></div><div style="height:6px;background:rgba(20,10,40,.06);border-radius:3px;overflow:hidden"><div style="height:100%;background:linear-gradient(90deg,#f59e0b,#fbbf24);width:2%"></div></div><div style="font-size:9.5px;color:var(--t-3);margin-top:4px">Scheduled H2 2026 · pending Phase 2 sign-off</div></div>
-              <div style="padding:10px 12px;background:linear-gradient(135deg,rgba(160,34,110,.08),rgba(160,34,110,.02));border:1px solid rgba(160,34,110,.22);border-radius:9px"><div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-size:11px;font-weight:800;color:#c92a8e;letter-spacing:.4px;text-transform:uppercase">Group Total</span><span style="font-size:16px;font-weight:800;color:#c92a8e;font-variant-numeric:tabular-nums">29 / 47 · 62%</span></div><div style="font-size:10px;color:var(--t-3);margin-top:3px">Target completion Q1 2027 · single source of truth · audit-ready</div></div>
+            <div class="panel-head"><div class="panel-title">Net Yield vs Benchmark <span class="panel-tag" style="background:rgba(139,26,107,.10);color:#8b1a6b;border-color:rgba(139,26,107,.32)">📈 REIDIN · Bloomberg</span></div><div class="panel-meta">By asset class · cap rate + alpha · Q1 2026</div></div>
+            <table class="tbl">
+              <thead><tr><th>Asset Class</th><th class="r">GAV (SAR M)</th><th class="r">NOI Q1</th><th class="r">Cap Rate</th><th class="r">Bench Cap</th><th class="r">Alpha</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td><b>Riyadh Office (Class A)</b></td><td class="r mono">4,820</td><td class="r mono">288</td><td class="r mono">6.0%</td><td class="r mono">5.8%</td><td class="r mono" style="color:var(--green-2)"><b>+20 bps</b></td><td><span class="stage-pill growth">Outperform</span></td></tr>
+                <tr><td><b>Hospitality Portfolio</b></td><td class="r mono">2,640</td><td class="r mono">190</td><td class="r mono">7.2%</td><td class="r mono">6.4%</td><td class="r mono" style="color:var(--green-2)"><b>+80 bps</b></td><td><span class="stage-pill growth">Outperform</span></td></tr>
+                <tr><td><b>Logistics &amp; Industrial</b></td><td class="r mono">1,920</td><td class="r mono">138</td><td class="r mono">7.2%</td><td class="r mono">6.6%</td><td class="r mono" style="color:var(--green-2)"><b>+60 bps</b></td><td><span class="stage-pill growth">Outperform</span></td></tr>
+                <tr><td><b>Retail (High Street)</b></td><td class="r mono">1,640</td><td class="r mono">92</td><td class="r mono">5.6%</td><td class="r mono">6.2%</td><td class="r mono" style="color:var(--red-2)"><b>−60 bps</b></td><td><span class="stage-pill watch">Reposition</span></td></tr>
+                <tr><td><b>Mixed-Use (Jeddah)</b></td><td class="r mono">1,380</td><td class="r mono">88</td><td class="r mono">6.4%</td><td class="r mono">6.2%</td><td class="r mono" style="color:var(--green-2)"><b>+20 bps</b></td><td><span class="stage-pill mature">Hold</span></td></tr>
+                <tr><td><b>Residential (Compounds)</b></td><td class="r mono">1,240</td><td class="r mono">78</td><td class="r mono">6.3%</td><td class="r mono">6.0%</td><td class="r mono" style="color:var(--green-2)"><b>+30 bps</b></td><td><span class="stage-pill mature">Hold</span></td></tr>
+                <tr><td><b>Healthcare RE</b></td><td class="r mono">820</td><td class="r mono">52</td><td class="r mono">6.4%</td><td class="r mono">6.0%</td><td class="r mono" style="color:var(--green-2)"><b>+40 bps</b></td><td><span class="stage-pill growth">Build-Out</span></td></tr>
+                <tr style="font-weight:700;background:rgba(139,26,107,.06)"><td><b>TOTAL · 47 properties</b></td><td class="r mono">15,800</td><td class="r mono">248</td><td class="r mono">6.4%</td><td class="r mono">5.9%</td><td class="r mono" style="color:var(--green-2)"><b>+50 bps</b></td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><div class="panel-title">Below-WACC Properties <span class="panel-tag" style="background:var(--red-soft);color:var(--red-2);border-color:rgba(239,68,68,.3)">⚠️ Disposal Pipeline</span></div><div class="panel-meta">12 of 47 · SAR 1.84B drag</div></div>
+            <div style="display:flex;flex-direction:column;gap:8px;padding:6px 0">
+              <div style="padding:10px;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.22);border-radius:8px">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font-size:12px;font-weight:700;color:var(--t-1)">Olaya Tower B</div><div style="font-size:11px;color:var(--red-2);font-weight:700">−6 bps</div></div>
+                <div style="font-size:10.5px;color:var(--t-3);margin-top:3px">GAV SAR 620M · 67% occupancy · cap rate 4.2%</div>
+              </div>
+              <div style="padding:10px;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.22);border-radius:8px">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font-size:12px;font-weight:700;color:var(--t-1)">Sahafa Logistics Park</div><div style="font-size:11px;color:var(--red-2);font-weight:700">−5 bps</div></div>
+                <div style="font-size:10.5px;color:var(--t-3);margin-top:3px">GAV SAR 380M · 71% occupancy · cap rate 4.8%</div>
+              </div>
+              <div style="padding:10px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.22);border-radius:8px">
+                <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font-size:12px;font-weight:700;color:var(--t-1)">Khaleej Plaza (Retail)</div><div style="font-size:11px;color:var(--amber-2);font-weight:700">−7 bps</div></div>
+                <div style="font-size:10.5px;color:var(--t-3);margin-top:3px">GAV SAR 340M · 62% occupancy · cap rate 3.8%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. OPERATIONAL KPIs -->
+        <div class="cfo-block-title"><span class="n">3</span>Operational KPIs <span class="imp">Very Important</span> <span style="color:var(--green-2);font-size:12px;font-weight:700;margin-left:10px;text-transform:none;letter-spacing:.2px">→ Occupancy 87.4% · target 88% · −0.6pp gap · WAULT 4.6 yr</span></div>
+        <div>
+          <div class="panel">
+            <div class="panel-head"><div class="panel-title">Per-Asset-Class · Operational Scorecard <span class="panel-tag" style="background:rgba(139,26,107,.10);color:#8b1a6b;border-color:rgba(139,26,107,.32)">🏢 Yardi · REIDIN</span></div><div class="panel-meta">Q1 2026 · GAV / NOI / Occupancy / WAULT / Cap Rate</div></div>
+            <table class="tbl">
+              <thead><tr><th>Asset Class</th><th class="r">GAV (SAR M)</th><th class="r">NOI Q1</th><th class="r">Occupancy</th><th class="r">WAULT</th><th class="r">Cap Rate</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td><b>Riyadh Office (Class A)</b></td><td class="r mono">4,820</td><td class="r mono">288</td><td class="r mono">92.4%</td><td class="r mono">5.4 yr</td><td class="r mono">6.0%</td><td><span class="stage-pill mature">Core-Hold</span></td></tr>
+                <tr><td><b>Hospitality Portfolio</b></td><td class="r mono">2,640</td><td class="r mono">190</td><td class="r mono">78.6%</td><td class="r mono">3.2 yr</td><td class="r mono">7.2%</td><td><span class="stage-pill growth">REIT Carve</span></td></tr>
+                <tr><td><b>Logistics &amp; Industrial</b></td><td class="r mono">1,920</td><td class="r mono">138</td><td class="r mono">94.2%</td><td class="r mono">6.8 yr</td><td class="r mono">7.2%</td><td><span class="stage-pill growth">Build-Out</span></td></tr>
+                <tr style="background:rgba(245,158,11,.04)"><td><b>Retail (High Street)</b></td><td class="r mono">1,640</td><td class="r mono">92</td><td class="r mono">81.2%</td><td class="r mono">2.8 yr</td><td class="r mono">5.6%</td><td><span class="stage-pill watch">Reposition</span></td></tr>
+                <tr><td><b>Mixed-Use (Jeddah)</b></td><td class="r mono">1,380</td><td class="r mono">88</td><td class="r mono">86.4%</td><td class="r mono">4.6 yr</td><td class="r mono">6.4%</td><td><span class="stage-pill mature">Core-Hold</span></td></tr>
+                <tr><td><b>Residential (Compounds)</b></td><td class="r mono">1,240</td><td class="r mono">78</td><td class="r mono">91.8%</td><td class="r mono">2.1 yr</td><td class="r mono">6.3%</td><td><span class="stage-pill mature">Core-Hold</span></td></tr>
+                <tr><td><b>Healthcare RE</b></td><td class="r mono">820</td><td class="r mono">52</td><td class="r mono">96.0%</td><td class="r mono">8.4 yr</td><td class="r mono">6.4%</td><td><span class="stage-pill growth">Build-Out</span></td></tr>
+                <tr style="background:rgba(239,68,68,.04)"><td><b>Olaya Tower B</b></td><td class="r mono">620</td><td class="r mono">26</td><td class="r mono">67.0%</td><td class="r mono">1.8 yr</td><td class="r mono">4.2%</td><td><span class="stage-pill stress">Disposal</span></td></tr>
+                <tr style="background:rgba(239,68,68,.04)"><td><b>Sahafa Logistics Park</b></td><td class="r mono">380</td><td class="r mono">18</td><td class="r mono">71.0%</td><td class="r mono">2.4 yr</td><td class="r mono">4.8%</td><td><span class="stage-pill stress">Disposal</span></td></tr>
+                <tr style="background:rgba(239,68,68,.04)"><td><b>Khaleej Plaza</b></td><td class="r mono">340</td><td class="r mono">13</td><td class="r mono">62.0%</td><td class="r mono">1.4 yr</td><td class="r mono">3.8%</td><td><span class="stage-pill stress">Disposal</span></td></tr>
+                <tr style="font-weight:700;background:rgba(139,26,107,.06)"><td><b>TOTAL · 47 properties</b></td><td class="r mono">15,800</td><td class="r mono">248</td><td class="r mono"><b style="color:var(--green-2)">87.4%</b></td><td class="r mono">4.6 yr</td><td class="r mono">6.4%</td><td>—</td></tr>
+              </tbody>
+            </table>
+            <div style="margin-top:10px;padding:9px 11px;background:rgba(139,26,107,.05);border:1px dashed rgba(139,26,107,.22);border-radius:8px;font-size:11px;color:var(--t-2);line-height:1.55">
+              <b style="color:#8b1a6b">Operational read:</b> Occupancy 87.4% just below 88% target (−0.6pp gap). Retail soft (81.2%); 3 disposal assets account for 4% of GAV but 8% of occupancy drag. Healthcare RE strongest (96%). Lease renewals SAR 1.06B pending next 12 mo — SAR 720M LOI signed, SAR 100M at risk.
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. CAPITAL DEPLOYMENT -->
+        <div class="cfo-block-title"><span class="n">5</span>Capital Deployment</div>
+        <div class="panel">
+          <div class="panel-head"><div class="panel-title">Yardi Migration &amp; Disposal Pipeline · FY26 <span class="panel-tag" style="background:rgba(139,26,107,.10);color:#8b1a6b;border-color:rgba(139,26,107,.32)">⚙️ PMO · Yardi</span></div><div class="panel-meta">Phase 2 GO/NO-GO ERMC Apr 30 · disposal IC May 12 · SAR 1.34B unlock</div></div>
+          <table class="tbl">
+            <thead><tr><th>Workstream</th><th>Owner</th><th class="r">Scope (SAR M)</th><th class="r">% Reached</th><th class="r">Target Close</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td><b>Yardi Phase 1 — Office + Hospitality</b></td><td>F. Al-Sudairi · RE</td><td class="r mono">7,460</td><td class="r mono" style="color:var(--green-2)">100%</td><td class="r mono">Jan 2026</td><td><span class="stage-pill mature">Completed</span></td></tr>
+              <tr><td><b>Yardi Phase 2 — Logistics + Mixed-Use + Residential</b></td><td>F. Al-Sudairi · RE</td><td class="r mono">4,540</td><td class="r mono" style="color:var(--green-2)">88%</td><td class="r mono">Apr 30 · GO/NO-GO</td><td><span class="stage-pill growth">In Flight</span></td></tr>
+              <tr><td><b>Yardi Phase 3 — Retail + Healthcare + Tail</b></td><td>F. Al-Sudairi · RE</td><td class="r mono">3,800</td><td class="r mono" style="color:var(--amber-2)">0%</td><td class="r mono">H2 2026</td><td><span class="stage-pill watch">Scheduled</span></td></tr>
+              <tr><td><b>Olaya Tower B Disposal</b></td><td>A. Al-Rashidi · DI</td><td class="r mono">620</td><td class="r mono">45%</td><td class="r mono">Q3 2026</td><td><span class="stage-pill divest">Marketing</span></td></tr>
+              <tr><td><b>Sahafa Logistics Disposal</b></td><td>A. Al-Rashidi · DI</td><td class="r mono">380</td><td class="r mono">30%</td><td class="r mono">Q3 2026</td><td><span class="stage-pill divest">Bidders Engaged</span></td></tr>
+              <tr><td><b>Khaleej Plaza Disposal</b></td><td>A. Al-Rashidi · DI</td><td class="r mono">340</td><td class="r mono">20%</td><td class="r mono">Q4 2026</td><td><span class="stage-pill divest">Teaser Out</span></td></tr>
+              <tr style="font-weight:700;background:rgba(139,26,107,.06)"><td><b>TOTAL — 6 workstreams</b></td><td>—</td><td class="r mono">17,140</td><td class="r mono">62% group</td><td class="r mono">FY26—27</td><td>—</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <!-- 6. NET RENTAL INCOME TO RHG -->
+        <div class="cfo-block-title"><span class="n">6</span>Net Rental Income to RHG <span style="color:var(--green-2);font-size:12px;font-weight:700;margin-left:10px;text-transform:none;letter-spacing:.2px">→ Q1 cash SAR 168M (NOI 248 − OPEX 80) · +5.6% YoY</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div class="panel">
+            <div class="panel-head"><div class="panel-title">Gross NOI — Q1 2026 <span class="panel-tag" style="background:rgba(139,26,107,.10);color:#8b1a6b;border-color:rgba(139,26,107,.32)">💵 Yardi</span></div></div>
+            <div style="padding:10px 0">
+              <div style="font-size:24px;font-weight:800;color:var(--green-2)">SAR 248M</div>
+              <div style="font-size:11px;color:var(--t-3);margin-top:3px">Gross NOI · +6.4% YoY · 47 properties</div>
+              <div style="margin-top:10px;font-size:11px;color:var(--t-2);line-height:1.7">
+                • Office (Class A) <b style="color:var(--t-1)">SAR 288M</b><br>
+                • Hospitality <b style="color:var(--t-1)">SAR 190M</b><br>
+                • Logistics + Industrial <b style="color:var(--t-1)">SAR 138M</b><br>
+                • Retail <b style="color:var(--t-1)">SAR 92M</b><br>
+                • Other (Mixed-Use, Res, Healthcare) <b style="color:var(--t-1)">SAR 218M</b>
+              </div>
             </div>
           </div>
           <div class="panel">
-            <div class="panel-head"><div class="panel-title">Disposal Pipeline · Below WACC <span class="panel-tag" style="background:var(--red-soft);color:var(--red-2);border-color:rgba(239,68,68,.3)">⭐ Phase 2</span></div><div class="panel-meta">12 below WACC · top 3 disposals · IC May 12</div></div>
-            <div style="display:flex;flex-direction:column;gap:8px;padding:6px 0">
-              <div style="padding:10px;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.22);border-radius:8px"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font-size:12px;font-weight:700;color:var(--t-1)">Olaya Tower B</div><div style="font-size:11px;color:var(--red-2);font-weight:700">SAR 620M</div></div><div style="font-size:10.5px;color:var(--t-3);margin-top:3px">67% occupancy · cap rate 4.2% · WACC drag −6 bps</div></div>
-              <div style="padding:10px;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.22);border-radius:8px"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font-size:12px;font-weight:700;color:var(--t-1)">Sahafa Logistics Park</div><div style="font-size:11px;color:var(--red-2);font-weight:700">SAR 380M</div></div><div style="font-size:10.5px;color:var(--t-3);margin-top:3px">71% occupancy · cap rate 4.8% · WACC drag −5 bps</div></div>
-              <div style="padding:10px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.22);border-radius:8px"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font-size:12px;font-weight:700;color:var(--t-1)">Khaleej Plaza</div><div style="font-size:11px;color:var(--amber-2);font-weight:700">SAR 340M</div></div><div style="font-size:10.5px;color:var(--t-3);margin-top:3px">62% occupancy · cap rate 3.8% · WACC drag −7 bps</div></div>
-              <div style="padding:10px;background:linear-gradient(135deg,rgba(160,34,110,.06),rgba(160,34,110,.02));border:1px solid rgba(160,34,110,.22);border-radius:8px"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font-size:12px;font-weight:800;color:#c92a8e">Combined Unlock</div><div style="font-size:13px;color:#c92a8e;font-weight:800">SAR 1.34B</div></div><div style="font-size:10.5px;color:var(--t-3);margin-top:3px">Eliminates SAR 1.84B WACC drag · +18 bps portfolio yield</div></div>
+            <div class="panel-head"><div class="panel-title">Net to RHG · after OPEX <span class="panel-tag" style="background:rgba(139,26,107,.10);color:#8b1a6b;border-color:rgba(139,26,107,.32)">📈 TMS</span></div></div>
+            <div style="padding:10px 0">
+              <div style="font-size:24px;font-weight:800;color:#c92a8e">SAR 168M</div>
+              <div style="font-size:11px;color:var(--t-3);margin-top:3px">Q1 cash to RHG · +5.6% YoY</div>
+              <div style="margin-top:10px;font-size:11px;color:var(--t-2);line-height:1.7">
+                • Gross NOI <b style="color:var(--t-1)">SAR 248M</b><br>
+                • Less: Property mgmt fees <b style="color:var(--t-1)">(SAR 32M)</b><br>
+                • Less: Maintenance &amp; capex <b style="color:var(--t-1)">(SAR 28M)</b><br>
+                • Less: Insurance &amp; tax <b style="color:var(--t-1)">(SAR 20M)</b><br>
+                • <b style="color:#c92a8e">Net to RHG · SAR 168M</b>
+              </div>
             </div>
-            <button class="share-teams" style="margin-top:10px" onclick="openDrill('re')">🏢 Open RE Drilldown →</button>
           </div>
         </div>
+      </div>
       </div>
     </main>
 
@@ -1624,22 +1651,22 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
     <main class="dash-main">
       <!-- KPI ROW · CFO COST DISCIPLINE LENS -->
       <div class="kpi-row k4">
-        <div class="kpi" onclick="openDrill('budget')">
+        <div class="kpi" onclick="openDrill('budget')" title="Year-to-date HoldCo OPEX vs board-approved budget. +5.4% over plan; Legal cost (+35.7%) is the main driver. Source: SAP FI/CO + CO module.">
           <div class="kpi-top"><div class="kpi-icon">💰</div><span class="kpi-chg down">+5.4%</span></div>
           <div class="kpi-val mono">SAR 234M</div>
           <div class="kpi-lbl">HoldCo OPEX YTD · vs SAR 222M plan</div>
         </div>
-        <div class="kpi" onclick="openDrill('budget')">
+        <div class="kpi" onclick="openDrill('budget')" title="Net variance across 9 cost-centre functions. 5 functions over budget, 4 under. Legal accounts for SAR 10M of the over-run.">
           <div class="kpi-top"><div class="kpi-icon">📊</div><span class="kpi-chg flat">5 / 9 lines</span></div>
           <div class="kpi-val mono">+SAR 12M</div>
           <div class="kpi-lbl">Budget Variance · 5 functions over</div>
         </div>
-        <div class="kpi" onclick="openDrill('budget')">
+        <div class="kpi" onclick="openDrill('budget')" title="Cost accrued but not yet booked to the GL. 11% of YTD spend; target less than 5%. Force-book required by month-end to avoid Q2 carryover. Source: SAP FI/CO close-cockpit.">
           <div class="kpi-top"><div class="kpi-icon">🧾</div><span class="kpi-chg flat">89%</span></div>
           <div class="kpi-val mono">SAR 26M</div>
           <div class="kpi-lbl">Accrued · Unbooked · target &lt;5%</div>
         </div>
-        <div class="kpi" onclick="openDrill('compl')">
+        <div class="kpi" onclick="openDrill('compl')" title="Composite compliance score — Zakat (ZATCA), SAMA reporting, Sharia Board review, governance + audit cadence. Target greater than or equal to 95%.">
           <div class="kpi-top"><div class="kpi-icon">✓</div><span class="kpi-chg up">+1.2pp</span></div>
           <div class="kpi-val mono">96%</div>
           <div class="kpi-lbl">Compliance Index · Zakat/Gov</div>
@@ -3175,7 +3202,11 @@ function renderExecKPIs(p){
     const dir = (k.dir === 'up' || k.dir === 'down') ? k.dir : 'flat';
     const foot = k.foot ? `<div class="kpi-foot">${k.foot}</div>` : '';
     const onclickAttr = k.drill ? ` onclick="openDrill('${k.drill}')"` : '';
-    return `<div class="kpi${hero?' hero':''}"${onclickAttr}>
+    // Auto-generated hover tooltip: prefer explicit desc, fall back to value + label + foot
+    const stripTags = s => (s||'').replace(/<[^>]+>/g,'');
+    const titleText = k.desc || (`${k.val} · ${stripTags(k.lbl)}` + (k.foot ? ` · ${stripTags(k.foot)}` : '') + (k.chg ? ` · ${k.chg}` : ''));
+    const titleAttr = titleText ? ` title="${titleText.replace(/"/g,'&quot;')}"` : '';
+    return `<div class="kpi${hero?' hero':''}"${onclickAttr}${titleAttr}>
       <div class="kpi-top">
         <div class="kpi-icon"${heroIcoStyle}>${k.ico}</div>
         <span class="kpi-chg ${dir}">${k.chg}</span>
@@ -3515,6 +3546,7 @@ function switchDIFI(which){
   });
 
   if(which === 'fi') initFICharts();
+  if(which === 're') initRECharts();
 }
 
 // Group Combined button in FI sidebar — jump to Executive view in group mode
@@ -3547,6 +3579,33 @@ function initFICharts(){
       labels:['Al Rajhi Capital','Saudi Fransi','Aberdeen','Templeton','Ashmore','Schroders','Other 6'],
       datasets:[{data:[1820,1640,1420,1180,1280,1250,5670],backgroundColor:['#5a1239','#6b1748','#8b1a6b','#a0226e','#c92a8e','#d9359c','#e87bbf'],borderColor:'#ffffff',borderWidth:2}]
     },options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{position:'right',labels:{boxWidth:10,font:{size:9},color:'#4a3a5a'}},tooltip:{callbacks:{label:c=>c.label+': SAR '+c.parsed+'M'}}}}});
+  }
+}
+
+function initRECharts(){
+  destroyChart('reAllocAsset');
+  const c1 = document.getElementById('reAllocAssetChart');
+  if(c1){
+    chartInstances.reAllocAsset = new Chart(c1,{type:'doughnut',data:{
+      labels:['Office (Class A)','Hospitality','Logistics','Retail','Mixed-Use','Residential','Healthcare'],
+      datasets:[{data:[5440,2640,2300,1980,1380,1240,820],backgroundColor:['#5a1239','#6b1748','#8b1a6b','#a0226e','#c92a8e','#d9359c','#e87bbf'],borderColor:'#ffffff',borderWidth:2}]
+    },options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{position:'right',labels:{boxWidth:10,font:{size:9},color:'#4a3a5a'}},tooltip:{callbacks:{label:c=>c.label+': SAR '+c.parsed+'M ('+(c.parsed/158).toFixed(1)+'%)'}}}}});
+  }
+  destroyChart('reAllocGeo');
+  const c2 = document.getElementById('reAllocGeoChart');
+  if(c2){
+    chartInstances.reAllocGeo = new Chart(c2,{type:'doughnut',data:{
+      labels:['Riyadh','Other KSA','DMM (industrial)','Jeddah','Eastern Prov.'],
+      datasets:[{data:[9600,3000,1480,1380,340],backgroundColor:['#6b1748','#8b1a6b','#a0226e','#c92a8e','#e87bbf'],borderColor:'#ffffff',borderWidth:2}]
+    },options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{position:'right',labels:{boxWidth:10,font:{size:10},color:'#4a3a5a'}},tooltip:{callbacks:{label:c=>c.label+': SAR '+c.parsed+'M ('+(c.parsed/158).toFixed(1)+'%)'}}}}});
+  }
+  destroyChart('reAllocStatus');
+  const c3 = document.getElementById('reAllocStatusChart');
+  if(c3){
+    chartInstances.reAllocStatus = new Chart(c3,{type:'doughnut',data:{
+      labels:['Core-Hold','Build-Out','REIT Carve','Reposition','Disposal'],
+      datasets:[{data:[7440,2740,2640,1640,1340],backgroundColor:['#10b981','#3b82f6','#9333a8','#d97706','#dc2626'],borderColor:'#ffffff',borderWidth:2}]
+    },options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{position:'right',labels:{boxWidth:10,font:{size:10},color:'#4a3a5a'}},tooltip:{callbacks:{label:c=>c.label+': SAR '+c.parsed+'M ('+(c.parsed/158).toFixed(1)+'%)'}}}}});
   }
 }
 
@@ -3596,7 +3655,14 @@ const CHART_TITLE_TOOLTIPS = {
   'Real Estate — Operational KPIs':'Per-property: occupancy, WAULT (weighted-average unexpired lease term), gross-to-net yield, like-for-like NOI growth. Source: Yardi + REIDIN.',
   'Function-Level Cost Performance':'OPEX YTD by HoldCo function (Legal, IT, Personnel, Travel, etc.) vs budget. CFO discipline lens.',
   'Bank Counterparty · % of HoldCo cash':'HoldCo cash distributed across approved bank counterparties. Top-3 concentration capped at 75% by policy. Single dimension shown in one brand colour.',
-  'FX Cash Exposure · by Currency':'HoldCo + subsidiary cash by currency of denomination. Highlights unhedged emerging-market exposure (EGP, SDG).'
+  'FX Cash Exposure · by Currency':'HoldCo + subsidiary cash by currency of denomination. Highlights unhedged emerging-market exposure (EGP, SDG).',
+  'Allocation by Lifecycle Stage':'Real Estate portfolio by strategic stage (Core-Hold / Build-Out / REIT Carve / Reposition / Disposal). Drives capital-recycling decisions. Source: Yardi + RE strategy.',
+  'Net Yield vs Benchmark':'Per-asset-class cap rate compared to REIDIN / Bloomberg KSA benchmark caps. Alpha = portfolio yield minus benchmark. Source: REIDIN + Bloomberg.',
+  'Below-WACC Properties':'Properties whose net yield falls below the group weighted-average cost of capital — drag candidates for the disposal pipeline. Source: Yardi + Treasury WACC.',
+  'Per-Asset-Class · Operational Scorecard':'Per-asset-class operational KPIs: GAV, NOI, occupancy, WAULT (weighted-average unexpired lease term), cap rate. Source: Yardi + REIDIN.',
+  'Yardi Migration & Disposal Pipeline · FY26':'Combined workstream tracker: 3 Yardi migration phases (29/47 props consolidated) + 3 active disposal mandates (SAR 1.34B unlock). Source: PMO.',
+  'Gross NOI — Q1 2026':'Quarterly gross Net Operating Income across all 47 properties before property OPEX. Source: Yardi.',
+  'Net to RHG · after OPEX':'Net cash to RHG HoldCo after property management fees, maintenance/capex, insurance and tax. Source: TMS.'
 };
 function applyChartTitleTooltips(){
   document.querySelectorAll('.panel-title').forEach(el=>{
