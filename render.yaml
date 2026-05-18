@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: srh-autonomous-intelligence
+    name: rhg-autonomous-intelligence
     runtime: static
     staticPublishPath: .
     pullRequestPreviewsEnabled: false
