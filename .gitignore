@@ -1,0 +1,14 @@
+# OneDrive sync artifacts
+.~lock.*
+*.tmp
+~$*
+
+# Claude / IDE
+.claude/
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
