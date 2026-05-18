@@ -465,6 +465,79 @@ body{background:var(--bg);color:var(--t-1);transition:background .4s ease}
 .stage-pill.stress{background:var(--red-soft);color:var(--red-2)}
 .stage-pill.watch{background:var(--amber-soft);color:var(--amber-2)}
 
+/* === SECTION 1 — CAPITAL DEPLOYMENT & EXPOSURE · 5-visual layout === */
+.cap-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
+.cap-treemap{display:flex;flex-direction:column;width:100%;height:340px;gap:5px;margin-top:6px}
+.cap-treemap .tm-row{display:flex;gap:5px;min-height:0}
+.cap-treemap .tm-row.r1{flex:65}
+.cap-treemap .tm-row.r2{flex:35}
+.tm-tile{padding:11px 13px;border-radius:9px;display:flex;flex-direction:column;justify-content:space-between;transition:transform .18s,box-shadow .18s;cursor:help;border:1px solid var(--line);overflow:hidden;position:relative;min-width:0}
+.tm-tile:hover{transform:translateY(-2px) scale(1.012);box-shadow:0 12px 30px rgba(0,0,0,.18);z-index:5}
+.tm-tile::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--tm-accent,var(--gold))}
+.tm-tile.returning{background:linear-gradient(135deg,rgba(16,185,129,.20),rgba(16,185,129,.04));border-color:rgba(16,185,129,.34);--tm-accent:#10b981}
+.tm-tile.drawing{background:linear-gradient(135deg,rgba(59,130,246,.20),rgba(59,130,246,.04));border-color:rgba(59,130,246,.34);--tm-accent:#3b82f6}
+.tm-tile.watchlist{background:linear-gradient(135deg,rgba(245,158,11,.24),rgba(245,158,11,.05));border-color:rgba(245,158,11,.42);--tm-accent:#d97706}
+.tm-tile.consuming{background:linear-gradient(135deg,rgba(239,68,68,.26),rgba(239,68,68,.06));border-color:rgba(239,68,68,.46);--tm-accent:#dc2626}
+.tm-tile-name{font-size:13px;font-weight:800;color:var(--t-1);line-height:1.2;letter-spacing:-.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tm-tile-sub{font-size:10px;color:var(--t-3);margin-top:3px;font-weight:600}
+.tm-tile-val{font-size:19px;font-weight:800;color:var(--t-1);margin-top:8px;font-variant-numeric:tabular-nums;line-height:1;letter-spacing:-.4px}
+.tm-tile-pct{font-size:10px;color:var(--t-3);font-weight:600;font-variant-numeric:tabular-nums;margin-top:2px}
+.tm-tile-meta{display:flex;justify-content:space-between;align-items:center;margin-top:auto;padding-top:7px;font-size:10.5px;border-top:1px dashed rgba(20,10,40,.08)}
+.tm-tile-meta .lbl{font-size:8.5px;color:var(--t-3);font-weight:700;letter-spacing:.5px;text-transform:uppercase;display:block}
+.tm-tile-meta b{font-size:11.5px;font-variant-numeric:tabular-nums;display:block;margin-top:1px}
+.tm-tile-meta .cr-pos b{color:var(--green-2)}
+.tm-tile-meta .cr-neg b{color:var(--red-2)}
+.tm-tile-meta .cr-zero b{color:var(--amber-2)}
+.tm-tile-meta .tr-up b{color:var(--green-2)}
+.tm-tile-meta .tr-down b{color:var(--red-2)}
+.tm-tile.compact .tm-tile-val{font-size:15px}
+.tm-tile.compact .tm-tile-name{font-size:11.5px}
+.tm-tile.compact .tm-tile-meta{padding-top:5px}
+.tm-tile.compact .tm-tile-meta b{font-size:10.5px}
+.tm-legend{display:flex;gap:14px;align-items:center;justify-content:flex-end;font-size:10px;color:var(--t-3);font-weight:600;margin-top:8px;flex-wrap:wrap}
+.tm-legend-item{display:flex;align-items:center;gap:5px}
+.tm-legend-item .sw{width:10px;height:10px;border-radius:3px;display:inline-block}
+.waterfall-v{display:flex;flex-direction:column;gap:6px;padding:6px 2px}
+.waterfall-row{display:grid;grid-template-columns:130px 1fr 90px;gap:10px;align-items:center;padding:9px 12px;border-radius:8px;background:#fbfbfd;border:1px solid var(--line);font-size:11px;color:var(--t-2);position:relative}
+.waterfall-row .wlbl{font-weight:700;color:var(--t-1);font-size:11.5px}
+.waterfall-row .wlbl .sub{display:block;font-size:9.5px;color:var(--t-3);font-weight:500;margin-top:1px}
+.waterfall-row .wbar{height:10px;border-radius:4px;background:rgba(20,10,40,.06);position:relative;overflow:hidden}
+.waterfall-row .wbar .fill{position:absolute;top:0;bottom:0;border-radius:4px}
+.waterfall-row .wval{text-align:right;font-weight:800;font-size:13px;font-variant-numeric:tabular-nums;color:var(--t-1)}
+.waterfall-row.start{background:rgba(20,10,40,.04);border-color:var(--line-2)}
+.waterfall-row.add{background:rgba(16,185,129,.06);border-color:rgba(16,185,129,.28)}
+.waterfall-row.add .fill{background:linear-gradient(90deg,#10b981,#34d399)}
+.waterfall-row.add .wval{color:var(--green-2)}
+.waterfall-row.sub-row{background:rgba(239,68,68,.06);border-color:rgba(239,68,68,.28)}
+.waterfall-row.sub-row .fill{background:linear-gradient(90deg,#dc2626,#f87171)}
+.waterfall-row.sub-row .wval{color:var(--red-2)}
+.waterfall-row.commit{background:rgba(217,53,156,.05);border:1px dashed rgba(217,53,156,.32)}
+.waterfall-row.commit .fill{background:linear-gradient(90deg,#a0226e,#c92a8e)}
+.waterfall-row.commit .wval{color:#c92a8e}
+.waterfall-row.total{background:linear-gradient(135deg,rgba(160,34,110,.10),rgba(160,34,110,.03));border:1px solid rgba(160,34,110,.32);padding:11px 12px}
+.waterfall-row.total .wval{color:#c92a8e;font-size:15px}
+.waterfall-row.total .fill{background:linear-gradient(90deg,#5a1239,#c92a8e)}
+.waterfall-arrow{height:8px;color:var(--t-4);text-align:center;font-size:11px;line-height:1;margin:-2px 0}
+.risk-matrix{position:relative;width:100%;height:300px;background:linear-gradient(180deg,rgba(20,10,40,.02),rgba(20,10,40,.005));border:1px solid var(--line-2);border-radius:10px;margin-top:6px;overflow:hidden}
+.risk-matrix::before,.risk-matrix::after{content:'';position:absolute;background:var(--line-2)}
+.risk-matrix::before{left:0;right:0;top:50%;height:1px}
+.risk-matrix::after{top:0;bottom:0;left:50%;width:1px}
+.rm-quadrant{position:absolute;font-size:8.5px;font-weight:800;letter-spacing:.6px;text-transform:uppercase;color:var(--t-4);line-height:1.3;max-width:46%}
+.rm-quadrant.tr{top:8px;right:10px;text-align:right;color:rgba(16,185,129,.65)}
+.rm-quadrant.tl{top:8px;left:10px;color:rgba(59,130,246,.65)}
+.rm-quadrant.br{bottom:8px;right:10px;text-align:right;color:rgba(160,34,110,.65)}
+.rm-quadrant.bl{bottom:8px;left:10px;color:rgba(239,68,68,.65)}
+.rm-axis-x{position:absolute;bottom:-22px;left:0;right:0;text-align:center;font-size:9.5px;color:var(--t-3);font-weight:600;letter-spacing:.4px}
+.rm-axis-y{position:absolute;top:50%;left:-32px;transform:rotate(-90deg) translateX(50%);transform-origin:right center;font-size:9.5px;color:var(--t-3);font-weight:600;letter-spacing:.4px}
+.rm-bubble{position:absolute;border-radius:50%;transform:translate(-50%,-50%);cursor:pointer;transition:transform .18s,box-shadow .18s;display:grid;place-items:center;font-size:9px;font-weight:800;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.25);border:2px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.12)}
+.rm-bubble:hover{transform:translate(-50%,-50%) scale(1.15);box-shadow:0 6px 18px rgba(0,0,0,.22);z-index:5}
+.rm-bubble.returning{background:linear-gradient(135deg,#10b981,#0ea671)}
+.rm-bubble.drawing{background:linear-gradient(135deg,#3b82f6,#1d4ed8)}
+.rm-bubble.watchlist{background:linear-gradient(135deg,#f59e0b,#d97706);outline:2px solid rgba(245,158,11,.45);outline-offset:1px}
+.rm-bubble.consuming{background:linear-gradient(135deg,#dc2626,#991b1b);outline:2px solid rgba(239,68,68,.5);outline-offset:1px}
+.rm-axes-wrap{position:relative;padding:0 8px 28px 36px}
+
+
 /* === MODAL === */
 .modal-bg{position:fixed;inset:0;background:rgba(20,10,40,.42);backdrop-filter:blur(8px);z-index:200;display:none;align-items:flex-start;justify-content:center;padding:60px 24px;overflow-y:auto}
 .modal-bg.open{display:flex}
@@ -1148,27 +1221,117 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
           </div>
         </div>
 
-        <!-- 1. CAPITAL DEPLOYMENT & EXPOSURE -->
+        <!-- 1. CAPITAL DEPLOYMENT & EXPOSURE — 5-visual dashboard -->
         <div class="cfo-block-title"><span class="n">1</span>Capital Deployment &amp; Exposure</div>
+
+        <!-- ROW 1: SECTOR DONUT + GEO BUBBLES -->
+        <div class="cap-grid-2">
+          <div class="panel">
+            <div class="panel-head"><div class="panel-title">Sector Exposure <span class="panel-tag gold">📊 IC ledger</span></div><div class="panel-meta">% of SAR 10.2B invested · 7 sectors</div></div>
+            <div class="chart-wrap short"><canvas id="diAllocSectorChart"></canvas></div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><div class="panel-title">Geographic Exposure <span class="panel-tag gold">🌍 Treasury · FX</span></div><div class="panel-meta">Bubble size = invested · colour = risk-adjusted performance</div></div>
+            <div class="chart-wrap short"><canvas id="diGeoBubbleChart"></canvas></div>
+          </div>
+        </div>
+
+        <!-- ROW 2: WATERFALL + RISK MATRIX -->
+        <div class="cap-grid-2">
+          <div class="panel">
+            <div class="panel-head"><div class="panel-title">Capital Flow · FY26 YTD <span class="panel-tag gold">💼 S/4HANA · TMS</span></div><div class="panel-meta">Starting → New → Returns → Undrawn → Net Exposure · SAR M</div></div>
+            <div class="waterfall-v">
+              <div class="waterfall-row start"><div class="wlbl">Starting Invested<span class="sub">FY25 close balance</span></div><div class="wbar"><div class="fill" style="width:96%;background:linear-gradient(90deg,#6b7280,#9ca3af)"></div></div><div class="wval">SAR 10,020M</div></div>
+              <div class="waterfall-arrow">▼</div>
+              <div class="waterfall-row add"><div class="wlbl">+ New Investments YTD<span class="sub">ADEC SAR 120M · Wat. Agri SAR 60M</span></div><div class="wbar"><div class="fill" style="width:2%"></div></div><div class="wval">+SAR 180M</div></div>
+              <div class="waterfall-arrow">▼</div>
+              <div class="waterfall-row sub-row"><div class="wlbl">− Cash Returned Q1<span class="sub">Dividends 286 + IC repay 92 + Interest 34</span></div><div class="wbar"><div class="fill" style="width:4%"></div></div><div class="wval">−SAR 412M</div></div>
+              <div class="waterfall-arrow">▼</div>
+              <div class="waterfall-row commit"><div class="wlbl">+ Undrawn Commitments<span class="sub">ADEC 120 + Wat. Agri 80 + Wat. Pou. 40</span></div><div class="wbar"><div class="fill" style="width:2.4%"></div></div><div class="wval">+SAR 240M</div></div>
+              <div class="waterfall-arrow">▼</div>
+              <div class="waterfall-row total"><div class="wlbl">= Net Exposure<span class="sub">Invested 10.2B + committed 240M</span></div><div class="wbar"><div class="fill" style="width:100%"></div></div><div class="wval">SAR 10,440M</div></div>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-head"><div class="panel-title">Subsidiary Risk Matrix <span class="panel-tag gold">🎯 Strategy</span></div><div class="panel-meta">Cash Return (X) × Capital Exposure (Y) · bubble = sub</div></div>
+            <div class="rm-axes-wrap">
+              <div class="risk-matrix">
+                <div class="rm-quadrant tl">HIGH EXPOSURE<br>LOW RETURN</div>
+                <div class="rm-quadrant tr">HIGH RETURN<br>HIGH EXPOSURE</div>
+                <div class="rm-quadrant bl">CAPITAL<br>CONSUMING</div>
+                <div class="rm-quadrant br">EMERGING<br>GROWTH</div>
+                <div class="rm-bubble returning" style="left:88%;top:8%;width:38px;height:38px" title="Al Wataniya Poultry · SAR 2,340M invested · SAR 118M returned · Mature core hold">WP</div>
+                <div class="rm-bubble returning" style="left:88%;top:22%;width:34px;height:34px" title="Al Wataniya Industries · SAR 1,850M invested · SAR 118M returned · Mature manufacturing">WI</div>
+                <div class="rm-bubble returning" style="left:65%;top:30%;width:32px;height:32px" title="Al Rajhi RE-Hospitality · SAR 1,620M invested · SAR 66M returned · REIT carve">RE</div>
+                <div class="rm-bubble drawing" style="left:55%;top:36%;width:30px;height:30px" title="ADEC · SAR 1,420M invested · SAR 52M returned · Growth phase, capacity expansion">AD</div>
+                <div class="rm-bubble drawing" style="left:20%;top:58%;width:24px;height:24px" title="Al Wataniya Agriculture · SAR 980M invested · SAR 0M returned this Q1 · Drawing for capex">WA</div>
+                <div class="rm-bubble watchlist" style="left:15%;top:72%;width:20px;height:20px" title="⚠ Al Safa Poultry (Egypt) · SAR 620M invested · 0 Q1 dividend · EGP devaluation watchlist">⚠</div>
+                <div class="rm-bubble returning" style="left:35%;top:75%;width:19px;height:19px" title="Al Rajhi International · SAR 580M invested · SAR 12M returned · Divest-ready, low margin">AI</div>
+                <div class="rm-bubble consuming" style="left:8%;top:82%;width:18px;height:18px" title="⚠ Atbara Cement (Sudan) · SAR 410M invested · (SAR 18M) consumed · SDG stress, ring-fence drafted">⚠</div>
+                <div class="rm-bubble returning" style="left:50%;top:85%;width:17px;height:17px" title="WiSys IT Services · SAR 380M invested · SAR 20M returned · Divest-ready, clean P&amp;L">WS</div>
+                <div class="rm-axis-x">Cash Return — low → high</div>
+                <div class="rm-axis-y">Capital Exposure</div>
+              </div>
+            </div>
+            <div style="margin-top:32px;padding:9px 11px;background:rgba(239,68,68,.05);border:1px dashed rgba(239,68,68,.22);border-radius:8px;font-size:10.5px;color:var(--t-2);line-height:1.5"><b style="color:var(--red-2)">Capital-Consuming watch:</b> Atbara Cement &amp; Al Safa Poultry sit in the lower-left quadrant — combined SAR 1,030M exposure, generating zero or negative Q1 cash return. Action plans active (ring-fence + FX hedge review).</div>
+          </div>
+        </div>
+
+        <!-- ROW 3: HEATMAP — proportional treemap by invested capital -->
         <div class="panel">
           <div class="panel-head">
-            <div class="panel-title">Invested Capital by Subsidiary <span class="panel-tag gold">🏭 SAP FI/CO · IC ledger</span></div>
-            <div class="panel-meta">Total SAR 10.2B · 9 subs · 4 geographies · Q1 2026</div>
+            <div class="panel-title">Capital Allocation Heatmap <span class="panel-tag gold">🏭 SAP FI/CO · IC ledger</span></div>
+            <div class="panel-meta">Total SAR 10.2B · 9 subs · tile size = invested capital · tile colour = exposure status · hover for AI commentary</div>
           </div>
-          <table class="tbl">
-            <thead><tr><th>Subsidiary</th><th>Sector</th><th>Geo</th><th class="r">Invested (SAR M)</th><th class="r">New YTD</th><th class="r">Undrawn</th><th>Status</th></tr></thead>
-            <tbody>
-              <tr><td><b>Al Wataniya Industries</b></td><td>Manufacturing</td><td>KSA</td><td class="r mono">1,850</td><td class="r mono">—</td><td class="r mono">—</td><td><span class="stage-pill mature">Returning</span></td></tr>
-              <tr><td><b>Al Wataniya Poultry</b></td><td>Poultry</td><td>KSA</td><td class="r mono">2,340</td><td class="r mono">—</td><td class="r mono">40</td><td><span class="stage-pill mature">Returning</span></td></tr>
-              <tr><td><b>Al Wataniya Agriculture</b></td><td>Agri</td><td>KSA</td><td class="r mono">980</td><td class="r mono">60</td><td class="r mono">80</td><td><span class="stage-pill growth">Drawing</span></td></tr>
-              <tr style="background:rgba(239,68,68,.05)"><td><b>Atbara Cement</b></td><td>Cement</td><td>Sudan</td><td class="r mono">410</td><td class="r mono">—</td><td class="r mono">—</td><td><span class="stage-pill stress">Consuming</span></td></tr>
-              <tr style="background:rgba(245,158,11,.05)"><td><b>Al Safa Poultry</b></td><td>Poultry</td><td>Egypt</td><td class="r mono">620</td><td class="r mono">—</td><td class="r mono">—</td><td><span class="stage-pill watch">Consuming</span></td></tr>
-              <tr><td><b>ADEC</b></td><td>Education K-12</td><td>KSA</td><td class="r mono">1,420</td><td class="r mono">120</td><td class="r mono">120</td><td><span class="stage-pill growth">Drawing</span></td></tr>
-              <tr><td><b>WiSys</b></td><td>IT Services</td><td>Group/KSA</td><td class="r mono">380</td><td class="r mono">—</td><td class="r mono">—</td><td><span class="stage-pill mature">Returning</span></td></tr>
-              <tr><td><b>Al Rajhi International</b></td><td>Agri Trading</td><td>KSA</td><td class="r mono">580</td><td class="r mono">—</td><td class="r mono">—</td><td><span class="stage-pill mature">Returning</span></td></tr>
-              <tr><td><b>Al Rajhi RE-Hospitality</b></td><td>Hospitality</td><td>KSA</td><td class="r mono">1,620</td><td class="r mono">—</td><td class="r mono">—</td><td><span class="stage-pill mature">Returning</span></td></tr>
-            </tbody>
-          </table>
+          <div class="cap-treemap">
+            <div class="tm-row r1">
+              <div class="tm-tile returning" style="flex:2340" title="Al Wataniya Poultry — Strong cash return trend; largest single dividend contributor (SAR 118M Q1, +4.9% vs plan). Mature, low-leverage core hold. EBITDA Q1 SAR 124M, +3.4% YoY.">
+                <div><div class="tm-tile-name">Al Wataniya Poultry</div><div class="tm-tile-sub">Poultry · 🇸🇦 KSA</div><div class="tm-tile-val">SAR 2,340M</div><div class="tm-tile-pct">23% of book</div></div>
+                <div class="tm-tile-meta"><div class="cr-pos"><span class="lbl">Cash Q1</span><b>+118M</b></div><div class="tr-up"><span class="lbl">EBITDA</span><b>↑ +3.4%</b></div></div>
+              </div>
+              <div class="tm-tile returning" style="flex:1850" title="Al Wataniya Industries — Mature manufacturing; cash-generative with IC repay SAR 42M + dividends 62M. EBITDA SAR 66M, +1.2% YoY. On plan.">
+                <div><div class="tm-tile-name">Al Wataniya Industries</div><div class="tm-tile-sub">Manufacturing · 🇸🇦 KSA</div><div class="tm-tile-val">SAR 1,850M</div><div class="tm-tile-pct">18% of book</div></div>
+                <div class="tm-tile-meta"><div class="cr-pos"><span class="lbl">Cash Q1</span><b>+118M</b></div><div class="tr-up"><span class="lbl">EBITDA</span><b>↑ +1.2%</b></div></div>
+              </div>
+              <div class="tm-tile returning" style="flex:1620" title="Al Rajhi RE-Hospitality — REIT carve-out candidate; 32.4% EBITDA margin. Q1 cash SAR 66M (+10.5% vs plan).">
+                <div><div class="tm-tile-name">AR RE-Hospitality</div><div class="tm-tile-sub">Hospitality · 🇸🇦 KSA</div><div class="tm-tile-val">SAR 1,620M</div><div class="tm-tile-pct">16% of book</div></div>
+                <div class="tm-tile-meta"><div class="cr-pos"><span class="lbl">Cash Q1</span><b>+66M</b></div><div class="tr-up"><span class="lbl">EBITDA</span><b>↑ +5.4%</b></div></div>
+              </div>
+              <div class="tm-tile drawing" style="flex:1420" title="ADEC Education — Drawing capital for K-12 capacity expansion. 3 new campuses; SAR 120M new YTD. EBITDA +8.2% YoY. Growth phase, refi due Q3 26.">
+                <div><div class="tm-tile-name">ADEC</div><div class="tm-tile-sub">Education K-12 · 🇸🇦 KSA</div><div class="tm-tile-val">SAR 1,420M</div><div class="tm-tile-pct">14% of book · New +120M YTD</div></div>
+                <div class="tm-tile-meta"><div class="cr-pos"><span class="lbl">Cash Q1</span><b>+52M</b></div><div class="tr-up"><span class="lbl">EBITDA</span><b>↑ +8.2%</b></div></div>
+              </div>
+            </div>
+            <div class="tm-row r2">
+              <div class="tm-tile drawing compact" style="flex:980" title="Al Wataniya Agriculture — Drawing for capacity expansion. SAR 60M new YTD, SAR 80M undrawn. EBITDA +4.6% YoY. Refi due H2 26.">
+                <div><div class="tm-tile-name">Wat. Agriculture</div><div class="tm-tile-sub">Agri · 🇸🇦 KSA</div><div class="tm-tile-val">SAR 980M</div><div class="tm-tile-pct">10% · New +60M</div></div>
+                <div class="tm-tile-meta"><div class="cr-zero"><span class="lbl">Cash Q1</span><b>—</b></div><div class="tr-up"><span class="lbl">EBITDA</span><b>↑ +4.6%</b></div></div>
+              </div>
+              <div class="tm-tile watchlist compact" style="flex:620" title="Al Safa Poultry (Egypt) — Capital consumption increased due to EGP devaluation. Zero Q1 dividend; FX-exposed. EBITDA −4.2% YoY.">
+                <div><div class="tm-tile-name">⚠ Al Safa Poultry</div><div class="tm-tile-sub">Poultry · 🇪🇬 Egypt · FX</div><div class="tm-tile-val">SAR 620M</div><div class="tm-tile-pct">6% of book</div></div>
+                <div class="tm-tile-meta"><div class="cr-zero"><span class="lbl">Cash Q1</span><b>0</b></div><div class="tr-down"><span class="lbl">EBITDA</span><b>↓ −4.2%</b></div></div>
+              </div>
+              <div class="tm-tile returning compact" style="flex:580" title="Al Rajhi International (Agri Trading) — Divest-ready; low margin (4.8% EBITDA). SAR 580–620M unlock at 1.0–1.1× book.">
+                <div><div class="tm-tile-name">AR International</div><div class="tm-tile-sub">Agri Trade · 🇸🇦 KSA</div><div class="tm-tile-val">SAR 580M</div><div class="tm-tile-pct">6% · Divest-ready</div></div>
+                <div class="tm-tile-meta"><div class="cr-pos"><span class="lbl">Cash Q1</span><b>+12M</b></div><div class="tr-up"><span class="lbl">EBITDA</span><b>↑ +2.1%</b></div></div>
+              </div>
+              <div class="tm-tile consuming compact" style="flex:410" title="Atbara Cement (Sudan) — Capital consumption: SAR 18M absorbed Q1 due to SDG depreciation 12.4% + demand collapse. EBITDA −28.4% YoY, leverage 4.6× breach. Ring-fence drafted; ERMC Apr 30.">
+                <div><div class="tm-tile-name">⚠ Atbara Cement</div><div class="tm-tile-sub">Cement · 🇸🇩 Sudan · FX</div><div class="tm-tile-val">SAR 410M</div><div class="tm-tile-pct">4% of book</div></div>
+                <div class="tm-tile-meta"><div class="cr-neg"><span class="lbl">Cash Q1</span><b>(18M)</b></div><div class="tr-down"><span class="lbl">EBITDA</span><b>↓ −28%</b></div></div>
+              </div>
+              <div class="tm-tile returning compact" style="flex:380" title="WiSys IT Services — Divest-ready; SAR 380–420M unlock at 1.0–1.4× revenue. Clean P&amp;L, 19.2% EBITDA margin, +2.6% YoY.">
+                <div><div class="tm-tile-name">WiSys</div><div class="tm-tile-sub">IT · 🇸🇦 KSA</div><div class="tm-tile-val">SAR 380M</div><div class="tm-tile-pct">4% · Divest-ready</div></div>
+                <div class="tm-tile-meta"><div class="cr-pos"><span class="lbl">Cash Q1</span><b>+20M</b></div><div class="tr-up"><span class="lbl">EBITDA</span><b>↑ +2.6%</b></div></div>
+              </div>
+            </div>
+          </div>
+          <div class="tm-legend">
+            <div class="tm-legend-item"><span class="sw" style="background:linear-gradient(135deg,rgba(16,185,129,.7),rgba(16,185,129,.3));border:1px solid rgba(16,185,129,.5)"></span>Returning</div>
+            <div class="tm-legend-item"><span class="sw" style="background:linear-gradient(135deg,rgba(59,130,246,.7),rgba(59,130,246,.3));border:1px solid rgba(59,130,246,.5)"></span>Drawing</div>
+            <div class="tm-legend-item"><span class="sw" style="background:linear-gradient(135deg,rgba(245,158,11,.7),rgba(245,158,11,.3));border:1px solid rgba(245,158,11,.5)"></span>Watchlist</div>
+            <div class="tm-legend-item"><span class="sw" style="background:linear-gradient(135deg,rgba(239,68,68,.7),rgba(239,68,68,.3));border:1px solid rgba(239,68,68,.5)"></span>Consuming</div>
+            <div class="tm-legend-item" style="margin-left:auto;color:var(--t-3)"><b style="color:var(--t-1);font-weight:700">Total SAR 10.2B</b> · 7 returning · 2 drawing · 1 watchlist · 1 consuming</div>
+          </div>
         </div>
 
         <!-- 2. CASH FLOW TO SRH (CFO question pill already in left sidebar; right-side Returning/Consuming summary panel removed — its facts live in the totals row below) -->
@@ -1615,33 +1778,46 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
   <div class="dash">
     <!-- LEFT SIDEBAR -->
     <aside class="dash-side">
-      <div class="side-title">COST CENTRES</div>
-      <div class="pillar" style="--p-color:#8b1a6b;cursor:pointer" onclick="openDrill('cost-emp')">
-        <div class="pillar-row"><div class="pillar-name"><span class="pdot"></span>Employee Costs</div><div class="pillar-chg down">+2.9%</div></div>
-        <div class="pillar-val">SAR 142M · vs 138M</div>
-      </div>
-      <div class="pillar" style="--p-color:#ef4444;background:rgba(239,68,68,.04);border-color:rgba(239,68,68,.18);cursor:pointer" onclick="openDrill('cost-legal')">
-        <div class="pillar-row"><div class="pillar-name"><span class="pdot"></span>Legal Costs</div><div class="pillar-chg down">+35.7%</div></div>
-        <div class="pillar-val">SAR 38M · vs 28M ⚠</div>
-      </div>
-      <div class="pillar" style="--p-color:#10b981;cursor:pointer" onclick="openDrill('cost-it')">
-        <div class="pillar-row"><div class="pillar-name"><span class="pdot"></span>IT Operations</div><div class="pillar-chg up">−8.3%</div></div>
-        <div class="pillar-val">SAR 22M · vs 24M</div>
-      </div>
-      <div class="pillar" style="--p-color:#9333a8;cursor:pointer" onclick="openDrill('cost-fin')">
-        <div class="pillar-row"><div class="pillar-name"><span class="pdot"></span>Finance Ops</div><div class="pillar-chg up">−5.3%</div></div>
-        <div class="pillar-val">SAR 18M · vs 19M</div>
-      </div>
-      <div class="pillar" style="--p-color:#f59e0b;cursor:pointer" onclick="openDrill('cost-adm')">
-        <div class="pillar-row"><div class="pillar-name"><span class="pdot"></span>Admin / Other</div><div class="pillar-chg down">+7.7%</div></div>
-        <div class="pillar-val">SAR 14M · vs 13M</div>
-      </div>
-
-      <div style="margin-top:14px;padding:14px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.18);border-radius:10px">
+      <div class="side-title">OPEX OVERVIEW · Q1 2026</div>
+      <div style="padding:14px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.18);border-radius:10px">
         <div style="font-size:9.5px;color:var(--amber-2);font-weight:700;letter-spacing:1px;margin-bottom:8px">TOTAL HOLDCO OPEX</div>
         <div style="font-size:22px;font-weight:800;color:var(--amber-2);line-height:1">SAR 234M</div>
         <div style="font-size:10.5px;color:var(--t-3);margin-top:4px">vs SAR 222M budget · +5.4%</div>
         <div style="font-size:10px;color:var(--t-3);margin-top:8px;line-height:1.4">Cost-to-Asset ratio<br><b style="color:var(--t-1)">0.58%</b> · vs 0.62% peer median</div>
+      </div>
+
+      <!-- ACCRUED · UNBOOKED — action-required card -->
+      <div style="padding:12px;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.24);border-radius:10px;cursor:pointer" onclick="openDrill('budget')" title="Cost accrued but not yet booked to the GL. Force-book required by month-end to avoid Q2 carryover. Source: SAP FI/CO close-cockpit.">
+        <div style="font-size:9.5px;color:var(--amber-2);font-weight:700;letter-spacing:1px;margin-bottom:6px">ACCRUED · UNBOOKED</div>
+        <div style="font-size:20px;font-weight:800;color:var(--amber-2);line-height:1">SAR 26M</div>
+        <div style="font-size:10px;color:var(--t-3);margin-top:4px">11% of YTD spend · target &lt;5%</div>
+        <div class="pillar-margin" style="margin-top:8px"><div class="fill" style="width:42%;background:var(--amber)"></div></div>
+        <div style="margin-top:8px;font-size:10px;color:var(--t-2);line-height:1.6">
+          Legal <b style="color:var(--t-1)">12</b> · S/4HANA <b style="color:var(--t-1)">8</b><br>
+          IT cloud <b style="color:var(--t-1)">4</b> · Admin <b style="color:var(--t-1)">2</b>
+        </div>
+        <div style="margin-top:6px;font-size:10px;color:var(--amber-2);font-weight:700">⚠ Force-book by month-end</div>
+      </div>
+
+      <!-- CFO QUESTION — operational lens -->
+      <div style="padding:12px;background:rgba(160,34,110,.05);border:1px solid rgba(160,34,110,.18);border-radius:10px" title="CFO operational question of the quarter. AI-derived answer based on cost-centre variance analysis. Source: SAP FI/CO + CO module.">
+        <div style="font-size:9.5px;color:#c92a8e;font-weight:700;letter-spacing:1px;margin-bottom:8px">CFO QUESTION</div>
+        <div style="font-size:12px;color:var(--t-1);font-style:italic;line-height:1.5">"Where is the cost over-run coming from?"</div>
+        <div style="font-size:11.5px;color:var(--red-2);margin-top:8px;font-weight:700">Legal +SAR 10M · +35.7%</div>
+        <div style="font-size:10px;color:var(--t-3);margin-top:4px;line-height:1.5">5 of 9 functions over · Atbara restructure + ADEC IP filings main drivers</div>
+      </div>
+
+      <!-- COMPLIANCE INDEX -->
+      <div style="padding:12px;background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.22);border-radius:10px;cursor:pointer" onclick="openDrill('compl')" title="Composite compliance score across Zakat (ZATCA), SAMA quarterly reporting, Sharia Board review, and internal audit cadence. Target ≥95%.">
+        <div style="font-size:9.5px;color:var(--green-2);font-weight:700;letter-spacing:1px;margin-bottom:6px">COMPLIANCE INDEX</div>
+        <div style="font-size:20px;font-weight:800;color:var(--green-2);line-height:1">96%</div>
+        <div style="font-size:10px;color:var(--t-3);margin-top:4px">+1.2pp vs Q4 25 · target ≥95%</div>
+        <div style="margin-top:8px;font-size:10px;line-height:1.7">
+          <div style="color:var(--green-2)">✓ Zakat · ZATCA filed</div>
+          <div style="color:var(--green-2)">✓ SAMA Q1 quarterly</div>
+          <div style="color:var(--amber-2)">⚠ Sharia Board · 4 items pending</div>
+          <div style="color:var(--green-2)">✓ Audit · clean</div>
+        </div>
       </div>
 
       <div class="side-foot">Q1 2026 · YTD Actuals<br>Source: SAP FI/CO · Workday<br>Refreshed: 27 Apr 2026 · 06:42</div>
@@ -1673,56 +1849,80 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
         </div>
       </div>
 
-      <!-- PROJECT COST STATUS — CFO LENS · Budget vs Actual · cost booking -->
-      <div class="panel">
-        <div class="panel-head">
-          <div class="panel-title">Project Cost Status — Budget vs Actual <span class="panel-tag" style="background:rgba(245,158,11,.15);color:var(--amber-2);border-color:rgba(245,158,11,.3)">📊 SAP FI/CO · PMO feed</span></div>
-          <div class="panel-meta">7 active projects · % reached · cost accrued vs booked · Q1 2026</div>
+      <!-- PROJECT COST WATERFALL + COST CENTRE DONUT (2-col) -->
+      <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:14px">
+        <div class="panel">
+          <div class="panel-head">
+            <div class="panel-title">Project Cost Waterfall <span class="panel-tag" style="background:rgba(245,158,11,.15);color:var(--amber-2);border-color:rgba(245,158,11,.3)">📊 SAP FI/CO · PMO feed</span></div>
+            <div class="panel-meta">FY26 budget SAR 300M → YTD spend SAR 213M → remaining SAR 87M · 7 projects</div>
+          </div>
+          <div style="position:relative;height:200px;margin-top:4px"><canvas id="opsProjectWaterfallChart"></canvas></div>
+          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px">
+            <div style="padding:6px 9px;background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.24);border-radius:7px"><div style="font-size:8.5px;color:var(--green-2);font-weight:700;letter-spacing:.4px">BOOKED YTD</div><div style="font-size:14px;font-weight:800;color:var(--green-2);margin-top:1px;line-height:1">SAR 198M</div><div style="font-size:9px;color:var(--t-3);margin-top:1px">93% · GL clean</div></div>
+            <div style="padding:6px 9px;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.24);border-radius:7px"><div style="font-size:8.5px;color:var(--amber-2);font-weight:700;letter-spacing:.4px">ACCRUED · OPEN</div><div style="font-size:14px;font-weight:800;color:var(--amber-2);margin-top:1px;line-height:1">SAR 15M</div><div style="font-size:9px;color:var(--t-3);margin-top:1px">force-book by EOM</div></div>
+            <div style="padding:6px 9px;background:rgba(160,34,110,.07);border:1px solid rgba(160,34,110,.24);border-radius:7px"><div style="font-size:8.5px;color:#c92a8e;font-weight:700;letter-spacing:.4px">REMAINING</div><div style="font-size:14px;font-weight:800;color:#c92a8e;margin-top:1px;line-height:1">SAR 87M</div><div style="font-size:9px;color:var(--t-3);margin-top:1px">29% · H2 runway</div></div>
+          </div>
+          <div style="margin-top:6px;padding:6px 9px;background:rgba(245,158,11,.05);border:1px dashed rgba(245,158,11,.32);border-radius:7px;font-size:9.5px;color:var(--t-2);line-height:1.5"><b style="color:var(--amber-2)">CFO read:</b> SAR 15M accrued but not yet booked. Force-book by EOM. ⚠ Atbara Risk Mitigation only over-budget project (+12%).</div>
         </div>
-        <table class="tbl">
-          <thead><tr><th>Project</th><th>Owner</th><th class="r">% Reached</th><th class="r">Budget (SAR M)</th><th class="r">Accrued</th><th class="r">Booked</th><th class="r">vs Budget</th><th>Status</th></tr></thead>
-          <tbody>
-            <tr><td><b>RE Consolidation (Yardi)</b></td><td>F. Al-Sudairi · RE</td><td class="r mono">62%</td><td class="r mono">42</td><td class="r mono">26</td><td class="r mono" style="color:var(--green-2)">24</td><td class="r mono" style="color:var(--green-2)">−4.6%</td><td><span class="stage-pill growth">On Track</span></td></tr>
-            <tr><td><b>SAP S/4HANA Migration</b></td><td>Y. Al-Ghamdi · CE</td><td class="r mono">78%</td><td class="r mono">96</td><td class="r mono">82</td><td class="r mono" style="color:var(--amber-2)">74</td><td class="r mono" style="color:var(--amber-2)">+2.1%</td><td><span class="stage-pill watch">Accrual Open</span></td></tr>
-            <tr><td><b>ADEC Network Expansion</b></td><td>K. Al-Rajhi · CEO</td><td class="r mono">67%</td><td class="r mono">140</td><td class="r mono">94</td><td class="r mono" style="color:var(--green-2)">90</td><td class="r mono" style="color:var(--green-2)">−1.2%</td><td><span class="stage-pill growth">On Track</span></td></tr>
-            <tr style="background:rgba(217,53,156,.04)"><td><b>WiSys Divestment</b></td><td>A. Al-Rashidi · DI</td><td class="r mono">45%</td><td class="r mono">8</td><td class="r mono">3.8</td><td class="r mono">3.6</td><td class="r mono" style="color:var(--green-2)">−0.4%</td><td><span class="stage-pill divest">On Track</span></td></tr>
-            <tr style="background:rgba(239,68,68,.04)"><td><b>⚠ Atbara Risk Mitigation</b></td><td>T. Al-Mansour · ERM</td><td class="r mono">75%</td><td class="r mono">6</td><td class="r mono" style="color:var(--red-2)">6.4</td><td class="r mono" style="color:var(--red-2)">5.0</td><td class="r mono" style="color:var(--red-2)">+12%</td><td><span class="stage-pill stress">Over Budget</span></td></tr>
-            <tr><td><b>Fund Manager Rationalization</b></td><td>S. Al-Dawsari · FI</td><td class="r mono">20%</td><td class="r mono">3</td><td class="r mono">0.6</td><td class="r mono">0.6</td><td class="r mono" style="color:var(--green-2)">on plan</td><td><span class="stage-pill watch">Planning</span></td></tr>
-            <tr><td><b>Vision 2030 Sector Alignment</b></td><td>M. Al-Shehri · CFO</td><td class="r mono">12%</td><td class="r mono">5</td><td class="r mono">0.6</td><td class="r mono">0.6</td><td class="r mono" style="color:var(--green-2)">on plan</td><td><span class="stage-pill mature">Scoping</span></td></tr>
-            <tr style="font-weight:700;background:rgba(20,10,40,.03)"><td><b>TOTAL — 7 projects</b></td><td>—</td><td class="r mono">—</td><td class="r mono">300</td><td class="r mono">213</td><td class="r mono">198</td><td class="r mono" style="color:var(--amber-2)">+0.8%</td><td>—</td></tr>
-          </tbody>
-        </table>
-        <div style="margin-top:10px;font-size:10.5px;color:var(--t-3);line-height:1.55"><b style="color:var(--t-1)">CFO read:</b> 15M accrued but not yet booked (S/4HANA milestones + Atbara vendor invoices). Force-book by month-end to avoid Q2 carryover.<br><span style="color:var(--t-4);font-size:10px">Project completion %, milestones &amp; scope — see PMO tracker (link)</span></div>
+        <div class="panel">
+          <div class="panel-head">
+            <div class="panel-title">Cost Centres <span class="panel-tag" style="background:rgba(245,158,11,.15);color:var(--amber-2);border-color:rgba(245,158,11,.3)">🧾 SAP FI/CO</span></div>
+            <div class="panel-meta">HoldCo OPEX SAR 234M · 5 functions · vs 222M plan · +5.4%</div>
+          </div>
+          <div style="position:relative;height:170px;margin-top:4px">
+            <canvas id="opsCostCentreChart"></canvas>
+            <div style="position:absolute;inset:0;display:grid;place-items:center;pointer-events:none">
+              <div style="text-align:center;line-height:1.05">
+                <div style="font-size:8.5px;color:var(--t-3);font-weight:700;letter-spacing:.6px;text-transform:uppercase">HoldCo OPEX</div>
+                <div style="font-size:18px;font-weight:800;color:var(--t-1);font-variant-numeric:tabular-nums;letter-spacing:-.5px;margin-top:2px">SAR 234M</div>
+                <div style="font-size:9.5px;color:var(--amber-2);font-weight:700;margin-top:2px">+5.4% vs plan</div>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:6px;display:flex;flex-direction:column;gap:3px;font-size:10px;color:var(--t-2);line-height:1.35">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 8px;background:rgba(107,23,72,.06);border-radius:5px"><span><b style="color:var(--t-1)">Employee</b></span><span class="mono" style="color:var(--t-1)"><b>SAR 142M</b> <span style="color:var(--t-3);font-weight:500">· 60.7%</span></span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 8px;background:rgba(239,68,68,.07);border-radius:5px;border-left:3px solid #dc2626"><span style="color:var(--red-2)"><b>⚠ Legal</b></span><span class="mono" style="color:var(--red-2)"><b>SAR 38M</b> <span style="color:var(--red-2);font-weight:600">· +35.7%</span></span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 8px;background:rgba(16,185,129,.06);border-radius:5px;border-left:3px solid #10b981"><span style="color:var(--green-2)"><b>IT Operations</b></span><span class="mono" style="color:var(--green-2)"><b>SAR 22M</b> <span style="font-weight:600">· −8.3%</span></span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 8px;background:rgba(16,185,129,.06);border-radius:5px;border-left:3px solid #10b981"><span style="color:var(--green-2)"><b>Finance Ops</b></span><span class="mono" style="color:var(--green-2)"><b>SAR 18M</b> <span style="font-weight:600">· −5.3%</span></span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 8px;background:rgba(245,158,11,.07);border-radius:5px"><span><b style="color:var(--t-1)">Admin / Other</b></span><span class="mono" style="color:var(--amber-2)"><b>SAR 14M</b> <span style="font-weight:600">· +7.7%</span></span></div>
+          </div>
+        </div>
       </div>
 
-      <!-- ROW: COST TREND + COST-BOOKING STATUS (Risk Heat-Map removed per CFO feedback) -->
+      <!-- ROW: COST TREND + COST-BOOKING HEALTH -->
       <div style="display:grid;grid-template-columns:1.2fr .8fr;gap:14px">
         <div class="panel">
-          <div class="panel-head"><div class="panel-title">HoldCo OPEX Trend — 12 Months <span class="panel-tag" style="background:rgba(245,158,11,.15);color:var(--amber-2);border-color:rgba(245,158,11,.3)">📊 SAP FI/CO</span></div><div class="legend"><span style="color:var(--t-2)">— Actual</span> <span style="color:var(--t-3)">— Budget</span></div></div>
-          <div class="chart-wrap short"><canvas id="opsCostChart"></canvas></div>
+          <div class="panel-head">
+            <div class="panel-title">HoldCo OPEX Trend — 12 Months <span class="panel-tag" style="background:rgba(245,158,11,.15);color:var(--amber-2);border-color:rgba(245,158,11,.3)">📊 SAP FI/CO</span></div>
+            <div class="panel-meta">May 25 → Apr 26 · SAR M · Q1 26 actual SAR 234M · +5.4% vs plan</div>
+          </div>
+          <div style="position:relative;height:160px;margin-top:4px"><canvas id="opsCostChart"></canvas></div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:6px">
+            <div style="padding:5px 8px;background:rgba(20,10,40,.04);border:1px solid var(--line);border-radius:7px"><div style="font-size:8.5px;color:var(--t-3);font-weight:700;letter-spacing:.4px">LTM PEAK</div><div style="font-size:13px;font-weight:800;color:var(--t-1);margin-top:1px;line-height:1">SAR 82M</div><div style="font-size:8.5px;color:var(--t-3);margin-top:1px">Feb 26 · true-ups</div></div>
+            <div style="padding:5px 8px;background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.22);border-radius:7px"><div style="font-size:8.5px;color:var(--green-2);font-weight:700;letter-spacing:.4px">LTM TROUGH</div><div style="font-size:13px;font-weight:800;color:var(--green-2);margin-top:1px;line-height:1">SAR 68M</div><div style="font-size:8.5px;color:var(--t-3);margin-top:1px">May 25 · low</div></div>
+            <div style="padding:5px 8px;background:rgba(160,34,110,.06);border:1px solid rgba(160,34,110,.22);border-radius:7px"><div style="font-size:8.5px;color:#c92a8e;font-weight:700;letter-spacing:.4px">12M AVG</div><div style="font-size:13px;font-weight:800;color:#c92a8e;margin-top:1px;line-height:1">SAR 73.8M</div><div style="font-size:8.5px;color:var(--t-3);margin-top:1px">+1.4% vs plan</div></div>
+            <div style="padding:5px 8px;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.24);border-radius:7px"><div style="font-size:8.5px;color:var(--amber-2);font-weight:700;letter-spacing:.4px">MONTHS OVER</div><div style="font-size:13px;font-weight:800;color:var(--amber-2);margin-top:1px;line-height:1">7 / 12</div><div style="font-size:8.5px;color:var(--t-3);margin-top:1px">rising · Legal</div></div>
+          </div>
         </div>
         <div class="panel">
-          <div class="panel-head"><div class="panel-title">Cost Booking Status <span class="panel-tag" style="background:rgba(245,158,11,.15);color:var(--amber-2);border-color:rgba(245,158,11,.3)">🧾 SAP FI/CO · close-cockpit</span></div><div class="panel-meta">Q1 close · accruals vs bookings</div></div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:6px 0">
-            <div style="padding:11px;background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.22);border-radius:10px">
-              <div style="font-size:9.5px;color:var(--green-2);font-weight:700;letter-spacing:.5px">BOOKED</div>
-              <div style="font-size:20px;font-weight:800;color:var(--green-2);margin-top:4px">SAR 208M</div>
-              <div style="font-size:10px;color:var(--t-3);margin-top:3px">89% of YTD spend</div>
-            </div>
-            <div style="padding:11px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.22);border-radius:10px">
-              <div style="font-size:9.5px;color:var(--amber-2);font-weight:700;letter-spacing:.5px">ACCRUED · UNBOOKED</div>
-              <div style="font-size:20px;font-weight:800;color:var(--amber-2);margin-top:4px">SAR 26M</div>
-              <div style="font-size:10px;color:var(--t-3);margin-top:3px">11% open · target &lt;5%</div>
+          <div class="panel-head">
+            <div class="panel-title">Cost Booking Health <span class="panel-tag" style="background:rgba(245,158,11,.15);color:var(--amber-2);border-color:rgba(245,158,11,.3)">🧾 SAP FI/CO · close-cockpit</span></div>
+            <div class="panel-meta">Q1 close · booked vs accrued · target 95% booking rate</div>
+          </div>
+          <div style="position:relative;height:110px;margin-top:6px"><canvas id="opsBookingGaugeChart"></canvas>
+            <div style="position:absolute;inset:0;display:grid;place-items:center;pointer-events:none">
+              <div style="text-align:center;line-height:1.05;margin-top:22px">
+                <div style="font-size:22px;font-weight:800;color:var(--green-2);font-variant-numeric:tabular-nums;letter-spacing:-.5px">89%</div>
+                <div style="font-size:8px;color:var(--t-3);font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-top:1px">booking rate</div>
+                <div style="font-size:9px;color:var(--amber-2);font-weight:700;margin-top:2px">−6pp vs 95% target</div>
+              </div>
             </div>
           </div>
-          <div style="margin-top:8px;font-size:11px;color:var(--t-3);font-weight:700;letter-spacing:.5px;text-transform:uppercase">By function · open accruals</div>
-          <div style="margin-top:6px;display:flex;flex-direction:column;gap:5px;font-size:11px;color:var(--t-2);line-height:1.5">
-            <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed var(--line)"><span><b style="color:var(--t-1)">Legal</b> · vendor invoices pending</span><span class="mono" style="color:var(--amber-2);font-weight:700">SAR 12M</span></div>
-            <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed var(--line)"><span><b style="color:var(--t-1)">Corporate Enablement</b> · S/4HANA milestones</span><span class="mono" style="color:var(--amber-2);font-weight:700">SAR 8M</span></div>
-            <div style="display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed var(--line)"><span><b style="color:var(--t-1)">IT Ops</b> · cloud spend revaluation</span><span class="mono" style="color:var(--amber-2);font-weight:700">SAR 4M</span></div>
-            <div style="display:flex;justify-content:space-between;padding:5px 0"><span><b style="color:var(--t-1)">Admin / Other</b></span><span class="mono" style="color:var(--amber-2);font-weight:700">SAR 2M</span></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px">
+            <div style="padding:5px 8px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.28);border-radius:7px"><div style="font-size:8.5px;color:var(--green-2);font-weight:700;letter-spacing:.4px">BOOKED · GL</div><div style="font-size:13px;font-weight:800;color:var(--green-2);margin-top:1px;line-height:1">SAR 208M</div><div style="font-size:8.5px;color:var(--t-3);margin-top:1px">89% of YTD</div></div>
+            <div style="padding:5px 8px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.32);border-radius:7px"><div style="font-size:8.5px;color:var(--amber-2);font-weight:700;letter-spacing:.4px">ACCRUED · OPEN</div><div style="font-size:13px;font-weight:800;color:var(--amber-2);margin-top:1px;line-height:1">SAR 26M</div><div style="font-size:8.5px;color:var(--t-3);margin-top:1px">11% · target &lt;5%</div></div>
           </div>
-          <div style="margin-top:10px;font-size:10.5px;color:var(--t-3);line-height:1.5"><b style="color:var(--t-1)">Recommend:</b> force-book vendor invoices &gt;30 days · re-open S/4HANA milestone PO</div>
+          <div style="margin-top:6px;padding:6px 9px;background:rgba(245,158,11,.05);border:1px dashed rgba(245,158,11,.32);border-radius:7px;font-size:9.5px;color:var(--t-2);line-height:1.4"><b style="color:var(--amber-2)">Recommend:</b> force-book invoices &gt;30 days · re-open S/4HANA POs by EOM.</div>
         </div>
       </div>
 
@@ -3545,6 +3745,7 @@ function switchDIFI(which){
     if(pl) pl.classList.toggle('act', m === which);
   });
 
+  if(which === 'di') initDICharts();
   if(which === 'fi') initFICharts();
   if(which === 're') initRECharts();
 }
@@ -3582,6 +3783,31 @@ function initFICharts(){
   }
 }
 
+function initDICharts(){
+  // Section 1 — Sector exposure doughnut
+  destroyChart('diAllocSector');
+  const c1 = document.getElementById('diAllocSectorChart');
+  if(c1){
+    chartInstances.diAllocSector = new Chart(c1,{type:'doughnut',data:{
+      labels:['Poultry','Manufacturing','Hospitality','Education K-12','Agriculture','Cement','IT Services'],
+      datasets:[{data:[2960,1850,1620,1420,1560,410,380],backgroundColor:['#5a1239','#6b1748','#8b1a6b','#a0226e','#c92a8e','#dc2626','#e87bbf'],borderColor:'#ffffff',borderWidth:2}]
+    },options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{position:'right',labels:{boxWidth:10,font:{size:9.5},color:'#4a3a5a'}},tooltip:{callbacks:{label:c=>c.label+': SAR '+c.parsed+'M ('+(c.parsed/102).toFixed(1)+'%)'}}}}});
+  }
+  // Section 1 — Geographic exposure bubble chart
+  destroyChart('diGeoBubble');
+  const c2 = document.getElementById('diGeoBubbleChart');
+  if(c2){
+    chartInstances.diGeoBubble = new Chart(c2,{type:'bubble',data:{
+      datasets:[
+        {label:'KSA',data:[{x:55,y:50,r:48,cap:9170,risk:'Low · SAR pegged'}],backgroundColor:'rgba(16,185,129,0.65)',borderColor:'#10b981',borderWidth:2},
+        {label:'Egypt',data:[{x:22,y:55,r:18,cap:620,risk:'Amber · EGP devaluation'}],backgroundColor:'rgba(245,158,11,0.65)',borderColor:'#d97706',borderWidth:2},
+        {label:'Sudan',data:[{x:32,y:28,r:14,cap:410,risk:'Red · SDG depreciation, Atbara stress'}],backgroundColor:'rgba(239,68,68,0.65)',borderColor:'#dc2626',borderWidth:2},
+        {label:'UAE',data:[{x:72,y:45,r:6,cap:0,risk:'No current exposure · allowed by mandate'}],backgroundColor:'rgba(107,114,128,0.30)',borderColor:'rgba(107,114,128,0.5)',borderWidth:1}
+      ]
+    },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{boxWidth:10,font:{size:10},color:'#4a3a5a'}},tooltip:{callbacks:{label:ctx=>{const d=ctx.raw;return ctx.dataset.label+' — SAR '+d.cap+'M · '+d.risk;}}}},scales:{x:{min:0,max:100,display:false,grid:{display:false}},y:{min:0,max:100,display:false,grid:{display:false}}}}});
+  }
+}
+
 function initRECharts(){
   destroyChart('reAllocAsset');
   const c1 = document.getElementById('reAllocAssetChart');
@@ -3612,16 +3838,187 @@ function initRECharts(){
 function initInvCharts(){ switchDIFI('di'); }
 
 function initOpsCharts(){
+  // === HoldCo OPEX Trend — 12-month line chart (Actual vs Budget) ===
   destroyChart('opsCost');
   const c = document.getElementById('opsCostChart');
   if(c){
+    const ctx = c.getContext('2d');
+    const grad = ctx.createLinearGradient(0, 0, 0, 240);
+    grad.addColorStop(0, 'rgba(160,34,110,0.30)');
+    grad.addColorStop(1, 'rgba(160,34,110,0.02)');
+    const actual = [68,72,74,71,69,73,75,78,76,82,76,72];
+    const budget = [70,71,73,72,71,72,74,76,74,75,73,72];
+    // Per-point colour: red if Actual > Budget+1, green if <Budget, magenta otherwise
+    const pointColors = actual.map((a,i)=> a > budget[i]+1 ? '#dc2626' : (a < budget[i] ? '#10b981' : '#c92a8e'));
     chartInstances.opsCost = new Chart(c,{type:'line',data:{
-      labels:['May','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb','Mar','Apr'],
+      labels:['May 25','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan 26','Feb','Mar','Apr'],
       datasets:[
-        {label:'Actual',data:[68,72,74,71,69,73,75,78,76,82,76,72],borderColor:'#fbbf24',backgroundColor:'rgba(245,158,11,0.14)',tension:.35,fill:true,pointRadius:3,pointBackgroundColor:'#fbbf24',borderWidth:2.5},
-        {label:'Budget',data:[70,71,73,72,71,72,74,76,74,75,73,72],borderColor:'rgba(20,10,40,0.4)',backgroundColor:'transparent',tension:.35,borderDash:[4,4],pointRadius:0,borderWidth:1.5}
+        {label:'Actual OPEX',data:actual,borderColor:'#a0226e',backgroundColor:grad,tension:.35,fill:true,pointRadius:4,pointHoverRadius:6,pointBackgroundColor:pointColors,pointBorderColor:'#ffffff',pointBorderWidth:1.5,borderWidth:2.5},
+        {label:'Budget',data:budget,borderColor:'rgba(20,10,40,0.45)',backgroundColor:'transparent',tension:.35,borderDash:[5,4],pointRadius:0,pointHoverRadius:0,borderWidth:1.5}
       ]
-    },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:true,position:'bottom',labels:{boxWidth:10,font:{size:10}}}},scales:{y:{grid:{color:'rgba(20,10,40,0.05)'},ticks:{callback:v=>'SAR '+v+'M'}},x:{grid:{display:false}}}}});
+    },options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      interaction:{mode:'index',intersect:false},
+      plugins:{
+        legend:{display:true,position:'bottom',labels:{boxWidth:12,font:{size:10.5},color:'#4a3a5a',padding:8,usePointStyle:false}},
+        tooltip:{
+          callbacks:{
+            label:c=>c.dataset.label+': SAR '+c.parsed.y+'M',
+            afterBody:items=>{
+              if(items.length<2) return '';
+              const a = items[0].parsed.y, b = items[1].parsed.y;
+              const diff = a - b;
+              const pct = ((diff/b)*100).toFixed(1);
+              return '\nVariance: '+(diff>=0?'+':'')+'SAR '+diff+'M ('+(diff>=0?'+':'')+pct+'%)';
+            }
+          }
+        }
+      },
+      scales:{
+        y:{grid:{color:'rgba(20,10,40,0.05)'},ticks:{callback:v=>'SAR '+v+'M',font:{size:10}},beginAtZero:false,min:60},
+        x:{grid:{display:false},ticks:{font:{size:9.5}}}
+      }
+    }});
+  }
+  // === Cost Booking Health — semicircle gauge showing booking rate (89% of 95% target) ===
+  destroyChart('opsBookingGauge');
+  const cg = document.getElementById('opsBookingGaugeChart');
+  if(cg){
+    chartInstances.opsBookingGauge = new Chart(cg,{type:'doughnut',data:{
+      labels:['Booked','Accrued · target gap','Buffer'],
+      datasets:[{
+        data:[89, 6, 5],
+        backgroundColor:['#10b981','#f59e0b','rgba(20,10,40,0.06)'],
+        borderColor:'#ffffff',
+        borderWidth:2,
+        circumference:180,
+        rotation:270,
+        cutout:'72%'
+      }]
+    },options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          callbacks:{
+            label:c=>{
+              const lbls = ['Booked: 89% (SAR 208M) — on GL','Gap to 95% target: 6pp (SAR 14M)','Buffer to 100%: 5pp'];
+              return lbls[c.dataIndex];
+            }
+          }
+        }
+      }
+    }});
+  }
+  // === Project Cost Waterfall — Chart.js floating-bar waterfall ===
+  destroyChart('opsProjectWaterfall');
+  const cw = document.getElementById('opsProjectWaterfallChart');
+  if(cw){
+    // Each step is a floating bar [start, end] showing cumulative reduction from budget
+    // 300 → -94 ADEC → -82 SAP → -26 RE → -6.4 Atbara → -3.8 WiSys → -1.2 Other → 86.6 remaining
+    const stages = [
+      {label:'Total Budget',         range:[0, 300],         spent:0,    color:'#3b82f6', kind:'start'},
+      {label:'− ADEC Network',       range:[206, 300],       spent:94,   color:'#f59e0b', kind:'spend'},
+      {label:'− SAP S/4HANA',        range:[124, 206],       spent:82,   color:'#f59e0b', kind:'spend'},
+      {label:'− RE Yardi',           range:[98, 124],        spent:26,   color:'#f59e0b', kind:'spend'},
+      {label:'− ⚠ Atbara Risk',      range:[91.6, 98],       spent:6.4,  color:'#dc2626', kind:'over'},
+      {label:'− WiSys Divest',       range:[87.8, 91.6],     spent:3.8,  color:'#a0226e', kind:'spend'},
+      {label:'− Other (Fund + V2030)', range:[86.6, 87.8],   spent:1.2,  color:'#9333a8', kind:'spend'},
+      {label:'= Remaining Budget',   range:[0, 86.6],        spent:86.6, color:'#10b981', kind:'end'}
+    ];
+    // Connector-line plugin draws horizontal dashed lines between consecutive bars
+    const connectorPlugin = {
+      id:'wfConnectors',
+      afterDatasetsDraw(chart){
+        const meta = chart.getDatasetMeta(0);
+        if(!meta || !meta.data) return;
+        const ctx = chart.ctx;
+        ctx.save();
+        ctx.strokeStyle = 'rgba(20,10,40,0.28)';
+        ctx.setLineDash([3,3]);
+        ctx.lineWidth = 1;
+        for(let i=0; i<meta.data.length-1; i++){
+          const cur = meta.data[i], nxt = meta.data[i+1];
+          if(!cur || !nxt) continue;
+          // For horizontal bar (indexAxis 'y'): cur and nxt have x positions for [start, end]
+          // We want to connect the right edge of the prior step to the right edge of the next step's start
+          const curEnd = chart.scales.x.getPixelForValue(stages[i].range[0]); // left edge of current bar
+          const nxtStart = chart.scales.x.getPixelForValue(stages[i+1].range[1]); // right edge of next bar
+          const yCur = cur.y + cur.height/2;
+          const yNxt = nxt.y - nxt.height/2;
+          // Draw line from current bar's lower-left corner area down to next bar's upper-right
+          ctx.beginPath();
+          ctx.moveTo(curEnd, yCur);
+          ctx.lineTo(curEnd, yNxt + nxt.height/2);
+          ctx.stroke();
+        }
+        ctx.restore();
+      }
+    };
+    chartInstances.opsProjectWaterfall = new Chart(cw,{type:'bar',data:{
+      labels: stages.map(s=>s.label),
+      datasets:[{
+        label:'SAR M',
+        data: stages.map(s=>s.range),
+        backgroundColor: stages.map(s=>s.color),
+        borderColor: stages.map(s=>s.color),
+        borderWidth: 1,
+        borderRadius: 4,
+        barPercentage: 0.78,
+        categoryPercentage: 0.85
+      }]
+    },options:{
+      indexAxis:'y',
+      responsive:true,
+      maintainAspectRatio:false,
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{label:ctx=>{
+          const s = stages[ctx.dataIndex];
+          if(s.kind==='start') return 'Total FY26 budget: SAR ' + s.range[1] + 'M';
+          if(s.kind==='end')   return 'Remaining: SAR ' + s.spent + 'M (' + ((s.spent/300)*100).toFixed(0) + '% of budget)';
+          if(s.kind==='over')  return 'Spent: SAR ' + s.spent + 'M · ⚠ OVER BUDGET (+12%)';
+          return 'Spent: SAR ' + s.spent + 'M';
+        }}}
+      },
+      scales:{
+        x:{
+          beginAtZero:true,
+          max:320,
+          grid:{color:'rgba(20,10,40,0.05)'},
+          ticks:{callback:v=>'SAR '+v+'M',font:{size:10}}
+        },
+        y:{
+          grid:{display:false},
+          ticks:{font:{size:10.5,weight:'600'},color:'#1a0f2a'}
+        }
+      }
+    },plugins:[connectorPlugin]});
+  }
+  // === Cost Centres — doughnut with center label (label drawn via positioned div in HTML) ===
+  destroyChart('opsCostCentre');
+  const cd = document.getElementById('opsCostCentreChart');
+  if(cd){
+    chartInstances.opsCostCentre = new Chart(cd,{type:'doughnut',data:{
+      labels:['Employee','Legal','IT Operations','Finance Ops','Admin / Other'],
+      datasets:[{
+        data:[142,38,22,18,14],
+        backgroundColor:['#6b1748','#dc2626','#10b981','#9333a8','#f59e0b'],
+        borderColor:'#ffffff',
+        borderWidth:3,
+        hoverOffset:8
+      }]
+    },options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      cutout:'68%',
+      plugins:{
+        legend:{display:false},
+        tooltip:{callbacks:{label:c=>c.label+': SAR '+c.parsed+'M ('+(c.parsed/2.34).toFixed(1)+'%)'}}
+      }
+    }});
   }
 }
 
@@ -3662,7 +4059,16 @@ const CHART_TITLE_TOOLTIPS = {
   'Per-Asset-Class · Operational Scorecard':'Per-asset-class operational KPIs: GAV, NOI, occupancy, WAULT (weighted-average unexpired lease term), cap rate. Source: Yardi + REIDIN.',
   'Yardi Migration & Disposal Pipeline · FY26':'Combined workstream tracker: 3 Yardi migration phases (29/47 props consolidated) + 3 active disposal mandates (SAR 1.34B unlock). Source: PMO.',
   'Gross NOI — Q1 2026':'Quarterly gross Net Operating Income across all 47 properties before property OPEX. Source: Yardi.',
-  'Net to RHG · after OPEX':'Net cash to RHG HoldCo after property management fees, maintenance/capex, insurance and tax. Source: TMS.'
+  'Net to RHG · after OPEX':'Net cash to RHG HoldCo after property management fees, maintenance/capex, insurance and tax. Source: TMS.',
+  'Sector Exposure':'Invested capital split by sector across the 9 DI subsidiaries. Poultry (29%) is the largest concentration; Cement and IT Services together are < 8%. Source: IC ledger.',
+  'Geographic Exposure':'Invested capital by country of operation. Bubble size = invested SAR; bubble colour = risk-adjusted performance (green KSA · amber Egypt · red Sudan · grey UAE no exposure). Source: Treasury FX register.',
+  'Capital Flow · FY26 YTD':'Capital movement waterfall: starting balance → new investments YTD → cash returned this period → undrawn commitments → ending net exposure. Drives capital-recycling and pacing discussions. Source: S/4HANA + TMS.',
+  'Subsidiary Risk Matrix':'2x2 quadrant of Cash Return (X) vs Capital Exposure (Y). Top-right = healthy core (high exposure, high return); top-left = high exposure but low return (growth phase); bottom-right = emerging growth; bottom-left = capital-consuming (Atbara, Al Safa). Drives concentration + monetisation decisions.',
+  'Capital Allocation Heatmap':'Treemap of invested capital: tile size = SAR invested, tile colour = exposure status (Returning / Drawing / Watchlist / Consuming). Hover any tile for AI commentary on the position. Source: SAP FI/CO IC ledger + subsidiary close packs.',
+  'Project Cost Waterfall':'Per-project waterfall: Total FY26 budget less each project’s booked + accrued YTD spend, ending in remaining budget. ADEC + S/4HANA are the two largest spend lines; Atbara Risk Mitigation is over budget. Source: SAP FI/CO + PMO feed.',
+  'Cost Centres':'HoldCo OPEX allocation by function. Employee costs are the largest (60%); Legal is the variance driver (+35.7% over plan). IT Operations and Finance Ops running under plan. Source: SAP FI/CO.',
+  'HoldCo OPEX Trend — 12 Months':'Monthly HoldCo OPEX vs flexed monthly budget. Each data point colour-coded: red if actual > budget+SAR 1M; green if under; magenta on plan. Hover shows monthly variance. Watch for sustained over-runs. Source: SAP FI/CO.',
+  'Cost Booking Health':'Close-cockpit discipline metric. 89% of YTD spend booked to the GL; 11% still accrued. Target ≥ 95% booking rate by month-end. Gauge shows distance to target. Source: SAP FI/CO close-cockpit + auto-accruals job.'
 };
 function applyChartTitleTooltips(){
   document.querySelectorAll('.panel-title').forEach(el=>{
