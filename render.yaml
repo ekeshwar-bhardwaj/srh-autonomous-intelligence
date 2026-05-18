@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: srh-autonomous-intelligence
+    runtime: static
+    staticPublishPath: .
+    pullRequestPreviewsEnabled: false
+    autoDeploy: true
