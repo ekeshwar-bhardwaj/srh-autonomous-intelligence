@@ -4820,8 +4820,14 @@ document.addEventListener('DOMContentLoaded', ()=>{
       hints.classList.toggle('show', empty && heroQ === document.activeElement);
     };
     heroQ.addEventListener('focus', toggleHints);
-    heroQ.addEventListener('blur',  ()=> { if(hints) hints.classList.remove('show'); });
+    // On blur, wait briefly so a chip click can complete before we hide the panel.
+    // Without this, mousedown on the chip blurs the input → panel hides (display:none) → click never fires.
+    heroQ.addEventListener('blur',  ()=> { setTimeout(()=>{ if(hints) hints.classList.remove('show'); }, 180); });
     heroQ.addEventListener('input', toggleHints);
+    // Belt-and-braces: prevent mousedown inside the panel from stealing focus.
+    if(hints){
+      hints.addEventListener('mousedown', e=> e.preventDefault());
+    }
   }
 });
 </script>
