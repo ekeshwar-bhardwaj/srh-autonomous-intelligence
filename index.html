@@ -2092,43 +2092,38 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
       </div>
     </main>
 
-    <!-- AI INSIGHTS · CFO LENS -->
+    <!-- AI INSIGHTS PANEL — CFO LENS (mirrors Executive structure; re-renders by sub-pane) -->
     <aside class="dash-ai">
+      <div class="ai-mode" id="invAiModeBanner"><span class="dot"></span><span id="invAiModeText">Direct Investments · 9 subsidiaries</span></div>
       <div class="ai-card">
         <div class="ai-head">
           <div class="ai-title"><span class="ai-dot"></span>CFO INTELLIGENCE</div>
           <div class="ai-status" style="color:var(--green-2)">● Complete</div>
         </div>
         <div id="invCfoIntelBody">
-          <div class="ai-summary-title">DI &amp; FI · Cash &amp; Risk · Q1 2026</div>
-          <div class="ai-insight"><div class="ai-num">1</div><div><b>DI cash inflow SAR 412M Q1</b> — 7 of 9 subs returning cash (net <strong>+SAR 430M</strong>); 2 consuming (Atbara, Al Safa Egypt · net −SAR 18M). Distribution coverage 1.4× of H1 Waqf plan. <span class="src-tag">Source: SAP FI/CO · Subsidiary close packs</span></div></div>
+          <div class="ai-summary-title">Direct Investments · CFO Lens · Q1 2026</div>
+          <div class="ai-insight"><div class="ai-num">1</div><div><b>DI cash inflow SAR 412M Q1</b> — 7 of 9 subs returning (net <strong>+SAR 430M</strong>); 2 consuming (Atbara, Al Safa Egypt · −SAR 18M). Distribution coverage 1.4× of H1 Waqf plan. <span class="src-tag">Source: SAP FI/CO · Subsidiary close packs</span></div></div>
           <div class="ai-insight"><div class="ai-num">2</div><div><b>Intercompany SAR 248M unreconciled</b> — 14 open items · 3 active disputes (ADEC, Atbara, Wat. Poultry) worth <strong>SAR 62M</strong>. Match rate 92.4% vs 97% policy. Oldest 84 days — Atbara royalty. <span class="src-tag">Source: SAP IC ledger</span></div></div>
-          <div class="ai-insight"><div class="ai-num">3</div><div><b>FI liquidity profile</b> — <strong>SAR 8.8B raisable in 5 days</strong> (62% AUM, 1.8× group OPEX coverage). PE lock-up call risk SAR 920M over 12 mo. 3 mandates with 90-day redemption flagged. <span class="src-tag">Source: Bloomberg · Custodian feeds · Treasury</span></div></div>
-          <div class="ai-insight"><div class="ai-num">4</div><div><b>Subsidiary refinancings due</b> — ADEC SAR 240M (Q3 26) and Wat. Agri SAR 140M (H2 26). Indicative cost +60 bps over current; Treasury negotiating with 4 lenders. <span class="src-tag">Source: Treasury debt register · SAIBOR (SAMA)</span></div></div>
+          <div class="ai-insight"><div class="ai-num">3</div><div><b>Capital deployed SAR 10.2B</b> — 23% Poultry · 18% Industrials · 16% Hospitality · <strong>90% KSA</strong>. Concentration in cyclical sectors flagged for risk review. <span class="src-tag">Source: S/4HANA · IC ledger</span></div></div>
+          <div class="ai-insight"><div class="ai-num">4</div><div><b>Subsidiary refinancings due</b> — ADEC SAR 240M (Q3 26) and Wat. Agri SAR 140M (H2 26). Indicative <strong>+60 bps</strong> over current rate; Treasury negotiating with 4 lenders. <span class="src-tag">Source: Treasury debt register · SAIBOR (SAMA)</span></div></div>
+        </div>
+
+        <div id="invCashSources">
+          <div class="ai-section">DI CASH COMPONENTS · Q1</div>
+          <div class="ai-bu"><div class="nm"><span class="pdot" style="background:#a0226e"></span>Dividends</div><div class="vl"><span class="num">SAR 286M</span><span class="pct" style="background:var(--green-soft);color:var(--green-2)">+8.4%</span></div></div>
+          <div class="ai-bu"><div class="nm"><span class="pdot" style="background:#9333a8"></span>IC Repayments</div><div class="vl"><span class="num">SAR 92M</span><span class="pct" style="background:var(--green-soft);color:var(--green-2)">accel</span></div></div>
+          <div class="ai-bu"><div class="nm"><span class="pdot" style="background:#8b1a6b"></span>Interest</div><div class="vl"><span class="num">SAR 34M</span><span class="pct" style="background:var(--amber-soft);color:var(--amber-2)">catch-up</span></div></div>
         </div>
       </div>
 
-      <div class="ai-card">
-        <div class="ai-section" style="margin-top:0">RECOMMENDED NEXT STEPS · CFO</div>
-        <div class="action-card">
-          <span class="action-prio high">High</span>
-          <div class="action-text">Close 3 disputed IC items — controller calls this week</div>
-          <div class="action-impact">SAR 62M unblocked · match rate back to 97% policy · audit risk removed</div>
-          <div class="action-row"><button class="teams-btn" onclick="openTeams('ic-close')">📢 Teams</button></div>
-        </div>
-        <div class="action-card">
-          <span class="action-prio high">High</span>
-          <div class="action-text">Atbara FX ring-fence + SDG-USD NDF cover</div>
-          <div class="action-impact">SAR 410M exposure shielded · expected loss capped −SAR 80M downside</div>
-          <div class="action-row"><button class="teams-btn" onclick="openTeams('atbara-fx')">📢 Teams</button></div>
-        </div>
-        <div class="action-card">
-          <span class="action-prio med">Med</span>
-          <div class="action-text">Replace 3 underperforming FI mandates by May 31</div>
-          <div class="action-impact">Schroders APAC, Lazard EM, Eastspring · save SAR 8.8M/yr fees · improve liquidity tier</div>
-          <div class="action-row"><button class="teams-btn" onclick="openTeams('fund-rfp')">📢 Teams</button></div>
-        </div>
-        <button class="share-teams" onclick="openTeams('fpa-pack')">📢 Share CFO Pack via Teams</button>
+      <div class="ai-card" id="invNextStepsCard">
+        <div class="ai-section" style="margin-top:0">CFO NEXT STEPS</div>
+        <div class="next-step" onclick="openDrill('intercompany')"><div class="ns-ico">🔄</div><div class="ns-text">Close 3 disputed IC items this week</div><span class="ns-arrow">›</span></div>
+        <div class="next-step" onclick="openDrill('atbara')"><div class="ns-ico">🛡️</div><div class="ns-text">Atbara FX ring-fence + NDF cover</div><span class="ns-arrow">›</span></div>
+        <div class="next-step" onclick="openDrill('reporting')"><div class="ns-ico">📋</div><div class="ns-text">Chase 2 late subsidiary closes</div><span class="ns-arrow">›</span></div>
+        <div class="next-step" onclick="openDrill('monet')"><div class="ns-ico">🎯</div><div class="ns-text">Approve WiSys + AR Intl divest mandate</div><span class="ns-arrow">›</span></div>
+        <div class="next-step" onclick="openDrill('default')"><div class="ns-ico">💰</div><div class="ns-text">ADEC + Wat. Agri refi · IC May 12</div><span class="ns-arrow">›</span></div>
+        <button class="share-teams" onclick="openTeams('di-brief')">📢 Share DI Brief via Teams</button>
       </div>
     </aside>
   </div>
@@ -3582,44 +3577,124 @@ const cfoIntelData = {
   },
   'inv.di': {
     title:'Direct Investments · CFO Lens · Q1 2026',
+    modeText:'Direct Investments · 9 subsidiaries',
+    modeColor:'#a0226e',
     insights:[
       '<b>DI cash inflow SAR 412M Q1</b> — 7 of 9 subs returning (net <strong>+SAR 430M</strong>); 2 consuming (Atbara, Al Safa Egypt · −SAR 18M). Distribution coverage 1.4× of H1 Waqf plan. <span class="src-tag">Source: SAP FI/CO · Subsidiary close packs</span>',
       '<b>Intercompany SAR 248M unreconciled</b> — 14 open items · 3 active disputes (ADEC, Atbara, Wat. Poultry) worth <strong>SAR 62M</strong>. Match rate 92.4% vs 97% policy. Oldest 84 days — Atbara royalty. <span class="src-tag">Source: SAP IC ledger</span>',
       '<b>Capital deployed SAR 10.2B</b> — 23% Poultry · 18% Industrials · 16% Hospitality · <strong>90% KSA</strong>. Concentration in cyclical sectors flagged for risk review. <span class="src-tag">Source: S/4HANA · IC ledger</span>',
       '<b>Subsidiary refinancings due</b> — ADEC SAR 240M (Q3 26) and Wat. Agri SAR 140M (H2 26). Indicative <strong>+60 bps</strong> over current rate; Treasury negotiating with 4 lenders. <span class="src-tag">Source: Treasury debt register · SAIBOR (SAMA)</span>'
-    ]
+    ],
+    cashTitle:'DI CASH COMPONENTS · Q1',
+    cashRows:[
+      {color:'#a0226e',label:'Dividends',val:'SAR 286M',pct:'+8.4%',tone:'green'},
+      {color:'#9333a8',label:'IC Repayments',val:'SAR 92M',pct:'accel',tone:'green'},
+      {color:'#8b1a6b',label:'Interest',val:'SAR 34M',pct:'catch-up',tone:'amber'}
+    ],
+    nextSteps:[
+      {ico:'🔄',text:'Close 3 disputed IC items this week',drill:'intercompany'},
+      {ico:'🛡️',text:'Atbara FX ring-fence + NDF cover',drill:'atbara'},
+      {ico:'📋',text:'Chase 2 late subsidiary closes',drill:'reporting'},
+      {ico:'🎯',text:'Approve WiSys + AR Intl divest mandate',drill:'monet'},
+      {ico:'💰',text:'ADEC + Wat. Agri refi · IC May 12',drill:'default'}
+    ],
+    shareLabel:'Share DI Brief via Teams',
+    shareId:'di-brief'
   },
   'inv.fi': {
     title:'Financial Investments · CFO Lens · Q1 2026',
+    modeText:'Financial Investments · 12 mandates · SAR 14.2B AUM',
+    modeColor:'#9333a8',
     insights:[
       '<b>FI AUM SAR 14.2B · YTD return 12.4%</b> — outperforms blended bench 9.8% by <strong>+260 bps</strong>. Sharpe 1.42. Q1 income SAR 286M to RHG (cash basis). <span class="src-tag">Source: Bloomberg · IPS</span>',
       '<b>3 of 12 mandates below bench</b> — Schroders APAC (−240bps), Lazard EM (−260bps), Eastspring Asia (−60bps). <strong>SAR 3.16B AUM at risk</strong>; RFP closing May 31. <span class="src-tag">Source: Bloomberg attribution</span>',
       '<b>Liquidity SAR 8.8B in T+5</b> (62% AUM) — 1.8× group OPEX coverage. PE lock-up call risk <strong>SAR 920M</strong> over 12 mo (KKR Vision, healthcare PE). 3 mandates with 90-day redemption flagged. <span class="src-tag">Source: Custodian · Treasury</span>',
       '<b>New investments YTD SAR 500M</b> — Saudi Equity Active (Jadwa), GCC Sukuk (SFC), Healthcare PE (KKR Vision), EM Frontier (T. Rowe Price). 4 mandates funded; 3 of 4 ahead of plan. <span class="src-tag">Source: IPS · Custodian feeds</span>'
-    ]
+    ],
+    cashTitle:'FI INCOME COMPONENTS · Q1',
+    cashRows:[
+      {color:'#9333a8',label:'Dividends & Distributions',val:'SAR 142M',pct:'+6.8%',tone:'green'},
+      {color:'#6b1748',label:'Realised Gains',val:'SAR 92M',pct:'+12.4%',tone:'green'},
+      {color:'#c92a8e',label:'Sukuk Coupons / Other',val:'SAR 52M',pct:'+4.0%',tone:'green'}
+    ],
+    nextSteps:[
+      {ico:'📨',text:'Issue RFP · 3 below-bench mandates · May 31',drill:'funds'},
+      {ico:'💧',text:'Re-run FI liquidity stress test · 8.8B in T+5',drill:'liq'},
+      {ico:'📊',text:'Performance attribution review · IC May 12',drill:'default'},
+      {ico:'🔒',text:'PE lock-up call calendar · 920M / 12 mo',drill:'liq'},
+      {ico:'⚖️',text:'IPS rebalance check · H2 allocation',drill:'default'}
+    ],
+    shareLabel:'Share FI Brief via Teams',
+    shareId:'fi-brief'
   },
   'inv.re': {
     title:'Real Estate · CFO Lens · Q1 2026',
+    modeText:'Real Estate · 47 properties · SAR 15.8B GAV',
+    modeColor:'#8b1a6b',
     insights:[
       '<b>GAV SAR 15.8B · 47 properties</b> — Q1 NOI <strong>SAR 248M</strong> (+6.4% YoY). Portfolio cap rate 6.4% vs REIDIN bench 5.9%, alpha +50 bps. <span class="src-tag">Source: Yardi · REIDIN</span>',
       '<b>Occupancy 87.4% (target 88%)</b> — Healthcare RE 96%, Logistics 94.2%, Office A 92.4% strong; Hospitality 78.6% (REIT cand.), Retail 81.2% (reposition). <span class="src-tag">Source: Yardi</span>',
       '<b>Yardi migration 62% complete</b> — Phase 2 GO/NO-GO at <strong>ERMC Apr 30</strong>. Phase 3 (Retail + Healthcare + Tail) scheduled H2 2026. Total scope SAR 17.14B. <span class="src-tag">Source: PMO · Yardi</span>',
       '<b>Disposal pipeline SAR 1.34B unlock</b> — Olaya Tower B (45%, marketing), Sahafa Logistics (30%, bidders engaged), Khaleej Plaza (20%, teaser out). Closes Q3—Q4 2026. <span class="src-tag">Source: DI · Strategy</span>'
-    ]
+    ],
+    cashTitle:'RE NOI BY ASSET CLASS · Q1',
+    cashRows:[
+      {color:'#6b1748',label:'Office (Class A)',val:'SAR 288M',pct:'+4.2%',tone:'green'},
+      {color:'#8b1a6b',label:'Hospitality',val:'SAR 190M',pct:'+9.6%',tone:'green'},
+      {color:'#c92a8e',label:'Logistics & Industrial',val:'SAR 138M',pct:'+11.4%',tone:'green'}
+    ],
+    nextSteps:[
+      {ico:'⚙️',text:'Yardi Phase 2 GO/NO-GO · ERMC Apr 30',drill:'re'},
+      {ico:'🏢',text:'3-asset disposal package · IC May 12',drill:'re'},
+      {ico:'📈',text:'Hospitality REIT carve-out brief',drill:'re'},
+      {ico:'📋',text:'Lease renewals · SAR 1.06B next 12 mo',drill:'default'},
+      {ico:'🔻',text:'Below-WACC reposition plan · 12 assets',drill:'re'}
+    ],
+    shareLabel:'Share RE Brief via Teams',
+    shareId:'re-brief'
   }
 };
 
 function renderCfoIntel(scope, key){
-  const targetId = scope === 'exec' ? 'execCfoIntelBody' : 'invCfoIntelBody';
-  const target = document.getElementById(targetId);
-  if(!target) return;
   const data = cfoIntelData[scope + '.' + key];
   if(!data) return;
-  let html = '<div class="ai-summary-title">' + data.title + '</div>';
-  data.insights.forEach((insight, i)=>{
-    html += '<div class="ai-insight"><div class="ai-num">' + (i+1) + '</div><div>' + insight + '</div></div>';
-  });
-  target.innerHTML = html;
+
+  // 1. Title + 4 insights (both exec and inv)
+  const bodyId = scope === 'exec' ? 'execCfoIntelBody' : 'invCfoIntelBody';
+  const body = document.getElementById(bodyId);
+  if(body){
+    let html = '<div class="ai-summary-title">' + data.title + '</div>';
+    data.insights.forEach((insight, i)=>{
+      html += '<div class="ai-insight"><div class="ai-num">' + (i+1) + '</div><div>' + insight + '</div></div>';
+    });
+    body.innerHTML = html;
+  }
+
+  // 2. inv-only: mode banner, cash-sources block, next-steps card
+  if(scope === 'inv'){
+    const modeTxt = document.getElementById('invAiModeText');
+    if(modeTxt && data.modeText){ modeTxt.textContent = data.modeText; if(data.modeColor) modeTxt.style.color = data.modeColor; }
+
+    const cashHost = document.getElementById('invCashSources');
+    if(cashHost && data.cashRows){
+      const toneClass = t => t === 'green' ? 'var(--green-soft);color:var(--green-2)' : t === 'amber' ? 'var(--amber-soft);color:var(--amber-2)' : 'var(--red-soft);color:var(--red-2)';
+      let h = '<div class="ai-section">' + (data.cashTitle || 'CASH COMPONENTS · Q1') + '</div>';
+      data.cashRows.forEach(r=>{
+        h += '<div class="ai-bu"><div class="nm"><span class="pdot" style="background:'+r.color+'"></span>'+r.label+'</div><div class="vl"><span class="num">'+r.val+'</span><span class="pct" style="background:'+toneClass(r.tone)+'">'+r.pct+'</span></div></div>';
+      });
+      cashHost.innerHTML = h;
+    }
+
+    const nsCard = document.getElementById('invNextStepsCard');
+    if(nsCard && data.nextSteps){
+      let h = '<div class="ai-section" style="margin-top:0">CFO NEXT STEPS</div>';
+      data.nextSteps.forEach(s=>{
+        h += '<div class="next-step" onclick="openDrill(\'' + s.drill + '\')"><div class="ns-ico">'+s.ico+'</div><div class="ns-text">'+s.text+'</div><span class="ns-arrow">›</span></div>';
+      });
+      h += '<button class="share-teams" onclick="openTeams(\'' + (data.shareId || 'fpa-pack') + '\')">📢 ' + (data.shareLabel || 'Share CFO Pack via Teams') + '</button>';
+      nsCard.innerHTML = h;
+    }
+  }
 }
 
 function syncCsSelector(p){
