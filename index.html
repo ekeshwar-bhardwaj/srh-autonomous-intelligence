@@ -472,6 +472,13 @@ body{background:var(--bg);color:var(--t-1);transition:background .4s ease}
 .stage-pill.divest{background:var(--gold-soft);color:var(--gold-2)}
 .stage-pill.stress{background:var(--red-soft);color:var(--red-2)}
 .stage-pill.watch{background:var(--amber-soft);color:var(--amber-2)}
+.stage-pill.healthy{background:var(--green-soft);color:var(--green-2)}
+.stage-pill.atrisk{background:var(--red-soft);color:var(--red-2)}
+.stage-pill.watchlist{background:var(--amber-soft);color:var(--amber-2)}
+.stage-pill.returning{background:var(--green-soft);color:var(--green-2)}
+.stage-pill.drawing{background:var(--blue-soft);color:var(--blue-2)}
+.stage-pill.consuming{background:var(--red-soft);color:var(--red-2)}
+.stage-pill.fx{background:rgba(160,34,110,.10);color:#c92a8e;border:1px solid rgba(160,34,110,.30)}
 
 /* === SECTION 1 — CAPITAL DEPLOYMENT & EXPOSURE · 5-visual layout === */
 .cap-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:12px}
@@ -545,6 +552,124 @@ body{background:var(--bg);color:var(--t-1);transition:background .4s ease}
 .rm-bubble.consuming{background:linear-gradient(135deg,#dc2626,#991b1b);outline:2px solid rgba(239,68,68,.5);outline-offset:1px}
 .rm-axes-wrap{position:relative;padding:0 8px 28px 36px}
 
+/* === HEALTH CARD GRID (subsidiary scorecard) === */
+.health-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:6px}
+.health-card{padding:11px 13px;border-radius:10px;background:#fbfbfd;border:1px solid var(--line);position:relative;display:flex;flex-direction:column;gap:8px;transition:transform .15s,box-shadow .15s}
+.health-card:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(20,10,40,.08)}
+.health-card.healthy{background:linear-gradient(135deg,rgba(16,185,129,.06),rgba(16,185,129,.01));border-color:rgba(16,185,129,.28)}
+.health-card.growth{background:linear-gradient(135deg,rgba(59,130,246,.06),rgba(59,130,246,.01));border-color:rgba(59,130,246,.30)}
+.health-card.watch{background:linear-gradient(135deg,rgba(245,158,11,.07),rgba(245,158,11,.01));border-color:rgba(245,158,11,.35)}
+.health-card.atrisk{background:linear-gradient(135deg,rgba(239,68,68,.08),rgba(239,68,68,.01));border-color:rgba(239,68,68,.40)}
+.health-card-head{display:flex;justify-content:space-between;align-items:center;gap:6px}
+.health-card-name{font-size:12px;font-weight:800;color:var(--t-1);line-height:1.2;display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.health-card-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;font-size:10.5px}
+.health-card-grid > div{display:flex;justify-content:space-between;align-items:baseline;gap:6px;padding-bottom:3px;border-bottom:1px dashed rgba(20,10,40,.06)}
+.health-card-grid .k{font-size:9.5px;color:var(--t-3);font-weight:700;letter-spacing:.3px;text-transform:uppercase}
+.health-card-grid .v{font-size:11.5px;font-weight:800;color:var(--t-1);font-variant-numeric:tabular-nums}
+.health-card-grid .v.up{color:var(--green-2)}
+.health-card-grid .v.down{color:var(--red-2)}
+.health-card-grid .v.amber{color:var(--amber-2)}
+.health-card-foot{display:flex;justify-content:space-between;align-items:center;padding-top:6px;border-top:1px dashed rgba(20,10,40,.08);font-size:10px;color:var(--t-3)}
+.health-card-foot b{color:var(--t-1);font-weight:700}
+.refi.warn{color:var(--amber-2)}
+.refi.bad{color:var(--red-2)}
+.lev-gauge{display:flex;flex-direction:column;gap:4px}
+.lev-gauge-lbl{display:flex;justify-content:space-between;font-size:9.5px;color:var(--t-3);font-weight:600;letter-spacing:.3px}
+.lev-gauge-lbl b{color:var(--t-1);font-weight:800;font-variant-numeric:tabular-nums}
+.lev-gauge-bar{position:relative;height:7px;background:rgba(20,10,40,.06);border-radius:4px;overflow:hidden}
+.lev-gauge-bar .fill{position:absolute;top:0;bottom:0;left:0;border-radius:4px;transition:width .3s}
+.lev-gauge-bar .fill.ok{background:linear-gradient(90deg,#10b981,#34d399)}
+.lev-gauge-bar .fill.warn{background:linear-gradient(90deg,#f59e0b,#fbbf24)}
+.lev-gauge-bar .fill.bad{background:linear-gradient(90deg,#dc2626,#f87171)}
+.lev-gauge-bar .mark{position:absolute;top:-2px;bottom:-2px;width:2px;background:rgba(20,10,40,.45);transform:translateX(-50%)}
+
+/* === IC BAR LIST (open intercompany balances) === */
+.bar-list{display:flex;flex-direction:column;gap:6px;padding:4px 0}
+.ic-row{display:grid;grid-template-columns:1.5fr 1fr 70px 90px;gap:10px;align-items:center;padding:9px 12px;border-radius:8px;background:#fbfbfd;border:1px solid var(--line);font-size:11px;color:var(--t-2)}
+.ic-row.aged-90{background:rgba(239,68,68,.07);border-color:rgba(239,68,68,.34)}
+.ic-row.aged-60{background:rgba(245,158,11,.07);border-color:rgba(245,158,11,.34)}
+.ic-row.aged-30{background:rgba(160,34,110,.05);border-color:rgba(160,34,110,.26)}
+.ic-row.aged-ok{background:rgba(16,185,129,.04);border-color:rgba(16,185,129,.22)}
+.ic-row .icname{font-weight:700;color:var(--t-1);font-size:11.5px;display:flex;flex-direction:column;gap:2px}
+.ic-row .icname .sub{font-size:9.5px;color:var(--t-3);font-weight:500}
+.ic-row .icbar{height:10px;border-radius:5px;background:rgba(20,10,40,.06);position:relative;overflow:hidden}
+.ic-row .icbar .fill{position:absolute;top:0;bottom:0;left:0;border-radius:5px}
+.ic-row.aged-90 .icbar .fill{background:linear-gradient(90deg,#dc2626,#f87171)}
+.ic-row.aged-60 .icbar .fill{background:linear-gradient(90deg,#d97706,#fbbf24)}
+.ic-row.aged-30 .icbar .fill{background:linear-gradient(90deg,#a0226e,#c92a8e)}
+.ic-row.aged-ok .icbar .fill{background:linear-gradient(90deg,#10b981,#34d399)}
+.ic-row .icval{text-align:right;font-weight:800;font-size:13px;font-variant-numeric:tabular-nums;color:var(--t-1)}
+.ic-row .icmeta{text-align:right;font-size:9px;color:var(--t-3);font-weight:600;letter-spacing:.3px;text-transform:uppercase;line-height:1.3}
+.ic-row .icmeta b{display:block;font-size:10px;color:var(--t-2);font-weight:800;letter-spacing:.4px}
+.ic-row.aged-90 .icmeta b{color:var(--red-2)}
+.ic-row.aged-60 .icmeta b{color:var(--amber-2)}
+.ic-total{display:grid;grid-template-columns:1.5fr 1fr 70px 90px;gap:10px;align-items:center;padding:10px 12px;border-radius:8px;background:linear-gradient(135deg,rgba(160,34,110,.10),rgba(160,34,110,.03));border:1px solid rgba(160,34,110,.32);margin-top:4px;font-size:11px;color:var(--t-1);font-weight:700}
+.ic-total .icname{font-weight:800;font-size:12px;display:flex;flex-direction:column;gap:2px}
+.ic-total .icname .sub{font-size:9.5px;font-weight:500}
+.ic-total .icbar{height:10px;border-radius:5px;background:rgba(20,10,40,.06);position:relative;overflow:hidden}
+.ic-total .icbar .fill{position:absolute;top:0;bottom:0;left:0;border-radius:5px}
+.ic-total .icval{text-align:right;font-weight:800;font-size:14px;font-variant-numeric:tabular-nums;color:#8b1a6b}
+.ic-total .icmeta{text-align:right;font-size:9px;color:var(--t-3);font-weight:600;letter-spacing:.3px;text-transform:uppercase;line-height:1.3}
+.ic-total .icmeta b{display:block;font-size:10.5px;color:var(--red-2);font-weight:800}
+.dispute-badge{display:inline-block;margin-left:5px;padding:1px 6px;background:rgba(239,68,68,.10);color:var(--red-2);border:1px solid rgba(239,68,68,.30);border-radius:8px;font-size:8.5px;font-weight:700;letter-spacing:.3px;vertical-align:middle}
+
+/* === PROJECT CARDS (capital deployment, new investments, pipeline) === */
+.proj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.proj-card{padding:10px 12px;border-radius:9px;background:#fbfbfd;border:1px solid var(--line);display:flex;flex-direction:column;gap:4px;transition:transform .15s,box-shadow .15s}
+.proj-card:hover{transform:translateY(-1px);box-shadow:0 6px 18px rgba(20,10,40,.08)}
+.proj-card.ontrack{background:linear-gradient(135deg,rgba(16,185,129,.06),rgba(16,185,129,.01));border-color:rgba(16,185,129,.28)}
+.proj-card.accrual{background:linear-gradient(135deg,rgba(59,130,246,.06),rgba(59,130,246,.01));border-color:rgba(59,130,246,.30)}
+.proj-card.atrisk{background:linear-gradient(135deg,rgba(245,158,11,.07),rgba(245,158,11,.01));border-color:rgba(245,158,11,.35)}
+
+
+/* === OPERATIONAL MIS · 2x2 fit-to-viewport grid === */
+#view-ops .dash-main{overflow:hidden;gap:8px}
+.ops-grid{display:grid;grid-template-columns:1.15fr 1fr;grid-template-rows:1fr 1fr;gap:8px;flex:1 1 auto;min-height:0}
+.ops-grid > .ops-panel{display:flex;flex-direction:column;min-height:0;overflow:hidden;padding:7px 11px;gap:5px}
+.ops-grid > .ops-panel > .panel-head{flex-shrink:0;margin:0 0 1px}
+.ops-grid > .ops-panel > .panel-head .panel-meta{font-size:9.5px;line-height:1.25;margin-top:1px}
+.ops-grid .ops-ch{position:relative;flex:1 1 auto;min-height:0;width:100%;overflow:hidden}
+.ops-grid .ops-ch canvas{position:absolute;inset:0;display:block;max-width:100%;max-height:100%}
+.ops-grid .ops-split{display:grid;grid-template-columns:auto 1fr;gap:12px;flex:1 1 auto;min-height:0;align-items:center}
+.ops-grid .ops-split > .ops-donut-ch{position:relative;width:155px;height:155px;flex:none;overflow:hidden;justify-self:center}
+.ops-grid .ops-split > .ops-gauge-ch{position:relative;width:180px;height:110px;flex:none;overflow:hidden;justify-self:center}
+.ops-grid .ops-donut-center{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;text-align:center;line-height:1.05;z-index:2}
+.ops-grid .ops-donut-center .lbl{font-size:8px;color:var(--t-3);font-weight:700;letter-spacing:.5px;text-transform:uppercase}
+.ops-grid .ops-donut-center .val{font-size:15px;font-weight:800;color:var(--t-1);font-variant-numeric:tabular-nums;letter-spacing:-.4px;margin-top:1px;line-height:1}
+.ops-grid .ops-donut-center .sub{font-size:8.5px;color:var(--amber-2);font-weight:700;margin-top:1px}
+.ops-grid .ops-gauge-center{position:absolute;left:0;right:0;bottom:6px;text-align:center;line-height:1.05;z-index:2;pointer-events:none}
+.ops-grid .ops-gauge-center .val{font-size:17px;font-weight:800;color:var(--green-2);font-variant-numeric:tabular-nums;letter-spacing:-.4px;line-height:1}
+.ops-grid .ops-gauge-center .lbl{font-size:7.5px;color:var(--t-3);font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-top:1px}
+.ops-grid .ops-gauge-center .sub{font-size:8.5px;color:var(--amber-2);font-weight:700;margin-top:0}
+.ops-grid .ops-strip{display:grid;gap:5px;flex-shrink:0}
+.ops-grid .ops-strip.g2{grid-template-columns:repeat(2,1fr)}
+.ops-grid .ops-strip.g3{grid-template-columns:repeat(3,1fr)}
+.ops-grid .ops-strip.g4{grid-template-columns:repeat(4,1fr)}
+.ops-grid .ops-strip-v{display:flex;flex-direction:column;gap:5px;justify-content:center;min-width:0}
+.ops-grid .ops-strip-v .ops-stat{flex:1 1 auto;display:flex;flex-direction:column;justify-content:center}
+.ops-grid .ops-stat{padding:5px 8px;border-radius:6px;border:1px solid var(--line);background:rgba(20,10,40,.04);min-width:0;overflow:hidden}
+.ops-grid .ops-stat .lbl{font-size:8px;font-weight:700;letter-spacing:.4px;text-transform:uppercase;color:var(--t-3);line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ops-grid .ops-stat .val{font-size:12px;font-weight:800;color:var(--t-1);margin-top:1px;line-height:1;font-variant-numeric:tabular-nums;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ops-grid .ops-stat .sub{font-size:8.5px;color:var(--t-3);margin-top:1px;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ops-grid .ops-stat.ok{background:rgba(16,185,129,.07);border-color:rgba(16,185,129,.24)}
+.ops-grid .ops-stat.ok .lbl,.ops-grid .ops-stat.ok .val{color:var(--green-2)}
+.ops-grid .ops-stat.warn{background:rgba(245,158,11,.07);border-color:rgba(245,158,11,.24)}
+.ops-grid .ops-stat.warn .lbl,.ops-grid .ops-stat.warn .val{color:var(--amber-2)}
+.ops-grid .ops-stat.magenta{background:rgba(160,34,110,.06);border-color:rgba(160,34,110,.22)}
+.ops-grid .ops-stat.magenta .lbl,.ops-grid .ops-stat.magenta .val{color:#c92a8e}
+.ops-grid .ops-stat.neutral{background:rgba(20,10,40,.04);border-color:var(--line)}
+.ops-grid .ops-cc-list{display:flex;flex-direction:column;gap:3px;font-size:10px;line-height:1.25;min-width:0;justify-content:center}
+.ops-grid .ops-cc-row{display:flex;justify-content:space-between;align-items:center;padding:4px 8px;background:rgba(107,23,72,.06);border-radius:5px;color:var(--t-2);gap:6px;min-width:0;white-space:nowrap;overflow:hidden}
+.ops-grid .ops-cc-row > span{overflow:hidden;text-overflow:ellipsis}
+.ops-grid .ops-cc-row > span:last-child{flex-shrink:0;text-align:right}
+.ops-grid .ops-cc-row b{color:var(--t-1)}
+.ops-grid .ops-cc-row .muted{color:var(--t-3);font-weight:500}
+.ops-grid .ops-cc-row.red{background:rgba(239,68,68,.07);border-left:3px solid #dc2626;color:var(--red-2)}
+.ops-grid .ops-cc-row.red b{color:var(--red-2)}
+.ops-grid .ops-cc-row.green{background:rgba(16,185,129,.06);border-left:3px solid #10b981;color:var(--green-2)}
+.ops-grid .ops-cc-row.green b{color:var(--green-2)}
+.ops-grid .ops-cc-row.amber{background:rgba(245,158,11,.07);color:var(--t-1)}
+.ops-grid .ops-cc-row.amber .mono{color:var(--amber-2)}
 
 /* === MODAL === */
 .modal-bg{position:fixed;inset:0;background:rgba(20,10,40,.42);backdrop-filter:blur(8px);z-index:200;display:none;align-items:flex-start;justify-content:center;padding:60px 24px;overflow-y:auto}
@@ -2075,80 +2200,82 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
         </div>
       </div>
 
-      <!-- PROJECT COST WATERFALL + COST CENTRE DONUT (2-col) -->
-      <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:14px">
-        <div class="panel">
-          <div class="panel-head">
-            <div class="panel-title">Project Cost Waterfall <span class="panel-tag" style="background:rgba(245,158,11,.15);color:var(--amber-2);border-color:rgba(245,158,11,.3)">📊 SAP FI/CO · PMO feed</span></div>
-            <div class="panel-meta">FY26 budget SAR 300M → YTD spend SAR 213M → remaining SAR 87M · 7 projects</div>
-          </div>
-          <div style="position:relative;height:200px;margin-top:4px"><canvas id="opsProjectWaterfallChart"></canvas></div>
-          <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-top:8px">
-            <div style="padding:6px 9px;background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.24);border-radius:7px"><div style="font-size:8.5px;color:var(--green-2);font-weight:700;letter-spacing:.4px">BOOKED YTD</div><div style="font-size:14px;font-weight:800;color:var(--green-2);margin-top:1px;line-height:1">SAR 198M</div><div style="font-size:9px;color:var(--t-3);margin-top:1px">93% · GL clean</div></div>
-            <div style="padding:6px 9px;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.24);border-radius:7px"><div style="font-size:8.5px;color:var(--amber-2);font-weight:700;letter-spacing:.4px">ACCRUED · OPEN</div><div style="font-size:14px;font-weight:800;color:var(--amber-2);margin-top:1px;line-height:1">SAR 15M</div><div style="font-size:9px;color:var(--t-3);margin-top:1px">force-book by EOM</div></div>
-            <div style="padding:6px 9px;background:rgba(160,34,110,.07);border:1px solid rgba(160,34,110,.24);border-radius:7px"><div style="font-size:8.5px;color:#c92a8e;font-weight:700;letter-spacing:.4px">REMAINING</div><div style="font-size:14px;font-weight:800;color:#c92a8e;margin-top:1px;line-height:1">SAR 87M</div><div style="font-size:9px;color:var(--t-3);margin-top:1px">29% · H2 runway</div></div>
-          </div>
-          <div style="margin-top:6px;padding:6px 9px;background:rgba(245,158,11,.05);border:1px dashed rgba(245,158,11,.32);border-radius:7px;font-size:9.5px;color:var(--t-2);line-height:1.5"><b style="color:var(--amber-2)">CFO read:</b> SAR 15M accrued but not yet booked. Force-book by EOM. ⚠ Atbara Risk Mitigation only over-budget project (+12%).</div>
-        </div>
-        <div class="panel">
-          <div class="panel-head">
-            <div class="panel-title">Cost Centres <span class="panel-tag" style="background:rgba(245,158,11,.15);color:var(--amber-2);border-color:rgba(245,158,11,.3)">🧾 SAP FI/CO</span></div>
-            <div class="panel-meta">HoldCo OPEX SAR 234M · 5 functions · vs 222M plan · +5.4%</div>
-          </div>
-          <div style="position:relative;height:170px;margin-top:4px">
-            <canvas id="opsCostCentreChart"></canvas>
-            <div style="position:absolute;inset:0;display:grid;place-items:center;pointer-events:none">
-              <div style="text-align:center;line-height:1.05">
-                <div style="font-size:8.5px;color:var(--t-3);font-weight:700;letter-spacing:.6px;text-transform:uppercase">HoldCo OPEX</div>
-                <div style="font-size:18px;font-weight:800;color:var(--t-1);font-variant-numeric:tabular-nums;letter-spacing:-.5px;margin-top:2px">SAR 234M</div>
-                <div style="font-size:9.5px;color:var(--amber-2);font-weight:700;margin-top:2px">+5.4% vs plan</div>
-              </div>
-            </div>
-          </div>
-          <div style="margin-top:6px;display:flex;flex-direction:column;gap:3px;font-size:10px;color:var(--t-2);line-height:1.35">
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 8px;background:rgba(107,23,72,.06);border-radius:5px"><span><b style="color:var(--t-1)">Employee</b></span><span class="mono" style="color:var(--t-1)"><b>SAR 142M</b> <span style="color:var(--t-3);font-weight:500">· 60.7%</span></span></div>
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 8px;background:rgba(239,68,68,.07);border-radius:5px;border-left:3px solid #dc2626"><span style="color:var(--red-2)"><b>⚠ Legal</b></span><span class="mono" style="color:var(--red-2)"><b>SAR 38M</b> <span style="color:var(--red-2);font-weight:600">· +35.7%</span></span></div>
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 8px;background:rgba(16,185,129,.06);border-radius:5px;border-left:3px solid #10b981"><span style="color:var(--green-2)"><b>IT Operations</b></span><span class="mono" style="color:var(--green-2)"><b>SAR 22M</b> <span style="font-weight:600">· −8.3%</span></span></div>
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 8px;background:rgba(16,185,129,.06);border-radius:5px;border-left:3px solid #10b981"><span style="color:var(--green-2)"><b>Finance Ops</b></span><span class="mono" style="color:var(--green-2)"><b>SAR 18M</b> <span style="font-weight:600">· −5.3%</span></span></div>
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:5px 8px;background:rgba(245,158,11,.07);border-radius:5px"><span><b style="color:var(--t-1)">Admin / Other</b></span><span class="mono" style="color:var(--amber-2)"><b>SAR 14M</b> <span style="font-weight:600">· +7.7%</span></span></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- ROW: COST TREND + COST-BOOKING HEALTH -->
-      <div style="display:grid;grid-template-columns:1.2fr .8fr;gap:14px">
-        <div class="panel">
+      <!-- OPS DASHBOARD GRID · 2x2 quadrants (best-practice F-pattern: trend → composition → execution → hygiene) -->
+      <div class="ops-grid">
+        <!-- TOP-LEFT: HoldCo OPEX Trend (12-mo time-series) -->
+        <div class="panel ops-panel">
           <div class="panel-head">
             <div class="panel-title">HoldCo OPEX Trend — 12 Months <span class="panel-tag" style="background:rgba(245,158,11,.15);color:var(--amber-2);border-color:rgba(245,158,11,.3)">📊 SAP FI/CO</span></div>
-            <div class="panel-meta">May 25 → Apr 26 · SAR M · Q1 26 actual SAR 234M · +5.4% vs plan</div>
+            <div class="panel-meta">May 25 → Apr 26 · SAR M · Q1 actual SAR 234M · +5.4% vs plan</div>
           </div>
-          <div style="position:relative;height:160px;margin-top:4px"><canvas id="opsCostChart"></canvas></div>
-          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:6px">
-            <div style="padding:5px 8px;background:rgba(20,10,40,.04);border:1px solid var(--line);border-radius:7px"><div style="font-size:8.5px;color:var(--t-3);font-weight:700;letter-spacing:.4px">LTM PEAK</div><div style="font-size:13px;font-weight:800;color:var(--t-1);margin-top:1px;line-height:1">SAR 82M</div><div style="font-size:8.5px;color:var(--t-3);margin-top:1px">Feb 26 · true-ups</div></div>
-            <div style="padding:5px 8px;background:rgba(16,185,129,.06);border:1px solid rgba(16,185,129,.22);border-radius:7px"><div style="font-size:8.5px;color:var(--green-2);font-weight:700;letter-spacing:.4px">LTM TROUGH</div><div style="font-size:13px;font-weight:800;color:var(--green-2);margin-top:1px;line-height:1">SAR 68M</div><div style="font-size:8.5px;color:var(--t-3);margin-top:1px">May 25 · low</div></div>
-            <div style="padding:5px 8px;background:rgba(160,34,110,.06);border:1px solid rgba(160,34,110,.22);border-radius:7px"><div style="font-size:8.5px;color:#c92a8e;font-weight:700;letter-spacing:.4px">12M AVG</div><div style="font-size:13px;font-weight:800;color:#c92a8e;margin-top:1px;line-height:1">SAR 73.8M</div><div style="font-size:8.5px;color:var(--t-3);margin-top:1px">+1.4% vs plan</div></div>
-            <div style="padding:5px 8px;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.24);border-radius:7px"><div style="font-size:8.5px;color:var(--amber-2);font-weight:700;letter-spacing:.4px">MONTHS OVER</div><div style="font-size:13px;font-weight:800;color:var(--amber-2);margin-top:1px;line-height:1">7 / 12</div><div style="font-size:8.5px;color:var(--t-3);margin-top:1px">rising · Legal</div></div>
+          <div class="ops-ch"><canvas id="opsCostChart"></canvas></div>
+          <div class="ops-strip g4">
+            <div class="ops-stat neutral"><div class="lbl">LTM PEAK</div><div class="val">SAR 82M</div><div class="sub">Feb · true-ups</div></div>
+            <div class="ops-stat ok"><div class="lbl">LTM TROUGH</div><div class="val">SAR 68M</div><div class="sub">May 25 low</div></div>
+            <div class="ops-stat magenta"><div class="lbl">12M AVG</div><div class="val">SAR 73.8M</div><div class="sub">+1.4% vs plan</div></div>
+            <div class="ops-stat warn"><div class="lbl">MONTHS OVER</div><div class="val">7 / 12</div><div class="sub">rising · Legal</div></div>
           </div>
         </div>
-        <div class="panel">
+
+        <!-- TOP-RIGHT: Cost Centres composition (donut left, ranked list right) -->
+        <div class="panel ops-panel">
           <div class="panel-head">
-            <div class="panel-title">Cost Booking Health <span class="panel-tag" style="background:rgba(245,158,11,.15);color:var(--amber-2);border-color:rgba(245,158,11,.3)">🧾 SAP FI/CO · close-cockpit</span></div>
-            <div class="panel-meta">Q1 close · booked vs accrued · target 95% booking rate</div>
+            <div class="panel-title">Cost Centres <span class="panel-tag" style="background:rgba(245,158,11,.15);color:var(--amber-2);border-color:rgba(245,158,11,.3)">🧾 SAP FI/CO</span></div>
+            <div class="panel-meta">HoldCo OPEX SAR 234M · vs 222M plan · +5.4%</div>
           </div>
-          <div style="position:relative;height:110px;margin-top:6px"><canvas id="opsBookingGaugeChart"></canvas>
-            <div style="position:absolute;inset:0;display:grid;place-items:center;pointer-events:none">
-              <div style="text-align:center;line-height:1.05;margin-top:22px">
-                <div style="font-size:22px;font-weight:800;color:var(--green-2);font-variant-numeric:tabular-nums;letter-spacing:-.5px">89%</div>
-                <div style="font-size:8px;color:var(--t-3);font-weight:700;letter-spacing:.5px;text-transform:uppercase;margin-top:1px">booking rate</div>
-                <div style="font-size:9px;color:var(--amber-2);font-weight:700;margin-top:2px">−6pp vs 95% target</div>
+          <div class="ops-split">
+            <div class="ops-ch ops-donut-ch">
+              <canvas id="opsCostCentreChart"></canvas>
+              <div class="ops-donut-center">
+                <div class="lbl">OPEX</div>
+                <div class="val">234M</div>
+                <div class="sub">+5.4%</div>
               </div>
             </div>
+            <div class="ops-cc-list">
+              <div class="ops-cc-row"><span><b>Employee</b></span><span class="mono"><b>142M</b> <span class="muted">· 60.7%</span></span></div>
+              <div class="ops-cc-row red"><span><b>⚠ Legal</b></span><span class="mono"><b>38M</b> <span>· +35.7%</span></span></div>
+              <div class="ops-cc-row green"><span><b>IT Ops</b></span><span class="mono"><b>22M</b> <span>· −8.3%</span></span></div>
+              <div class="ops-cc-row green"><span><b>Finance Ops</b></span><span class="mono"><b>18M</b> <span>· −5.3%</span></span></div>
+              <div class="ops-cc-row amber"><span><b>Admin/Other</b></span><span class="mono"><b>14M</b> <span>· +7.7%</span></span></div>
+            </div>
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-top:4px">
-            <div style="padding:5px 8px;background:rgba(16,185,129,.08);border:1px solid rgba(16,185,129,.28);border-radius:7px"><div style="font-size:8.5px;color:var(--green-2);font-weight:700;letter-spacing:.4px">BOOKED · GL</div><div style="font-size:13px;font-weight:800;color:var(--green-2);margin-top:1px;line-height:1">SAR 208M</div><div style="font-size:8.5px;color:var(--t-3);margin-top:1px">89% of YTD</div></div>
-            <div style="padding:5px 8px;background:rgba(245,158,11,.08);border:1px solid rgba(245,158,11,.32);border-radius:7px"><div style="font-size:8.5px;color:var(--amber-2);font-weight:700;letter-spacing:.4px">ACCRUED · OPEN</div><div style="font-size:13px;font-weight:800;color:var(--amber-2);margin-top:1px;line-height:1">SAR 26M</div><div style="font-size:8.5px;color:var(--t-3);margin-top:1px">11% · target &lt;5%</div></div>
+        </div>
+
+        <!-- BOTTOM-LEFT: Project Cost Waterfall -->
+        <div class="panel ops-panel">
+          <div class="panel-head">
+            <div class="panel-title">Project Cost Waterfall <span class="panel-tag" style="background:rgba(245,158,11,.15);color:var(--amber-2);border-color:rgba(245,158,11,.3)">📊 SAP FI/CO · PMO</span></div>
+            <div class="panel-meta">FY26 budget SAR 300M → YTD spend SAR 213M → remaining SAR 87M · 7 projects</div>
           </div>
-          <div style="margin-top:6px;padding:6px 9px;background:rgba(245,158,11,.05);border:1px dashed rgba(245,158,11,.32);border-radius:7px;font-size:9.5px;color:var(--t-2);line-height:1.4"><b style="color:var(--amber-2)">Recommend:</b> force-book invoices &gt;30 days · re-open S/4HANA POs by EOM.</div>
+          <div class="ops-ch"><canvas id="opsProjectWaterfallChart"></canvas></div>
+          <div class="ops-strip g3">
+            <div class="ops-stat ok"><div class="lbl">BOOKED YTD</div><div class="val">SAR 198M</div><div class="sub">93% · GL clean</div></div>
+            <div class="ops-stat warn"><div class="lbl">ACCRUED · OPEN</div><div class="val">SAR 15M</div><div class="sub">force-book EOM</div></div>
+            <div class="ops-stat magenta"><div class="lbl">REMAINING</div><div class="val">SAR 87M</div><div class="sub">29% · H2 runway</div></div>
+          </div>
+        </div>
+
+        <!-- BOTTOM-RIGHT: Cost Booking Health gauge (gauge left, stacked stats right) -->
+        <div class="panel ops-panel">
+          <div class="panel-head">
+            <div class="panel-title">Cost Booking Health <span class="panel-tag" style="background:rgba(245,158,11,.15);color:var(--amber-2);border-color:rgba(245,158,11,.3)">🧾 close-cockpit</span></div>
+            <div class="panel-meta">Q1 close · booked vs accrued · target 95% booking rate</div>
+          </div>
+          <div class="ops-split">
+            <div class="ops-ch ops-gauge-ch">
+              <canvas id="opsBookingGaugeChart"></canvas>
+              <div class="ops-gauge-center">
+                <div class="val">89%</div>
+                <div class="lbl">BOOKING RATE</div>
+                <div class="sub">−6pp vs 95%</div>
+              </div>
+            </div>
+            <div class="ops-strip-v">
+              <div class="ops-stat ok"><div class="lbl">BOOKED · GL</div><div class="val">SAR 208M</div><div class="sub">89% of YTD</div></div>
+              <div class="ops-stat warn"><div class="lbl">ACCRUED · OPEN</div><div class="val">SAR 26M</div><div class="sub">11% · target &lt;5%</div></div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -2247,30 +2374,6 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
       </div>
       -->
 
-      <!-- FUNCTION-LEVEL PERFORMANCE — collapsed by default (Tier 1 trim 18 May 2026; duplicates HoldCo OPEX Trend above. Summary row keeps the Legal +35.7% signal visible; full per-function table expands on click). -->
-      <div class="panel" id="fnCostPanel">
-        <div class="panel-head" style="cursor:pointer" onclick="toggleCollapse('fnCostPanel')">
-          <div class="panel-title">Function-Level Cost Performance <span class="panel-tag" style="background:rgba(245,158,11,.15);color:var(--amber-2);border-color:rgba(245,158,11,.3)">📊 SAP FI/CO</span></div>
-          <div class="panel-meta">Q1 2026 · OPEX by function vs budget · <span style="color:var(--red-2);font-weight:700">Legal +35.7%</span> top driver · <span class="collapse-toggle" style="color:#c92a8e;font-weight:700">▾ Expand detail</span></div>
-        </div>
-        <div class="collapse-body" style="display:none">
-          <table class="tbl">
-            <thead><tr><th>Function</th><th>Lead</th><th class="r">Q1 OPEX (SAR M)</th><th class="r">Budget</th><th class="r">vs Budget</th></tr></thead>
-            <tbody>
-              <tr><td><b>Investment Analysis &amp; Ops</b></td><td>Ahmed Al-Faisal</td><td class="r mono">14.2</td><td class="r mono">14.5</td><td class="r mono" style="color:var(--green-2)">−2.1%</td></tr>
-              <tr><td><b>Real Estate</b></td><td>Faisal Al-Sudairi</td><td class="r mono">22.4</td><td class="r mono">22.1</td><td class="r mono" style="color:var(--amber-2)">+1.2%</td></tr>
-              <tr><td><b>Direct Investments</b></td><td>Abdullah Al-Rashidi</td><td class="r mono">11.8</td><td class="r mono">12.4</td><td class="r mono" style="color:var(--green-2)">−4.5%</td></tr>
-              <tr><td><b>Financial Investments</b></td><td>Sara Al-Dawsari</td><td class="r mono">8.6</td><td class="r mono">8.9</td><td class="r mono" style="color:var(--green-2)">−3.2%</td></tr>
-              <tr><td><b>Corporate Enablement</b></td><td>Yousef Al-Ghamdi</td><td class="r mono">48.4</td><td class="r mono">46.6</td><td class="r mono" style="color:var(--amber-2)">+3.8%</td></tr>
-              <tr style="background:rgba(239,68,68,.04)"><td><b>Legal</b></td><td>Nora Al-Otaibi</td><td class="r mono">38.0</td><td class="r mono">28.0</td><td class="r mono" style="color:var(--red-2)"><b>+35.7%</b></td></tr>
-              <tr><td><b>Enterprise Risk Mgmt</b></td><td>Tariq Al-Mansour</td><td class="r mono">6.4</td><td class="r mono">6.5</td><td class="r mono" style="color:var(--green-2)">−1.8%</td></tr>
-              <tr><td><b>Governance &amp; Compliance</b></td><td>Khalid Al-Sulaiman</td><td class="r mono">5.2</td><td class="r mono">5.6</td><td class="r mono" style="color:var(--green-2)">−6.4%</td></tr>
-              <tr><td><b>Finance</b></td><td>Mohammed Al-Shehri</td><td class="r mono">19.8</td><td class="r mono">20.3</td><td class="r mono" style="color:var(--green-2)">−2.4%</td></tr>
-              <tr style="font-weight:700;background:rgba(20,10,40,.025)"><td colspan="2"><b>TOTAL HoldCo OPEX</b></td><td class="r mono"><b>175.0</b></td><td class="r mono">164.9</td><td class="r mono" style="color:var(--amber-2)"><b>+6.1%</b></td></tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
     </main>
 
     <!-- AI INSIGHTS · CFO LENS -->
