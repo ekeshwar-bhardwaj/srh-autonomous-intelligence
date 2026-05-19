@@ -359,80 +359,7 @@ body{background:var(--bg);color:var(--t-1);transition:background .4s ease}
 .difi-toggle button.act{background:var(--persona-soft);color:var(--persona-2);box-shadow:inset 0 0 0 1px var(--persona)}
 .difi-toggle button .ico{font-size:13px}
 .difi-pane{display:none}
-.difi-pane.act{display:flex;flex-direction:column;min-height:0;gap:6px;animation:fadeIn .3s ease}
-
-/* === Finance Intelligence · second-level sub-tabs (fit-to-viewport) === */
-#view-inv .dash-main{overflow:hidden}
-.finsub-tabs{display:inline-flex;gap:0;background:rgba(20,10,40,.03);border:1px solid var(--line-2);border-radius:8px;padding:3px;flex-shrink:0;align-self:flex-start;margin-top:2px}
-.finsub-tabs button{padding:5px 14px;background:transparent;border:0;border-radius:6px;font-size:11.5px;font-weight:600;letter-spacing:.2px;color:var(--t-3);cursor:pointer;font-family:inherit;transition:all .15s}
-.finsub-tabs button:hover{color:var(--t-1)}
-.finsub-tabs button.act{background:var(--persona-soft);color:var(--persona-2);box-shadow:inset 0 0 0 1px rgba(160,34,110,.18)}
-.finsub-pane{display:none;flex:1 1 auto;min-height:0;overflow:hidden;flex-direction:column;gap:8px}
-.finsub-pane.act{display:flex;animation:fadeIn .25s ease}
-
-/* === Fit-to-viewport: panels & chart containers stretch inside sub-tabs === */
-.finsub-pane .cfo-block-title{margin:2px 0 2px;font-size:10.5px;flex-shrink:0}
-.finsub-pane .panel{display:flex;flex-direction:column;min-height:0;padding:7px 11px}
-.finsub-pane .panel > .panel-head{flex-shrink:0;margin:0 0 4px}
-.finsub-pane .panel > .panel-head .panel-meta{font-size:9.5px;line-height:1.25;margin-top:1px}
-.finsub-pane .panel > .chart-wrap,
-.finsub-pane .panel > .chart-wrap.short,
-.finsub-pane .panel > .chart-wrap.tall{flex:1 1 0;min-height:120px;height:auto !important;width:100%;position:relative}
-/* Inline-styled chart container divs inside panels — override fixed height */
-.finsub-pane .panel > div[style*="position:relative"][style*="height"]{flex:1 1 auto;min-height:120px;height:auto !important}
-/* Cards / summary strips BELOW a chart should NOT grow (chart grows) */
-.finsub-pane .panel:has(> .chart-wrap, > .chart-wrap.short, > .chart-wrap.tall, > div[style*="position:relative"][style*="height"]) > div[style*="display:grid"]:not([style*="position:relative"]){flex:0 0 auto}
-.finsub-pane .panel:has(> .chart-wrap, > .chart-wrap.short, > .chart-wrap.tall, > div[style*="position:relative"][style*="height"]) > div[style*="display:flex"]:not([style*="position:relative"]){flex:0 0 auto}
-/* Panels WITHOUT a chart: let the main content grid GROW so cards fill the panel */
-.finsub-pane .panel:not(:has(> .chart-wrap, > .chart-wrap.short, > .chart-wrap.tall, > div[style*="position:relative"][style*="height"])) > div[style*="display:grid"]:not([style*="position:relative"]){flex:1 1 0;min-height:0;align-content:stretch}
-.finsub-pane .panel:not(:has(> .chart-wrap, > .chart-wrap.short, > .chart-wrap.tall, > div[style*="position:relative"][style*="height"])) > div[style*="display:grid"]:not([style*="position:relative"]) > div{min-height:0}
-
-/* Inner column grids (cap-grid-2, inline grid-template-columns) stretch panels */
-.finsub-pane .cap-grid-2,
-.finsub-pane > div[style*="grid-template-columns"]{align-items:stretch;margin:0;min-height:0}
-.finsub-pane .cap-grid-2 > .panel,
-.finsub-pane > div[style*="grid-template-columns"] > .panel{height:100%;min-height:0}
-
-/* === DI · Capital & Exposure : 3 visual rows (donut+geo / waterfall+matrix / heatmap) === */
-.finsub-pane.act[data-pane="di"][data-sub="capital"]{display:grid;grid-template-rows:auto 1fr 1fr 1.4fr;gap:8px}
-.finsub-pane.act[data-pane="di"][data-sub="capital"] .cap-treemap{height:100%;min-height:200px;margin-top:0}
-.finsub-pane.act[data-pane="di"][data-sub="capital"] .risk-matrix{height:100%;min-height:160px}
-.finsub-pane.act[data-pane="di"][data-sub="capital"] .rm-axes-wrap{flex:1 1 0;min-height:0;display:flex;flex-direction:column;padding:0 8px 24px 36px}
-.finsub-pane.act[data-pane="di"][data-sub="capital"] .rm-axes-wrap > .risk-matrix{flex:1 1 0}
-.finsub-pane.act[data-pane="di"][data-sub="capital"] .waterfall-v{flex:1 1 0;min-height:0;justify-content:space-evenly;gap:4px}
-
-/* === DI · Cash & Health : top cash chart row + bottom health-card grid === */
-.finsub-pane.act[data-pane="di"][data-sub="cash"]{display:grid;grid-template-rows:auto 1fr auto 1.1fr;gap:6px}
-.finsub-pane.act[data-pane="di"][data-sub="cash"] > div:not(.cfo-block-title){min-height:0;display:flex;flex-direction:column}
-.finsub-pane.act[data-pane="di"][data-sub="cash"] > div:not(.cfo-block-title) > .panel{flex:1 1 0;min-height:0}
-.finsub-pane.act[data-pane="di"][data-sub="cash"] .health-grid{flex:1 1 0;min-height:0;grid-auto-rows:1fr;align-content:stretch}
-
-/* === DI · Intercompany : full-width 2-column (bar-list + KPI side panel) === */
-.finsub-pane.act[data-pane="di"][data-sub="ic"]{display:grid;grid-template-rows:auto 1fr;gap:6px}
-.finsub-pane.act[data-pane="di"][data-sub="ic"] .bar-list{flex:1 1 0;min-height:0;gap:4px}
-.finsub-pane.act[data-pane="di"][data-sub="ic"] .bar-list > .ic-row{flex:1 1 0;min-height:38px}
-.finsub-pane.act[data-pane="di"][data-sub="ic"] .bar-list > .ic-total{flex:0 0 auto}
-
-/* === FI · Portfolio : 3 big donuts side-by-side, fill viewport === */
-.finsub-pane.act[data-pane="fi"][data-sub="portfolio"]{display:grid;grid-template-rows:auto 1fr;gap:6px}
-
-/* === FI · Returns & Liquidity : 2 rows (returns row + liquidity row) === */
-.finsub-pane.act[data-pane="fi"][data-sub="returns"]{display:grid;grid-template-rows:auto 1fr auto 1fr;gap:6px}
-
-/* === FI · Capital & Income : capital chart + 2-panel income, 2 rows === */
-.finsub-pane.act[data-pane="fi"][data-sub="capital"]{display:grid;grid-template-rows:auto 1fr auto 1fr;gap:6px}
-.finsub-pane.act[data-pane="fi"][data-sub="capital"] > div[style*="grid-template-columns"] > .panel{justify-content:center}
-
-/* === RE · Portfolio : 3 big donuts (same as FI Portfolio) === */
-.finsub-pane.act[data-pane="re"][data-sub="portfolio"]{display:grid;grid-template-rows:auto 1fr;gap:6px}
-
-/* === RE · Returns : net yield chart (left) + below-WACC watchlist (right) === */
-.finsub-pane.act[data-pane="re"][data-sub="returns"]{display:grid;grid-template-rows:auto 1fr;gap:6px}
-
-/* === RE · Operations & Income : operational scorecard + net rental === */
-.finsub-pane.act[data-pane="re"][data-sub="operations"]{display:grid;grid-template-rows:auto 1.6fr auto 1fr;gap:6px}
-.finsub-pane.act[data-pane="re"][data-sub="operations"] .panel > div[style*="grid-template-columns:repeat(5"]{flex:1 1 0;min-height:0;align-items:stretch;grid-auto-rows:1fr}
-.finsub-pane.act[data-pane="re"][data-sub="operations"] > div[style*="grid-template-columns"] > .panel{justify-content:center}
+.difi-pane.act{display:block;animation:fadeIn .3s ease}
 
 /* === CFO BLOCK (used by DI-CFO and FI-CFO sections) === */
 .cfo-block-title{display:flex;align-items:center;gap:10px;font-size:11px;font-weight:700;color:var(--t-3);letter-spacing:1.2px;text-transform:uppercase;margin:10px 0 6px}
@@ -1437,14 +1364,6 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
           </div>
         </div>
 
-        <!-- DI · second-level sub-tabs -->
-        <div class="finsub-tabs" data-pane="di">
-          <button class="act" data-sub="capital" onclick="switchFinSub('di','capital')">Capital &amp; Exposure</button>
-          <button data-sub="cash" onclick="switchFinSub('di','cash')">Cash &amp; Health</button>
-          <button data-sub="ic" onclick="switchFinSub('di','ic')">Intercompany</button>
-        </div>
-
-        <div class="finsub-pane act" data-pane="di" data-sub="capital">
         <!-- 1. CAPITAL DEPLOYMENT & EXPOSURE — 5-visual dashboard -->
         <div class="cfo-block-title"><span class="n">1</span>Capital Deployment &amp; Exposure</div>
 
@@ -1564,9 +1483,6 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
           </div>
         </div>
 
-        </div><!-- /finsub-pane: capital -->
-
-        <div class="finsub-pane" data-pane="di" data-sub="cash">
         <!-- 2. CASH FLOW TO SRH (CFO question pill already in left sidebar; right-side Returning/Consuming summary panel removed — its facts live in the totals row below) -->
         <div class="cfo-block-title"><span class="n">2</span>Cash Flow to RHG <span style="color:var(--green-2);font-size:12px;font-weight:700;margin-left:10px;text-transform:none;letter-spacing:.2px">→ 7 returning · 2 consuming · Net SAR 412M to RHG (+33% vs plan)</span></div>
         <div>
@@ -1603,9 +1519,6 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
           <div style="margin-top:10px;padding:10px 12px;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.22);border-radius:8px;font-size:11.5px;color:var(--t-2);line-height:1.55"><b style="color:var(--red-2)">Risk flags:</b> 1 default risk (Atbara · 4.6× leverage breach) · 2 refinancings due in 12 mo (ADEC SAR 240M, Wat. Agri SAR 140M) · 2 FX-exposed (Atbara SDG, Al Safa EGP)</div>
         </div>
 
-        </div><!-- /finsub-pane: cash -->
-
-        <div class="finsub-pane" data-pane="di" data-sub="ic">
         <!-- 4. INTERCOMPANY POSITION (Very Important) -->
         <div class="cfo-block-title"><span class="n">4</span>Intercompany Position <span class="imp">Very Important</span></div>
         <div style="display:grid;grid-template-columns:1.2fr .8fr;gap:14px">
@@ -1644,7 +1557,6 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
             <button class="share-teams" style="margin-top:8px;background:linear-gradient(135deg,#ef4444,#b91c1c)" onclick="openDrill('intercompany')">🔄 Open IC Drilldown</button>
           </div>
         </div>
-        </div><!-- /finsub-pane: ic -->
       </div>
 
       <!-- ============ FI · CFO PANE ============ -->
@@ -1673,14 +1585,6 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
           </div>
         </div>
 
-        <!-- FI · second-level sub-tabs -->
-        <div class="finsub-tabs" data-pane="fi">
-          <button class="act" data-sub="portfolio" onclick="switchFinSub('fi','portfolio')">Portfolio</button>
-          <button data-sub="returns" onclick="switchFinSub('fi','returns')">Returns &amp; Liquidity</button>
-          <button data-sub="capital" onclick="switchFinSub('fi','capital')">Capital &amp; Income</button>
-        </div>
-
-        <div class="finsub-pane act" data-pane="fi" data-sub="portfolio">
         <!-- 1. PORTFOLIO OVERVIEW -->
         <div class="cfo-block-title"><span class="n">1</span>Portfolio Overview</div>
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px">
@@ -1697,9 +1601,7 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
             <div class="chart-wrap short"><canvas id="fiAllocMgrChart"></canvas></div>
           </div>
         </div>
-        </div><!-- /finsub-pane: portfolio -->
 
-        <div class="finsub-pane" data-pane="fi" data-sub="returns">
         <!-- 2. RETURNS & PERFORMANCE -->
         <div class="cfo-block-title"><span class="n">2</span>Returns &amp; Performance</div>
         <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:14px">
@@ -1770,9 +1672,6 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
           </div>
         </div>
 
-        </div><!-- /finsub-pane: returns -->
-
-        <div class="finsub-pane" data-pane="fi" data-sub="capital">
         <!-- 5. CAPITAL DEPLOYMENT (numbering per stakeholder spec) -->
         <div class="cfo-block-title"><span class="n">5</span>Capital Deployment</div>
         <div class="panel">
@@ -1816,7 +1715,6 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
             </div>
           </div>
         </div>
-        </div><!-- /finsub-pane: capital -->
       </div>
 
       <!-- ============ RE · CFO PANE ============ -->
@@ -1845,14 +1743,6 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
           </div>
         </div>
 
-        <!-- RE · second-level sub-tabs -->
-        <div class="finsub-tabs" data-pane="re">
-          <button class="act" data-sub="portfolio" onclick="switchFinSub('re','portfolio')">Portfolio</button>
-          <button data-sub="returns" onclick="switchFinSub('re','returns')">Returns</button>
-          <button data-sub="operations" onclick="switchFinSub('re','operations')">Operations &amp; Income</button>
-        </div>
-
-        <div class="finsub-pane act" data-pane="re" data-sub="portfolio">
         <!-- 1. PORTFOLIO OVERVIEW -->
         <div class="cfo-block-title"><span class="n">1</span>Portfolio Overview</div>
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px">
@@ -1869,9 +1759,7 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
             <div class="chart-wrap short"><canvas id="reAllocStatusChart"></canvas></div>
           </div>
         </div>
-        </div><!-- /finsub-pane: portfolio -->
 
-        <div class="finsub-pane" data-pane="re" data-sub="returns">
         <!-- 2. RETURNS & PERFORMANCE -->
         <div class="cfo-block-title"><span class="n">2</span>Returns &amp; Performance</div>
         <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:14px">
@@ -1939,9 +1827,6 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
           </div>
         </div>
 
-        </div><!-- /finsub-pane: returns -->
-
-        <div class="finsub-pane" data-pane="re" data-sub="operations">
         <!-- 3. OPERATIONAL KPIs -->
         <div class="cfo-block-title"><span class="n">3</span>Operational KPIs <span class="imp">Very Important</span> <span style="color:var(--green-2);font-size:12px;font-weight:700;margin-left:10px;text-transform:none;letter-spacing:.2px">→ Occupancy 87.4% · target 88% · −0.6pp gap · WAULT 4.6 yr</span></div>
         <div>
@@ -2065,7 +1950,6 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
             </div>
           </div>
         </div>
-        </div><!-- /finsub-pane: operations -->
       </div>
     </main>
 
@@ -4356,26 +4240,6 @@ const FI_SIDEBAR_HTML = `
   </div>
 `;
 
-// Finance Intelligence second-level sub-tabs. Each parent pane (DI/FI/RE)
-// hosts its own .finsub-tabs strip + .finsub-pane bodies; this toggles the
-// active sub-tab within the named parent pane only.
-function switchFinSub(pane, sub){
-  const root = document.getElementById('difiPane'+pane.toUpperCase());
-  if(!root) return;
-  root.querySelectorAll(':scope > .finsub-tabs button').forEach(b=>{
-    b.classList.toggle('act', b.dataset.sub === sub);
-  });
-  root.querySelectorAll(':scope > .finsub-pane').forEach(p=>{
-    p.classList.toggle('act', p.dataset.sub === sub);
-  });
-  // Chart.js canvases inside the newly visible sub-pane resize on visibility
-  // change via ResizeObserver, but force a resize for the active instances to
-  // avoid stale layout on first reveal.
-  if(window.chartInstances){
-    Object.values(chartInstances).forEach(c=>{ try{ c.resize(); }catch(e){} });
-  }
-}
-
 function switchDIFI(which){
   // Modes: 'di' | 'fi' | 're'
   if(which !== 'di' && which !== 'fi' && which !== 're') which = 'di';
@@ -4395,10 +4259,6 @@ function switchDIFI(which){
     if(cs) cs.classList.toggle('act', m === which);
     if(pl) pl.classList.toggle('act', m === which);
   });
-
-  // Reset second-level sub-tab to the first one for the newly active pane
-  const firstSubs = { di:'capital', fi:'portfolio', re:'portfolio' };
-  switchFinSub(which, firstSubs[which]);
 
   if(which === 'di') initDICharts();
   if(which === 'fi') initFICharts();
