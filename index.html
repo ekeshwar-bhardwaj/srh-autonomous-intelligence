@@ -1370,11 +1370,17 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
         <div class="cap-grid-2">
           <div class="panel">
             <div class="panel-head"><div class="panel-title">Sector Exposure <span class="panel-tag gold">📊 IC ledger</span></div><div class="panel-meta">% of SAR 10.2B invested · 7 sectors</div></div>
-            <div class="chart-wrap short"><canvas id="diAllocSectorChart"></canvas></div>
+            <div class="chart-wrap" style="height:200px"><canvas id="diAllocSectorChart"></canvas></div>
           </div>
           <div class="panel">
-            <div class="panel-head"><div class="panel-title">Geographic Exposure <span class="panel-tag gold">🌍 Treasury · FX</span></div><div class="panel-meta">Bubble size = invested · colour = risk-adjusted performance</div></div>
-            <div class="chart-wrap short"><canvas id="diGeoBubbleChart"></canvas></div>
+            <div class="panel-head"><div class="panel-title">Geographic Exposure <span class="panel-tag gold">🌍 Treasury · FX</span></div><div class="panel-meta">Bubble size = invested capital · colour = FX / country risk</div></div>
+            <div class="chart-wrap" style="height:200px"><canvas id="diGeoBubbleChart"></canvas></div>
+            <div style="display:flex;justify-content:center;gap:10px;margin-top:4px;font-size:9.5px;color:var(--t-3);font-weight:600;flex-wrap:wrap">
+              <span style="display:inline-flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:50%;background:#10b981;border:1.5px solid #ffffff;box-shadow:0 0 0 1px #10b981"></span>KSA · Low (SAR peg)</span>
+              <span style="display:inline-flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:50%;background:#f59e0b;border:1.5px solid #ffffff;box-shadow:0 0 0 1px #d97706"></span>Egypt · Amber (EGP)</span>
+              <span style="display:inline-flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:50%;background:#dc2626;border:1.5px solid #ffffff;box-shadow:0 0 0 1px #991b1b"></span>Sudan · Red (SDG)</span>
+              <span style="display:inline-flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:50%;background:rgba(107,114,128,.4);border:1.5px solid #ffffff;box-shadow:0 0 0 1px rgba(107,114,128,.6)"></span>UAE · No exposure</span>
+            </div>
           </div>
         </div>
 
@@ -4311,14 +4317,65 @@ function initDICharts(){
   destroyChart('diGeoBubble');
   const c2 = document.getElementById('diGeoBubbleChart');
   if(c2){
+    const bubbleLabelPlugin = {
+      id:'bubbleLabel',
+      afterDatasetsDraw(chart){
+        const {ctx} = chart;
+        chart.data.datasets.forEach((ds, dsIdx)=>{
+          const meta = chart.getDatasetMeta(dsIdx);
+          if(meta.hidden) return;
+          meta.data.forEach((point, i)=>{
+            const d = ds.data[i];
+            const radius = point.options.radius || d.r;
+            if(radius < 10) return; // skip tiny bubbles (UAE)
+            const x = point.x, y = point.y;
+            const showCap = radius >= 28 && d.cap;
+            const labelFont = radius >= 30 ? 13 : radius >= 18 ? 11 : 10;
+            const labelOffset = showCap ? -6 : 0;
+            ctx.save();
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillStyle = '#ffffff';
+            ctx.font = '700 ' + labelFont + 'px system-ui,-apple-system,sans-serif';
+            ctx.fillText(ds.label, x, y + labelOffset);
+            if(showCap){
+              ctx.font = '600 10px system-ui,-apple-system,sans-serif';
+              ctx.fillStyle = 'rgba(255,255,255,0.92)';
+              ctx.fillText('SAR ' + (d.cap >= 1000 ? (d.cap/1000).toFixed(1) + 'B' : d.cap + 'M'), x, y + 9);
+            }
+            ctx.restore();
+          });
+        });
+      }
+    };
     chartInstances.diGeoBubble = new Chart(c2,{type:'bubble',data:{
       datasets:[
-        {label:'KSA',data:[{x:55,y:50,r:48,cap:9170,risk:'Low · SAR pegged'}],backgroundColor:'rgba(16,185,129,0.65)',borderColor:'#10b981',borderWidth:2},
-        {label:'Egypt',data:[{x:22,y:55,r:18,cap:620,risk:'Amber · EGP devaluation'}],backgroundColor:'rgba(245,158,11,0.65)',borderColor:'#d97706',borderWidth:2},
-        {label:'Sudan',data:[{x:32,y:28,r:14,cap:410,risk:'Red · SDG depreciation, Atbara stress'}],backgroundColor:'rgba(239,68,68,0.65)',borderColor:'#dc2626',borderWidth:2},
-        {label:'UAE',data:[{x:72,y:45,r:6,cap:0,risk:'No current exposure · allowed by mandate'}],backgroundColor:'rgba(107,114,128,0.30)',borderColor:'rgba(107,114,128,0.5)',borderWidth:1}
+        {label:'KSA',data:[{x:62,y:55,r:42,cap:9170,risk:'Low · SAR pegged to USD'}],backgroundColor:'rgba(16,185,129,0.72)',borderColor:'#0a9268',borderWidth:2,hoverBorderWidth:3},
+        {label:'Egypt',data:[{x:22,y:62,r:18,cap:620,risk:'Amber · EGP devaluation risk'}],backgroundColor:'rgba(245,158,11,0.72)',borderColor:'#d97706',borderWidth:2,hoverBorderWidth:3},
+        {label:'Sudan',data:[{x:25,y:30,r:14,cap:410,risk:'Red · SDG depreciation · Atbara stress'}],backgroundColor:'rgba(239,68,68,0.72)',borderColor:'#dc2626',borderWidth:2,hoverBorderWidth:3},
+        {label:'UAE',data:[{x:85,y:25,r:7,cap:0,risk:'No exposure · mandate-eligible market'}],backgroundColor:'rgba(107,114,128,0.32)',borderColor:'rgba(107,114,128,0.6)',borderWidth:1,hoverBorderWidth:2}
       ]
-    },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'right',labels:{boxWidth:10,font:{size:10},color:'#4a3a5a'}},tooltip:{callbacks:{label:ctx=>{const d=ctx.raw;return ctx.dataset.label+' — SAR '+d.cap+'M · '+d.risk;}}}},scales:{x:{min:0,max:100,display:false,grid:{display:false}},y:{min:0,max:100,display:false,grid:{display:false}}}}});
+    },options:{
+      responsive:true,maintainAspectRatio:false,
+      layout:{padding:{top:8,right:14,bottom:8,left:14}},
+      plugins:{
+        legend:{display:false},
+        tooltip:{
+          backgroundColor:'rgba(26,15,42,0.92)',
+          padding:10,
+          titleFont:{size:11,weight:'700'},
+          bodyFont:{size:10.5},
+          callbacks:{
+            title:ctx=>ctx[0].dataset.label,
+            label:ctx=>{const d=ctx.raw;return ['Invested: SAR '+(d.cap>=1000?(d.cap/1000).toFixed(2)+'B':d.cap+'M'),'Risk: '+d.risk];}
+          }
+        }
+      },
+      scales:{
+        x:{min:0,max:100,display:false,grid:{display:false}},
+        y:{min:0,max:100,display:false,grid:{display:false}}
+      }
+    },plugins:[bubbleLabelPlugin]});
   }
   // DI Cash flow components — horizontal stacked bar by subsidiary
   destroyChart('diCashStack');
