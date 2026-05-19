@@ -1281,7 +1281,6 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
     <aside class="dash-side" id="invSidebar">
       <div class="side-title">CASH SOURCES · Q1 2026</div>
       <div class="cs-selector" role="tablist" aria-label="Cash source view">
-        <button class="full" id="invCsBtnGroup" onclick="goToExecGroup()" title="Group Combined View — open in Executive">🌐 Group Combined View</button>
         <button class="act" id="invCsBtnDI" onclick="switchDIFI('di')" title="Direct Investments">🏭 DI</button>
         <button id="invCsBtnFI" onclick="switchDIFI('fi')" title="Financial Investments">📈 FI</button>
         <button id="invCsBtnRE" onclick="switchDIFI('re')" title="Real Estate">🏢 RE</button>
@@ -4329,12 +4328,6 @@ function switchDIFI(which){
   if(which === 'fi') initFICharts();
   if(which === 're') initRECharts();
   renderCfoIntel('inv', which);
-}
-
-// Group Combined button in FI sidebar — jump to Executive view in group mode
-function goToExecGroup(){
-  showView('exec');
-  if(typeof filterPillar === 'function') filterPillar('group');
 }
 
 function initFICharts(){
