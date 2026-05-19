@@ -1675,34 +1675,13 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
         <!-- 5. CAPITAL DEPLOYMENT (numbering per stakeholder spec) -->
         <div class="cfo-block-title"><span class="n">5</span>Capital Deployment</div>
         <div class="panel">
-          <div class="panel-head"><div class="panel-title">New FI Investments YTD <span class="panel-tag purple">💼 Investment Ops</span></div><div class="panel-meta">SAR 580M committed · SAR 500M drawn · 86% pacing · 4 mandates</div></div>
-          <div class="proj-grid" style="grid-template-columns:repeat(2,1fr);margin-top:6px">
-            <div class="proj-card ontrack" title="Saudi Equity Active — Jadwa Top-Up · Public Equity · KSA · funded">
-              <div class="proj-head"><div class="proj-head-l"><div class="proj-name">Saudi Equity Active</div><div class="proj-owner">Jadwa Top-Up · Public Equity · 🇸🇦 KSA</div></div><span class="stage-pill healthy">Funded</span></div>
-              <div class="proj-progress"><div class="proj-progress-lbl"><span>Drawn vs Commitment</span><b>100%</b></div><div class="proj-progress-bar"><div class="fill" style="width:100%;background:#10b981"></div></div></div>
-              <div class="proj-spend-legend" style="margin-top:6px;justify-content:flex-start;gap:14px"><span>Commitment <b>SAR 220M</b></span><span style="color:var(--green-2)">Drawn <b>220M</b></span></div>
-            </div>
-            <div class="proj-card ontrack" title="GCC Sukuk — SFC Add-On · Sukuk / Bonds · AMEA · funded">
-              <div class="proj-head"><div class="proj-head-l"><div class="proj-name">GCC Sukuk</div><div class="proj-owner">SFC Add-On · Sukuk / Bonds · AMEA</div></div><span class="stage-pill healthy">Funded</span></div>
-              <div class="proj-progress"><div class="proj-progress-lbl"><span>Drawn vs Commitment</span><b>100%</b></div><div class="proj-progress-bar"><div class="fill" style="width:100%;background:#10b981"></div></div></div>
-              <div class="proj-spend-legend" style="margin-top:6px;justify-content:flex-start;gap:14px"><span>Commitment <b>SAR 160M</b></span><span style="color:var(--green-2)">Drawn <b>160M</b></span></div>
-            </div>
-            <div class="proj-card accrual" title="Healthcare PE — KKR Vision Vehicle · PE Fund · MENA · drawing">
-              <div class="proj-head"><div class="proj-head-l"><div class="proj-name">Healthcare PE</div><div class="proj-owner">KKR Vision Vehicle · PE Fund · MENA</div></div><span class="stage-pill watchlist">Drawing</span></div>
-              <div class="proj-progress"><div class="proj-progress-lbl"><span>Drawn vs Commitment</span><b>33%</b></div><div class="proj-progress-bar"><div class="fill" style="width:33%;background:#d97706"></div></div></div>
-              <div class="proj-spend-legend" style="margin-top:6px;justify-content:flex-start;gap:14px"><span>Commitment <b>SAR 120M</b></span><span style="color:var(--amber-2)">Drawn <b>40M</b> · pacing 33%</span></div>
-            </div>
-            <div class="proj-card ontrack" title="EM Frontier — T. Rowe Price · Public Equity · EM · funded">
-              <div class="proj-head"><div class="proj-head-l"><div class="proj-name">EM Frontier</div><div class="proj-owner">T. Rowe Price · Public Equity · EM</div></div><span class="stage-pill healthy">Funded</span></div>
-              <div class="proj-progress"><div class="proj-progress-lbl"><span>Drawn vs Commitment</span><b>100%</b></div><div class="proj-progress-bar"><div class="fill" style="width:100%;background:#10b981"></div></div></div>
-              <div class="proj-spend-legend" style="margin-top:6px;justify-content:flex-start;gap:14px"><span>Commitment <b>SAR 80M</b></span><span style="color:var(--green-2)">Drawn <b>80M</b></span></div>
-            </div>
-          </div>
-          <div class="proj-totals" style="margin-top:10px">
-            <div class="pt-card"><div class="pt-lbl">Total Committed</div><div class="pt-val">SAR 580M</div><div class="pt-sub">4 mandates</div></div>
-            <div class="pt-card"><div class="pt-lbl">Drawn YTD</div><div class="pt-val" style="color:var(--green-2)">SAR 500M</div><div class="pt-sub">86% pacing</div></div>
-            <div class="pt-card"><div class="pt-lbl">Pending Draw</div><div class="pt-val" style="color:var(--amber-2)">SAR 80M</div><div class="pt-sub">KKR Healthcare PE</div></div>
-            <div class="pt-card"><div class="pt-lbl">Asset Mix</div><div class="pt-val">3 / 1</div><div class="pt-sub">Public Equity / PE</div></div>
+          <div class="panel-head"><div class="panel-title">New FI Investments YTD <span class="panel-tag purple">💼 Investment Ops</span></div><div class="panel-meta">Drawn vs Commitment per mandate · target pacing line at 86% (YTD plan) · SAR 580M committed · 4 mandates</div></div>
+          <div style="position:relative;height:220px;margin-top:6px"><canvas id="fiCapitalDeployChart"></canvas></div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px">
+            <div style="padding:9px 11px;background:rgba(147,51,168,.06);border:1px solid rgba(147,51,168,.22);border-radius:8px"><div style="font-size:9.5px;color:#7e22ce;font-weight:700;letter-spacing:.4px">TOTAL COMMITTED</div><div style="font-size:16px;font-weight:800;color:#7e22ce;margin-top:2px">SAR 580M</div><div style="font-size:9.5px;color:var(--t-3);margin-top:1px">4 mandates · IPS-aligned</div></div>
+            <div style="padding:9px 11px;background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.24);border-radius:8px"><div style="font-size:9.5px;color:var(--green-2);font-weight:700;letter-spacing:.4px">DRAWN YTD</div><div style="font-size:16px;font-weight:800;color:var(--green-2);margin-top:2px">SAR 500M</div><div style="font-size:9.5px;color:var(--t-3);margin-top:1px">86% pacing · on plan</div></div>
+            <div style="padding:9px 11px;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.24);border-radius:8px"><div style="font-size:9.5px;color:var(--amber-2);font-weight:700;letter-spacing:.4px">PENDING DRAW</div><div style="font-size:16px;font-weight:800;color:var(--amber-2);margin-top:2px">SAR 80M</div><div style="font-size:9.5px;color:var(--t-3);margin-top:1px">KKR Vision · capital call Q2</div></div>
+            <div style="padding:9px 11px;background:rgba(160,34,110,.06);border:1px solid rgba(160,34,110,.22);border-radius:8px"><div style="font-size:9.5px;color:#c92a8e;font-weight:700;letter-spacing:.4px">ASSET MIX</div><div style="font-size:16px;font-weight:800;color:#c92a8e;margin-top:2px">3 / 1</div><div style="font-size:9.5px;color:var(--t-3);margin-top:1px">Public · PE</div></div>
           </div>
         </div>
 
@@ -4456,6 +4435,97 @@ function initFICharts(){
         {label:'Lock-up PE / Real Assets',data:[3820],backgroundColor:'#dc2626',borderColor:'#991b1b',borderWidth:1}
       ]
     },options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:11,font:{size:9.5},color:'#4a3a5a',padding:6}},tooltip:{callbacks:{label:c=>c.dataset.label+': SAR '+c.parsed.x+'M ('+(c.parsed.x/142.0).toFixed(1)+'%)'}}},scales:{x:{stacked:true,ticks:{callback:v=>'SAR '+(v/1000).toFixed(1)+'B',font:{size:10},color:'#6b5a7a'},grid:{color:'rgba(160,34,110,0.06)'}},y:{stacked:true,display:false}}}});
+  }
+  // Capital deployment — horizontal stacked bar (Drawn + Pending per mandate) + per-bar % label
+  destroyChart('fiCapitalDeploy');
+  const c6 = document.getElementById('fiCapitalDeployChart');
+  if(c6){
+    const commitments = [220, 160, 120, 80];
+    const drawn       = [220, 160,  40, 80];
+    const pending     = drawn.map((d,i)=>commitments[i]-d);
+    const pctLabelPlugin = {
+      id:'fiCapPctLabel',
+      afterDatasetsDraw(chart){
+        const ctx = chart.ctx;
+        const drawnMeta = chart.getDatasetMeta(0);
+        if(!drawnMeta || !drawnMeta.data) return;
+        ctx.save();
+        ctx.textAlign = 'left';
+        ctx.textBaseline = 'middle';
+        ctx.font = '700 10.5px system-ui,-apple-system,sans-serif';
+        drawnMeta.data.forEach((bar, i)=>{
+          const pct = Math.round((drawn[i]/commitments[i])*100);
+          const total = commitments[i];
+          const barLen = bar.width || (bar.x - bar.base);
+          const barEnd = bar.x;
+          const barStart = bar.base;
+          if(barLen < 40) return;
+          ctx.fillStyle = '#ffffff';
+          ctx.fillText(pct + '%  ·  SAR ' + drawn[i] + 'M / ' + total + 'M', barStart + 8, bar.y);
+        });
+        ctx.restore();
+      }
+    };
+    chartInstances.fiCapitalDeploy = new Chart(c6,{type:'bar',data:{
+      labels:['Saudi Equity Active','GCC Sukuk','Healthcare PE','EM Frontier'],
+      datasets:[
+        {
+          label:'Drawn YTD',
+          data:drawn,
+          backgroundColor:['#10b981','#10b981','#d97706','#10b981'],
+          borderColor:['#0a9268','#0a9268','#b45309','#0a9268'],
+          borderWidth:1.5,
+          borderRadius:{topLeft:5,bottomLeft:5,topRight:0,bottomRight:0},
+          borderSkipped:false,
+          barPercentage:0.7,
+          categoryPercentage:0.78
+        },
+        {
+          label:'Pending Draw',
+          data:pending,
+          backgroundColor:'rgba(217,119,6,0.22)',
+          borderColor:'rgba(217,119,6,0.5)',
+          borderWidth:1,
+          borderRadius:{topLeft:0,bottomLeft:0,topRight:5,bottomRight:5},
+          borderSkipped:false,
+          barPercentage:0.7,
+          categoryPercentage:0.78
+        }
+      ]
+    },options:{
+      indexAxis:'y',
+      responsive:true,
+      maintainAspectRatio:false,
+      layout:{padding:{top:4,right:14,bottom:0,left:0}},
+      plugins:{
+        legend:{position:'bottom',labels:{boxWidth:12,font:{size:10.5},color:'#4a3a5a',padding:8}},
+        tooltip:{
+          backgroundColor:'rgba(26,15,42,0.92)',
+          padding:10,
+          titleFont:{size:11,weight:'700'},
+          bodyFont:{size:10.5},
+          callbacks:{
+            title:ctx=>ctx[0].label,
+            label:ctx=>{
+              const i = ctx.dataIndex;
+              const isDrawn = ctx.datasetIndex === 0;
+              const pct = Math.round((drawn[i]/commitments[i])*100);
+              if(isDrawn) return 'Drawn: SAR ' + drawn[i] + 'M  (' + pct + '% of commitment)';
+              return 'Pending: SAR ' + pending[i] + 'M  (capital call next ' + (i===2 ? 'Q2 2026' : 'cycle') + ')';
+            },
+            afterBody:ctx=>{
+              const i = ctx[0].dataIndex;
+              const tags = ['Jadwa Top-Up · Public Equity · KSA','SFC Add-On · Sukuk · AMEA','KKR Vision Vehicle · PE · MENA','T. Rowe Price · Public Equity · EM'];
+              return ['', tags[i], 'Total commitment: SAR ' + commitments[i] + 'M'];
+            }
+          }
+        }
+      },
+      scales:{
+        x:{stacked:true,beginAtZero:true,ticks:{callback:v=>'SAR '+v+'M',font:{size:10},color:'#6b5a7a'},grid:{color:'rgba(160,34,110,0.06)'}},
+        y:{stacked:true,ticks:{font:{size:10.5,weight:'600'},color:'#1a0f2a'},grid:{display:false}}
+      }
+    },plugins:[pctLabelPlugin]});
   }
 }
 
