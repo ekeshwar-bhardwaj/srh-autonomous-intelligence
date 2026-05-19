@@ -1119,16 +1119,13 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
             <tr class="gps-grand"><td>GROUP TOTAL RETURNS · Q1 2026</td><td class="r">1,218,000</td><td class="r">1,222,000</td><td class="r gps-var gps-var-neg">−4,000</td><td class="r gps-var-neg">−0.3%</td></tr>
           </tbody>
         </table>
-        <div style="margin-top:10px;padding:10px 12px;background:rgba(160,34,110,.05);border:1px dashed rgba(160,34,110,.22);border-radius:8px;font-size:11px;color:var(--t-2);line-height:1.55">
-          <b style="color:#c92a8e">Variance commentary:</b> FI tracking favourably on Saudi equity + Sukuk overlay (+SAR 16M). RE Co. and Property Rental ahead of plan; Land Sales soft. DI portfolio dragged by Atbara (Sudan SDG stress, −26M) and AWP-E Egypt (EGP devaluation, −16M); core KSA subs ahead of plan. <b style="color:var(--t-1)">Group within 30 bps of plan.</b>
-        </div>
       </div>
 
       <!-- CASH MANAGEMENT — TREASURY OPERATIONS -->
       <div class="panel" id="execCashMgmtPanel">
         <div class="panel-head">
           <div class="panel-title">Cash Management — Treasury Operations <span class="panel-tag green">💧 TMS · Treasury</span> <span class="panel-meta">HoldCo + 9 subs · Q1 2026 close · 12-week rolling forecast</span></div>
-          <div class="legend"><span style="color:var(--green-2)">●</span> <span style="color:var(--t-3);font-size:10.5px">All accounts reconciled · daily TMS sweep</span></div>
+          <div class="legend" style="gap:10px"><span style="color:var(--green-2)">●</span> <span style="color:var(--t-3);font-size:10.5px">All accounts reconciled · daily TMS sweep</span><button type="button" onclick="openCashTrend()" title="Group Cash Inflow & Distribution Trend — FY2021—Q1 2026" style="background:rgba(20,10,40,.05);border:1px solid var(--line-2);border-radius:7px;padding:5px 10px;font-size:10.5px;font-weight:700;letter-spacing:.3px;color:var(--t-2);cursor:pointer;display:inline-flex;align-items:center;gap:5px" onmouseover="this.style.background='rgba(160,34,110,.08)';this.style.color='#c92a8e'" onmouseout="this.style.background='rgba(20,10,40,.05)';this.style.color='var(--t-2)'">📈 Inflow & Distribution Trend</button></div>
         </div>
 
         <!-- 3 columns — Bank counterparty / FX cash / 12-week ladder
@@ -1221,14 +1218,7 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
         </div>
       </div>
 
-      <!-- ROW 2: TREND PANEL (Peer benchmark panel removed — non-essential for CFO) -->
-      <div class="panel" id="execTrendPanel">
-        <div class="panel-head">
-          <div class="panel-title"><span id="execTrendTitle">Group Cash Inflow &amp; Distribution Trend</span> <span class="panel-tag blue">📊 Treasury · SAP FI/CO</span></div>
-          <div class="panel-meta" id="execTrendMeta">FY2021 — Q1 2026 · cash basis</div>
-        </div>
-        <div class="chart-wrap short"><canvas id="execTrendChart"></canvas></div>
-      </div>
+      <!-- Group Cash Inflow & Distribution Trend moved into a dialog (see #cashTrendModal) -->
 
       <!-- PILLAR-AWARE DETAIL PANEL -->
       <div class="panel" id="execPillarPanel">
@@ -1426,62 +1416,7 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
           </div>
         </div>
 
-        <!-- ROW 3: HEATMAP — proportional treemap by invested capital -->
-        <div class="panel">
-          <div class="panel-head">
-            <div class="panel-title">Capital Allocation Heatmap <span class="panel-tag gold">🏭 SAP FI/CO · IC ledger</span></div>
-            <div class="panel-meta">Total SAR 10.2B · 9 subs · tile size = invested capital · tile colour = exposure status · hover for AI commentary</div>
-          </div>
-          <div class="cap-treemap">
-            <div class="tm-row r1">
-              <div class="tm-tile returning" style="flex:2340" title="Al Wataniya Poultry — Strong cash return trend; largest single dividend contributor (SAR 118M Q1, +4.9% vs plan). Mature, low-leverage core hold. EBITDA Q1 SAR 124M, +3.4% YoY.">
-                <div><div class="tm-tile-name">Al Wataniya Poultry</div><div class="tm-tile-sub">Poultry · 🇸🇦 KSA</div><div class="tm-tile-val">SAR 2,340M</div><div class="tm-tile-pct">23% of book</div></div>
-                <div class="tm-tile-meta"><div class="cr-pos"><span class="lbl">Cash Q1</span><b>+118M</b></div><div class="tr-up"><span class="lbl">EBITDA</span><b>↑ +3.4%</b></div></div>
-              </div>
-              <div class="tm-tile returning" style="flex:1850" title="Al Wataniya Industries — Mature manufacturing; cash-generative with IC repay SAR 42M + dividends 62M. EBITDA SAR 66M, +1.2% YoY. On plan.">
-                <div><div class="tm-tile-name">Al Wataniya Industries</div><div class="tm-tile-sub">Manufacturing · 🇸🇦 KSA</div><div class="tm-tile-val">SAR 1,850M</div><div class="tm-tile-pct">18% of book</div></div>
-                <div class="tm-tile-meta"><div class="cr-pos"><span class="lbl">Cash Q1</span><b>+118M</b></div><div class="tr-up"><span class="lbl">EBITDA</span><b>↑ +1.2%</b></div></div>
-              </div>
-              <div class="tm-tile returning" style="flex:1620" title="Al Rajhi RE-Hospitality — REIT carve-out candidate; 32.4% EBITDA margin. Q1 cash SAR 66M (+10.5% vs plan).">
-                <div><div class="tm-tile-name">AR RE-Hospitality</div><div class="tm-tile-sub">Hospitality · 🇸🇦 KSA</div><div class="tm-tile-val">SAR 1,620M</div><div class="tm-tile-pct">16% of book</div></div>
-                <div class="tm-tile-meta"><div class="cr-pos"><span class="lbl">Cash Q1</span><b>+66M</b></div><div class="tr-up"><span class="lbl">EBITDA</span><b>↑ +5.4%</b></div></div>
-              </div>
-              <div class="tm-tile drawing" style="flex:1420" title="ADEC Education — Drawing capital for K-12 capacity expansion. 3 new campuses; SAR 120M new YTD. EBITDA +8.2% YoY. Growth phase, refi due Q3 26.">
-                <div><div class="tm-tile-name">ADEC</div><div class="tm-tile-sub">Education K-12 · 🇸🇦 KSA</div><div class="tm-tile-val">SAR 1,420M</div><div class="tm-tile-pct">14% of book · New +120M YTD</div></div>
-                <div class="tm-tile-meta"><div class="cr-pos"><span class="lbl">Cash Q1</span><b>+52M</b></div><div class="tr-up"><span class="lbl">EBITDA</span><b>↑ +8.2%</b></div></div>
-              </div>
-            </div>
-            <div class="tm-row r2">
-              <div class="tm-tile drawing compact" style="flex:980" title="Al Wataniya Agriculture — Drawing for capacity expansion. SAR 60M new YTD, SAR 80M undrawn. EBITDA +4.6% YoY. Refi due H2 26.">
-                <div><div class="tm-tile-name">Wat. Agriculture</div><div class="tm-tile-sub">Agri · 🇸🇦 KSA</div><div class="tm-tile-val">SAR 980M</div><div class="tm-tile-pct">10% · New +60M</div></div>
-                <div class="tm-tile-meta"><div class="cr-zero"><span class="lbl">Cash Q1</span><b>—</b></div><div class="tr-up"><span class="lbl">EBITDA</span><b>↑ +4.6%</b></div></div>
-              </div>
-              <div class="tm-tile watchlist compact" style="flex:620" title="Al Safa Poultry (Egypt) — Capital consumption increased due to EGP devaluation. Zero Q1 dividend; FX-exposed. EBITDA −4.2% YoY.">
-                <div><div class="tm-tile-name">⚠ Al Safa Poultry</div><div class="tm-tile-sub">Poultry · 🇪🇬 Egypt · FX</div><div class="tm-tile-val">SAR 620M</div><div class="tm-tile-pct">6% of book</div></div>
-                <div class="tm-tile-meta"><div class="cr-zero"><span class="lbl">Cash Q1</span><b>0</b></div><div class="tr-down"><span class="lbl">EBITDA</span><b>↓ −4.2%</b></div></div>
-              </div>
-              <div class="tm-tile returning compact" style="flex:580" title="Al Rajhi International (Agri Trading) — Divest-ready; low margin (4.8% EBITDA). SAR 580–620M unlock at 1.0–1.1× book.">
-                <div><div class="tm-tile-name">AR International</div><div class="tm-tile-sub">Agri Trade · 🇸🇦 KSA</div><div class="tm-tile-val">SAR 580M</div><div class="tm-tile-pct">6% · Divest-ready</div></div>
-                <div class="tm-tile-meta"><div class="cr-pos"><span class="lbl">Cash Q1</span><b>+12M</b></div><div class="tr-up"><span class="lbl">EBITDA</span><b>↑ +2.1%</b></div></div>
-              </div>
-              <div class="tm-tile consuming compact" style="flex:410" title="Atbara Cement (Sudan) — Capital consumption: SAR 18M absorbed Q1 due to SDG depreciation 12.4% + demand collapse. EBITDA −28.4% YoY, leverage 4.6× breach. Ring-fence drafted; ERMC Apr 30.">
-                <div><div class="tm-tile-name">⚠ Atbara Cement</div><div class="tm-tile-sub">Cement · 🇸🇩 Sudan · FX</div><div class="tm-tile-val">SAR 410M</div><div class="tm-tile-pct">4% of book</div></div>
-                <div class="tm-tile-meta"><div class="cr-neg"><span class="lbl">Cash Q1</span><b>(18M)</b></div><div class="tr-down"><span class="lbl">EBITDA</span><b>↓ −28%</b></div></div>
-              </div>
-              <div class="tm-tile returning compact" style="flex:380" title="WiSys IT Services — Divest-ready; SAR 380–420M unlock at 1.0–1.4× revenue. Clean P&amp;L, 19.2% EBITDA margin, +2.6% YoY.">
-                <div><div class="tm-tile-name">WiSys</div><div class="tm-tile-sub">IT · 🇸🇦 KSA</div><div class="tm-tile-val">SAR 380M</div><div class="tm-tile-pct">4% · Divest-ready</div></div>
-                <div class="tm-tile-meta"><div class="cr-pos"><span class="lbl">Cash Q1</span><b>+20M</b></div><div class="tr-up"><span class="lbl">EBITDA</span><b>↑ +2.6%</b></div></div>
-              </div>
-            </div>
-          </div>
-          <div class="tm-legend">
-            <div class="tm-legend-item"><span class="sw" style="background:linear-gradient(135deg,rgba(16,185,129,.7),rgba(16,185,129,.3));border:1px solid rgba(16,185,129,.5)"></span>Returning</div>
-            <div class="tm-legend-item"><span class="sw" style="background:linear-gradient(135deg,rgba(59,130,246,.7),rgba(59,130,246,.3));border:1px solid rgba(59,130,246,.5)"></span>Drawing</div>
-            <div class="tm-legend-item"><span class="sw" style="background:linear-gradient(135deg,rgba(245,158,11,.7),rgba(245,158,11,.3));border:1px solid rgba(245,158,11,.5)"></span>Watchlist</div>
-            <div class="tm-legend-item"><span class="sw" style="background:linear-gradient(135deg,rgba(239,68,68,.7),rgba(239,68,68,.3));border:1px solid rgba(239,68,68,.5)"></span>Consuming</div>
-            <div class="tm-legend-item" style="margin-left:auto;color:var(--t-3)"><b style="color:var(--t-1);font-weight:700">Total SAR 10.2B</b> · 7 returning · 2 drawing · 1 watchlist · 1 consuming</div>
-          </div>
-        </div>
+        <!-- Capital Allocation Heatmap removed -->
 
         <!-- 2. CASH FLOW TO SRH (CFO question pill already in left sidebar; right-side Returning/Consuming summary panel removed — its facts live in the totals row below) -->
         <div class="cfo-block-title"><span class="n">2</span>Cash Flow to RHG <span style="color:var(--green-2);font-size:12px;font-weight:700;margin-left:10px;text-transform:none;letter-spacing:.2px">→ 7 returning · 2 consuming · Net SAR 412M to RHG (+33% vs plan)</span></div>
@@ -1498,65 +1433,7 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
           </div>
         </div>
 
-        <!-- 3. FINANCIAL HEALTH OF SUBSIDIARIES -->
-        <div class="cfo-block-title"><span class="n">3</span>Financial Health of Subsidiaries</div>
-        <div class="panel">
-          <div class="panel-head">
-            <div class="panel-title">Subsidiary Health Scorecard <span class="panel-tag green">📊 SAP FI/CO · Sub reporting</span></div>
-            <div class="panel-meta">EBITDA / cash / leverage / refinancing · Q1 2026</div>
-          </div>
-          <div class="health-grid">
-            <div class="health-card healthy"><div class="health-card-head"><div class="health-card-name">Al Wataniya Poultry</div><span class="stage-pill healthy">Healthy</span></div><div class="health-card-grid"><div><span class="k">EBITDA Q1</span><span class="v">SAR 124M</span></div><div><span class="k">vs Plan</span><span class="v up">+3.4%</span></div><div><span class="k">Op CF</span><span class="v up">+8%</span></div><div><span class="k">Leverage</span><span class="v">1.6×</span></div></div><div class="lev-gauge"><div class="lev-gauge-lbl"><span>Net D/EBITDA</span><b>1.6× / cap 3.0×</b></div><div class="lev-gauge-bar"><div class="fill ok" style="width:53%"></div><div class="mark" style="left:100%"></div></div></div><div class="health-card-foot"><span>Refi <b>FY27</b></span><span style="color:var(--green-2);font-weight:700">▲ stable</span></div></div>
-            <div class="health-card healthy"><div class="health-card-head"><div class="health-card-name">Al Wataniya Industries</div><span class="stage-pill healthy">Healthy</span></div><div class="health-card-grid"><div><span class="k">EBITDA Q1</span><span class="v">SAR 66M</span></div><div><span class="k">vs Plan</span><span class="v up">+1.2%</span></div><div><span class="k">Op CF</span><span class="v up">+4%</span></div><div><span class="k">Leverage</span><span class="v">2.1×</span></div></div><div class="lev-gauge"><div class="lev-gauge-lbl"><span>Net D/EBITDA</span><b>2.1× / cap 3.0×</b></div><div class="lev-gauge-bar"><div class="fill ok" style="width:70%"></div><div class="mark" style="left:100%"></div></div></div><div class="health-card-foot"><span>Refi <b>FY28</b></span><span style="color:var(--green-2);font-weight:700">▲ stable</span></div></div>
-            <div class="health-card growth"><div class="health-card-head"><div class="health-card-name">ADEC</div><span class="stage-pill drawing">Growth</span></div><div class="health-card-grid"><div><span class="k">EBITDA Q1</span><span class="v">SAR 42M</span></div><div><span class="k">vs Plan</span><span class="v up">+8.2%</span></div><div><span class="k">Op CF</span><span class="v up">+11%</span></div><div><span class="k">Leverage</span><span class="v">2.4×</span></div></div><div class="lev-gauge"><div class="lev-gauge-lbl"><span>Net D/EBITDA</span><b>2.4× / cap 3.0×</b></div><div class="lev-gauge-bar"><div class="fill warn" style="width:80%"></div><div class="mark" style="left:100%"></div></div></div><div class="health-card-foot"><span>Refi <b class="refi warn">FY27 · due</b></span><span style="color:var(--green-2);font-weight:700">▲ growing</span></div></div>
-            <div class="health-card healthy"><div class="health-card-head"><div class="health-card-name">Al Rajhi RE-Hospitality</div><span class="stage-pill healthy">Healthy</span></div><div class="health-card-grid"><div><span class="k">EBITDA Q1</span><span class="v">SAR 36M</span></div><div><span class="k">vs Plan</span><span class="v up">+5.4%</span></div><div><span class="k">Op CF</span><span class="v up">+9%</span></div><div><span class="k">Leverage</span><span class="v">2.0×</span></div></div><div class="lev-gauge"><div class="lev-gauge-lbl"><span>Net D/EBITDA</span><b>2.0× / cap 3.0×</b></div><div class="lev-gauge-bar"><div class="fill ok" style="width:67%"></div><div class="mark" style="left:100%"></div></div></div><div class="health-card-foot"><span>Refi <b>FY28</b></span><span style="color:var(--green-2);font-weight:700">▲ REIT carve</span></div></div>
-            <div class="health-card healthy"><div class="health-card-head"><div class="health-card-name">Khaleej Train</div><span class="stage-pill healthy">Healthy</span></div><div class="health-card-grid"><div><span class="k">EBITDA Q1</span><span class="v">SAR 31M</span></div><div><span class="k">vs Plan</span><span class="v up">+2.1%</span></div><div><span class="k">Op CF</span><span class="v up">+3%</span></div><div><span class="k">Leverage</span><span class="v">1.9×</span></div></div><div class="lev-gauge"><div class="lev-gauge-lbl"><span>Net D/EBITDA</span><b>1.9× / cap 3.0×</b></div><div class="lev-gauge-bar"><div class="fill ok" style="width:63%"></div><div class="mark" style="left:100%"></div></div></div><div class="health-card-foot"><span>Refi <b>FY29</b></span><span style="color:var(--green-2);font-weight:700">▲ steady</span></div></div>
-            <div class="health-card healthy"><div class="health-card-head"><div class="health-card-name">WiSys</div><span class="stage-pill healthy">Healthy · Divest</span></div><div class="health-card-grid"><div><span class="k">EBITDA Q1</span><span class="v">SAR 18M</span></div><div><span class="k">vs Plan</span><span class="v up">+2.6%</span></div><div><span class="k">Op CF</span><span class="v up">+5%</span></div><div><span class="k">Leverage</span><span class="v">0.9×</span></div></div><div class="lev-gauge"><div class="lev-gauge-lbl"><span>Net D/EBITDA</span><b>0.9× / cap 3.0×</b></div><div class="lev-gauge-bar"><div class="fill ok" style="width:30%"></div><div class="mark" style="left:100%"></div></div></div><div class="health-card-foot"><span>Refi <b>n/a</b></span><span style="color:var(--green-2);font-weight:700">▲ exit-ready</span></div></div>
-            <div class="health-card watch"><div class="health-card-head"><div class="health-card-name">Al Wataniya Agri</div><span class="stage-pill watchlist">Watch</span></div><div class="health-card-grid"><div><span class="k">EBITDA Q1</span><span class="v">SAR 27M</span></div><div><span class="k">vs Plan</span><span class="v up">+4.6%</span></div><div><span class="k">Op CF</span><span class="v down">−2%</span></div><div><span class="k">Leverage</span><span class="v amber">2.8×</span></div></div><div class="lev-gauge"><div class="lev-gauge-lbl"><span>Net D/EBITDA</span><b>2.8× / cap 3.0×</b></div><div class="lev-gauge-bar"><div class="fill warn" style="width:93%"></div><div class="mark" style="left:100%"></div></div></div><div class="health-card-foot"><span>Refi <b class="refi warn">FY26 H2 · due</b></span><span style="color:var(--amber-2);font-weight:700">⚠ near cap</span></div></div>
-            <div class="health-card watch"><div class="health-card-head"><div class="health-card-name">Al Safa Poultry <span class="stage-pill fx" style="margin-left:4px">FX</span></div><span class="stage-pill watchlist">Watch</span></div><div class="health-card-grid"><div><span class="k">EBITDA Q1</span><span class="v">SAR 18M</span></div><div><span class="k">vs Plan</span><span class="v down">−4.2%</span></div><div><span class="k">Op CF</span><span class="v down">−6%</span></div><div><span class="k">Leverage</span><span class="v amber">3.2×</span></div></div><div class="lev-gauge"><div class="lev-gauge-lbl"><span>Net D/EBITDA</span><b class="refi bad">3.2× · breach</b></div><div class="lev-gauge-bar"><div class="fill bad" style="width:100%"></div><div class="mark" style="left:100%"></div></div></div><div class="health-card-foot"><span>Refi <b class="refi warn">FY26 · EGP</b></span><span style="color:var(--amber-2);font-weight:700">⚠ FX drag</span></div></div>
-            <div class="health-card atrisk"><div class="health-card-head"><div class="health-card-name">Atbara Cement <span class="stage-pill fx" style="margin-left:4px">FX</span></div><span class="stage-pill atrisk">At Risk</span></div><div class="health-card-grid"><div><span class="k">EBITDA Q1</span><span class="v down">SAR 8M</span></div><div><span class="k">vs Plan</span><span class="v down"><b>−28.4%</b></span></div><div><span class="k">Op CF</span><span class="v down"><b>−42%</b></span></div><div><span class="k">Leverage</span><span class="v down"><b>4.6×</b></span></div></div><div class="lev-gauge"><div class="lev-gauge-lbl"><span>Net D/EBITDA</span><b class="refi bad">4.6× BREACH</b></div><div class="lev-gauge-bar"><div class="fill bad" style="width:100%"></div><div class="mark" style="left:100%"></div></div></div><div class="health-card-foot"><span>Refi <b class="refi bad">Default risk</b></span><span style="color:var(--red-2);font-weight:700">⚠ ring-fence</span></div></div>
-          </div>
-          <div style="margin-top:10px;padding:10px 12px;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.22);border-radius:8px;font-size:11.5px;color:var(--t-2);line-height:1.55"><b style="color:var(--red-2)">Risk flags:</b> 1 default risk (Atbara · 4.6× leverage breach) · 2 refinancings due in 12 mo (ADEC SAR 240M, Wat. Agri SAR 140M) · 2 FX-exposed (Atbara SDG, Al Safa EGP)</div>
-        </div>
-
-        <!-- 4. INTERCOMPANY POSITION (Very Important) -->
-        <div class="cfo-block-title"><span class="n">4</span>Intercompany Position <span class="imp">Very Important</span></div>
-        <div style="display:grid;grid-template-columns:1.2fr .8fr;gap:14px">
-          <div class="panel">
-            <div class="panel-head"><div class="panel-title">Open IC Balances by Subsidiary <span class="panel-tag" style="background:var(--red-soft);color:var(--red-2);border-color:rgba(239,68,68,.3)">🔄 SAP IC ledger</span></div><div class="panel-meta">14 open · 3 disputed · Q1 2026 · ranked by aging severity · ⚠ = active dispute</div></div>
-            <div class="bar-list">
-              <div class="ic-row aged-90" title="Atbara Cement — Sudan SDG royalty timing dispute · oldest open item 84 days · escalate to ERMC."><div class="icname">🔥 Atbara Cement <span class="dispute-badge">⚠ Dispute</span><span class="sub">Royalty timing · 84 days aged · all aged &gt;60d</span></div><div class="icbar"><div class="fill" style="width:76%"></div></div><div class="icval">SAR 62M</div><div class="icmeta"><b>90+ DAYS</b>escalate</div></div>
-              <div class="ic-row aged-60" title="ADEC — Service-fee allocation dispute · controller call this week."><div class="icname">ADEC <span class="dispute-badge">⚠ Dispute</span><span class="sub">Service-fee allocation · 38 of 82 aged</span></div><div class="icbar"><div class="fill" style="width:100%"></div></div><div class="icval">SAR 82M</div><div class="icmeta"><b>60+ DAYS</b>controller call</div></div>
-              <div class="ic-row aged-30" title="Al Wataniya Poultry — Mgmt fee allocation dispute · likely resolved by Q2."><div class="icname">Al Wataniya Poultry <span class="dispute-badge">⚠ Dispute</span><span class="sub">Mgmt fee allocation · 8 of 32 aged</span></div><div class="icbar"><div class="fill" style="width:39%"></div></div><div class="icval">SAR 32M</div><div class="icmeta"><b>30—60 DAYS</b>resolvable</div></div>
-              <div class="ic-row aged-30" title="Al Wataniya Industries — Transfer pricing review · within 60-day window."><div class="icname">Al Wataniya Industries<span class="sub">Transfer pricing review · 12 of 38 aged</span></div><div class="icbar"><div class="fill" style="width:46%"></div></div><div class="icval">SAR 38M</div><div class="icmeta"><b>30—60 DAYS</b>under review</div></div>
-              <div class="ic-row aged-ok" title="Khaleej Train — Cost recharge · routine pending auto-match."><div class="icname">Khaleej Train<span class="sub">Cost recharge · 4 days aged</span></div><div class="icbar"><div class="fill" style="width:22%"></div></div><div class="icval">SAR 18M</div><div class="icmeta"><b>CURRENT</b>auto-match</div></div>
-              <div class="ic-row aged-ok" title="WiSys — Services billed · clean."><div class="icname">WiSys<span class="sub">Services billed · 0—30 days</span></div><div class="icbar"><div class="fill" style="width:10%"></div></div><div class="icval">SAR 8M</div><div class="icmeta"><b>CURRENT</b>clean</div></div>
-              <div class="ic-row aged-ok" title="Al Rajhi International — Trading account · clean."><div class="icname">Al Rajhi International<span class="sub">Trading account · 0—30 days</span></div><div class="icbar"><div class="fill" style="width:7%"></div></div><div class="icval">SAR 6M</div><div class="icmeta"><b>CURRENT</b>clean</div></div>
-              <div class="ic-total"><div class="icname">TOTAL OPEN<span class="sub" style="color:var(--red-2)">14 line items · 3 active disputes</span></div><div class="icbar"><div class="fill" style="width:100%;background:linear-gradient(90deg,#dc2626,#f87171)"></div></div><div class="icval">SAR 246M</div><div class="icmeta"><b>SAR 124M</b>aged &gt; 60d</div></div>
-            </div>
-          </div>
-          <div class="panel">
-            <div class="panel-head"><div class="panel-title">IC Health Indicators <span class="panel-tag" style="background:var(--red-soft);color:var(--red-2);border-color:rgba(239,68,68,.3)">🛡️ Finance Ops</span></div><div class="panel-meta">Policy 97% match · 60-day cap</div></div>
-            <div style="display:grid;grid-template-columns:1fr;gap:10px;padding:6px 0">
-              <div style="padding:12px;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.22);border-radius:10px">
-                <div style="font-size:9.5px;color:var(--red-2);font-weight:700;letter-spacing:.5px">UNRECONCILED · OPEN</div>
-                <div style="font-size:22px;font-weight:800;color:var(--red-2);margin-top:4px">SAR 248M</div>
-                <div style="font-size:10.5px;color:var(--t-3);margin-top:3px">14 items · 3 disputes</div>
-              </div>
-              <div style="padding:12px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.22);border-radius:10px">
-                <div style="font-size:9.5px;color:var(--amber-2);font-weight:700;letter-spacing:.5px">MATCH RATE</div>
-                <div style="font-size:22px;font-weight:800;color:var(--amber-2);margin-top:4px">92.4%</div>
-                <div style="font-size:10.5px;color:var(--t-3);margin-top:3px">Vs policy 97% · gap −4.6pp</div>
-              </div>
-              <div style="padding:12px;background:rgba(160,34,110,.06);border:1px solid rgba(160,34,110,.22);border-radius:10px">
-                <div style="font-size:9.5px;color:#c92a8e;font-weight:700;letter-spacing:.5px">OLDEST OPEN ITEM</div>
-                <div style="font-size:22px;font-weight:800;color:#c92a8e;margin-top:4px">84 days</div>
-                <div style="font-size:10.5px;color:var(--t-3);margin-top:3px">Atbara royalty timing · escalate</div>
-              </div>
-            </div>
-            <button class="share-teams" style="margin-top:8px;background:linear-gradient(135deg,#ef4444,#b91c1c)" onclick="openDrill('intercompany')">🔄 Open IC Drilldown</button>
-          </div>
-        </div>
+        <!-- Financial Health of Subsidiaries and Intercompany Position blocks removed -->
       </div>
 
       <!-- ============ FI · CFO PANE ============ -->
@@ -1635,86 +1512,7 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
           </div>
         </div>
 
-        <!-- 3. LIQUIDITY PROFILE (Very Important) — Fees & Liquidity KPIs side-panel removed; key facts (8.8B raisable, fee opp) live in sidebar + ai-insights -->
-        <div class="cfo-block-title"><span class="n">3</span>Liquidity Profile <span class="imp">Very Important</span> <span style="color:var(--green-2);font-size:12px;font-weight:700;margin-left:10px;text-transform:none;letter-spacing:.2px">→ SAR 8.8B raisable in 5 days · 1.8× group OPEX coverage</span></div>
-        <div>
-          <div class="panel">
-            <div class="panel-head"><div class="panel-title">Liquid vs Illiquid · Redemption Window <span class="panel-tag" style="background:var(--blue-soft);color:var(--blue-2);border-color:rgba(139,26,107,.3)">💧 Treasury</span></div><div class="panel-meta">SAR 14.26B AUM · stacked by redemption tier · 62% raisable in T+5</div></div>
-            <div style="position:relative;height:80px;margin-top:8px"><canvas id="fiLiquidityStackChart"></canvas></div>
-            <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-top:12px">
-              <div style="padding:8px 10px;background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.26);border-radius:8px;border-left:3px solid #10b981">
-                <div style="font-size:8.5px;color:var(--green-2);font-weight:700;letter-spacing:.4px">TIER 1 · CASH/MMF</div>
-                <div style="font-size:14px;font-weight:800;color:var(--t-1);margin-top:2px">SAR 460M</div>
-                <div style="font-size:9px;color:var(--t-3);margin-top:1px">T+1 · 3.2% AUM</div>
-              </div>
-              <div style="padding:8px 10px;background:rgba(59,130,246,.07);border:1px solid rgba(59,130,246,.26);border-radius:8px;border-left:3px solid #3b82f6">
-                <div style="font-size:8.5px;color:#1d4ed8;font-weight:700;letter-spacing:.4px">TIER 2 · LIQUID PUBLIC</div>
-                <div style="font-size:14px;font-weight:800;color:var(--t-1);margin-top:2px">SAR 8.34B</div>
-                <div style="font-size:9px;color:var(--t-3);margin-top:1px">T+2 to T+5 · 58.7%</div>
-              </div>
-              <div style="padding:8px 10px;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.26);border-radius:8px;border-left:3px solid #d97706">
-                <div style="font-size:8.5px;color:var(--amber-2);font-weight:700;letter-spacing:.4px">TIER 3 · NOTICE</div>
-                <div style="font-size:14px;font-weight:800;color:var(--t-1);margin-top:2px">SAR 1.64B</div>
-                <div style="font-size:9px;color:var(--t-3);margin-top:1px">30—90 days · 11.5%</div>
-              </div>
-              <div style="padding:8px 10px;background:rgba(239,68,68,.07);border:1px solid rgba(239,68,68,.26);border-radius:8px;border-left:3px solid #dc2626">
-                <div style="font-size:8.5px;color:var(--red-2);font-weight:700;letter-spacing:.4px">TIER 4 · PE LOCK-UP</div>
-                <div style="font-size:14px;font-weight:800;color:var(--t-1);margin-top:2px">SAR 2.74B</div>
-                <div style="font-size:9px;color:var(--t-3);margin-top:1px">3—7 yr · 19.3%</div>
-              </div>
-              <div style="padding:8px 10px;background:rgba(147,51,168,.07);border:1px solid rgba(147,51,168,.26);border-radius:8px;border-left:3px solid #9333a8">
-                <div style="font-size:8.5px;color:#7e22ce;font-weight:700;letter-spacing:.4px">TIER 5 · REAL ASSETS</div>
-                <div style="font-size:14px;font-weight:800;color:var(--t-1);margin-top:2px">SAR 1.08B</div>
-                <div style="font-size:9px;color:var(--t-3);margin-top:1px">Annual gate · 7.6%</div>
-              </div>
-            </div>
-            <div style="margin-top:10px;padding:9px 11px;background:rgba(160,34,110,.05);border:1px dashed rgba(160,34,110,.22);border-radius:8px;font-size:11px;color:var(--t-2);line-height:1.55"><b style="color:#c92a8e">Liquidity read:</b> <b>SAR 8.8B raisable in 5 days</b> (Tier 1+2) covers 1.8× group OPEX. PE lock-up call risk SAR 920M over 12 mo · fee save opportunity SAR 8.8M from replacing 3 underperformers.</div>
-          </div>
-        </div>
-
-        <!-- 5. CAPITAL DEPLOYMENT (numbering per stakeholder spec) -->
-        <div class="cfo-block-title"><span class="n">5</span>Capital Deployment</div>
-        <div class="panel">
-          <div class="panel-head"><div class="panel-title">New FI Investments YTD <span class="panel-tag purple">💼 Investment Ops</span></div><div class="panel-meta">Drawn vs Commitment per mandate · target pacing line at 86% (YTD plan) · SAR 580M committed · 4 mandates</div></div>
-          <div style="position:relative;height:220px;margin-top:6px"><canvas id="fiCapitalDeployChart"></canvas></div>
-          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:10px">
-            <div style="padding:9px 11px;background:rgba(147,51,168,.06);border:1px solid rgba(147,51,168,.22);border-radius:8px"><div style="font-size:9.5px;color:#7e22ce;font-weight:700;letter-spacing:.4px">TOTAL COMMITTED</div><div style="font-size:16px;font-weight:800;color:#7e22ce;margin-top:2px">SAR 580M</div><div style="font-size:9.5px;color:var(--t-3);margin-top:1px">4 mandates · IPS-aligned</div></div>
-            <div style="padding:9px 11px;background:rgba(16,185,129,.07);border:1px solid rgba(16,185,129,.24);border-radius:8px"><div style="font-size:9.5px;color:var(--green-2);font-weight:700;letter-spacing:.4px">DRAWN YTD</div><div style="font-size:16px;font-weight:800;color:var(--green-2);margin-top:2px">SAR 500M</div><div style="font-size:9.5px;color:var(--t-3);margin-top:1px">86% pacing · on plan</div></div>
-            <div style="padding:9px 11px;background:rgba(245,158,11,.07);border:1px solid rgba(245,158,11,.24);border-radius:8px"><div style="font-size:9.5px;color:var(--amber-2);font-weight:700;letter-spacing:.4px">PENDING DRAW</div><div style="font-size:16px;font-weight:800;color:var(--amber-2);margin-top:2px">SAR 80M</div><div style="font-size:9.5px;color:var(--t-3);margin-top:1px">KKR Vision · capital call Q2</div></div>
-            <div style="padding:9px 11px;background:rgba(160,34,110,.06);border:1px solid rgba(160,34,110,.22);border-radius:8px"><div style="font-size:9.5px;color:#c92a8e;font-weight:700;letter-spacing:.4px">ASSET MIX</div><div style="font-size:16px;font-weight:800;color:#c92a8e;margin-top:2px">3 / 1</div><div style="font-size:9.5px;color:var(--t-3);margin-top:1px">Public · PE</div></div>
-          </div>
-        </div>
-
-        <!-- 6. INCOME TO SRH (Unrealised Gains panel removed — MTM is non-cash; CFO cash-to-SRH narrative stays clean at Q1 SAR 286M) -->
-        <div class="cfo-block-title"><span class="n">6</span>Income to RHG <span style="color:var(--green-2);font-size:12px;font-weight:700;margin-left:10px;text-transform:none;letter-spacing:.2px">→ Q1 cash SAR 234M (Div 142 + Realised 92) · +17% YoY</span></div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-          <div class="panel">
-            <div class="panel-head"><div class="panel-title">Dividends / Distributions <span class="panel-tag green">💸 TMS</span></div></div>
-            <div style="padding:10px 0">
-              <div style="font-size:24px;font-weight:800;color:var(--green-2)">SAR 142M</div>
-              <div style="font-size:11px;color:var(--t-3);margin-top:3px">Q1 cash to RHG · +14% YoY</div>
-              <div style="margin-top:10px;font-size:11px;color:var(--t-2);line-height:1.7">
-                • Sukuk coupon <b style="color:var(--t-1)">SAR 68M</b><br>
-                • Equity dividends <b style="color:var(--t-1)">SAR 38M</b><br>
-                • PE distributions <b style="color:var(--t-1)">SAR 22M</b><br>
-                • Hedge fund redeem <b style="color:var(--t-1)">SAR 14M</b>
-              </div>
-            </div>
-          </div>
-          <div class="panel">
-            <div class="panel-head"><div class="panel-title">Realised Gains <span class="panel-tag green">📈 Books closed</span></div></div>
-            <div style="padding:10px 0">
-              <div style="font-size:24px;font-weight:800;color:var(--green-2)">SAR 92M</div>
-              <div style="font-size:11px;color:var(--t-3);margin-top:3px">Q1 realised · +22% YoY</div>
-              <div style="margin-top:10px;font-size:11px;color:var(--t-2);line-height:1.7">
-                • Equity rebalancing <b style="color:var(--t-1)">SAR 54M</b><br>
-                • Sukuk tactical <b style="color:var(--t-1)">SAR 18M</b><br>
-                • PE exits (Jadwa Vehicle 4) <b style="color:var(--t-1)">SAR 12M</b><br>
-                • Hedge fund close <b style="color:var(--t-1)">SAR 8M</b>
-              </div>
-            </div>
-          </div>
-        </div>
+        <!-- Liquidity Profile, Capital Deployment, and Income to RHG blocks removed -->
       </div>
 
       <!-- ============ RE · CFO PANE ============ -->
@@ -1760,163 +1558,7 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
           </div>
         </div>
 
-        <!-- 2. RETURNS & PERFORMANCE -->
-        <div class="cfo-block-title"><span class="n">2</span>Returns &amp; Performance</div>
-        <div style="display:grid;grid-template-columns:1.4fr 1fr;gap:14px">
-          <div class="panel">
-            <div class="panel-head"><div class="panel-title">Net Yield vs Benchmark <span class="panel-tag" style="background:rgba(139,26,107,.10);color:#8b1a6b;border-color:rgba(139,26,107,.32)">📈 REIDIN · Bloomberg</span></div><div class="panel-meta">By asset class · cap rate + alpha · Q1 2026</div></div>
-            <div style="height:230px;padding:6px 2px"><canvas id="reNetYieldChart"></canvas></div>
-            <div style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px;margin-top:8px">
-              <div style="padding:7px 6px;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.22);border-radius:8px;text-align:center">
-                <div style="font-size:9px;color:var(--t-3);font-weight:700;letter-spacing:.2px;text-transform:uppercase">Office A</div>
-                <div style="font-size:14px;font-weight:800;color:var(--green-2);margin-top:2px">+20</div>
-                <div style="font-size:9px;color:var(--t-3)">bps · 4.82B</div>
-              </div>
-              <div style="padding:7px 6px;background:rgba(34,197,94,.10);border:1px solid rgba(34,197,94,.32);border-radius:8px;text-align:center">
-                <div style="font-size:9px;color:var(--t-3);font-weight:700;letter-spacing:.2px;text-transform:uppercase">Hospitality</div>
-                <div style="font-size:14px;font-weight:800;color:var(--green-2);margin-top:2px">+80</div>
-                <div style="font-size:9px;color:var(--t-3)">bps · 2.64B</div>
-              </div>
-              <div style="padding:7px 6px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.26);border-radius:8px;text-align:center">
-                <div style="font-size:9px;color:var(--t-3);font-weight:700;letter-spacing:.2px;text-transform:uppercase">Logistics</div>
-                <div style="font-size:14px;font-weight:800;color:var(--green-2);margin-top:2px">+60</div>
-                <div style="font-size:9px;color:var(--t-3)">bps · 1.92B</div>
-              </div>
-              <div style="padding:7px 6px;background:rgba(239,68,68,.08);border:1px solid rgba(239,68,68,.28);border-radius:8px;text-align:center">
-                <div style="font-size:9px;color:var(--t-3);font-weight:700;letter-spacing:.2px;text-transform:uppercase">Retail</div>
-                <div style="font-size:14px;font-weight:800;color:var(--red-2);margin-top:2px">−60</div>
-                <div style="font-size:9px;color:var(--t-3)">bps · 1.64B</div>
-              </div>
-              <div style="padding:7px 6px;background:rgba(34,197,94,.06);border:1px solid rgba(34,197,94,.22);border-radius:8px;text-align:center">
-                <div style="font-size:9px;color:var(--t-3);font-weight:700;letter-spacing:.2px;text-transform:uppercase">Mixed-Use</div>
-                <div style="font-size:14px;font-weight:800;color:var(--green-2);margin-top:2px">+20</div>
-                <div style="font-size:9px;color:var(--t-3)">bps · 1.38B</div>
-              </div>
-              <div style="padding:7px 6px;background:rgba(34,197,94,.07);border:1px solid rgba(34,197,94,.24);border-radius:8px;text-align:center">
-                <div style="font-size:9px;color:var(--t-3);font-weight:700;letter-spacing:.2px;text-transform:uppercase">Resi</div>
-                <div style="font-size:14px;font-weight:800;color:var(--green-2);margin-top:2px">+30</div>
-                <div style="font-size:9px;color:var(--t-3)">bps · 1.24B</div>
-              </div>
-              <div style="padding:7px 6px;background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.26);border-radius:8px;text-align:center">
-                <div style="font-size:9px;color:var(--t-3);font-weight:700;letter-spacing:.2px;text-transform:uppercase">Healthcare</div>
-                <div style="font-size:14px;font-weight:800;color:var(--green-2);margin-top:2px">+40</div>
-                <div style="font-size:9px;color:var(--t-3)">bps · 0.82B</div>
-              </div>
-            </div>
-            <div style="margin-top:8px;padding:8px 11px;background:rgba(139,26,107,.06);border:1px dashed rgba(139,26,107,.24);border-radius:8px;display:flex;justify-content:space-between;align-items:center;font-size:11px;color:var(--t-2)">
-              <span><b style="color:#8b1a6b">Portfolio alpha:</b> +50 bps vs REIDIN benchmark · NOI Q1 SAR 248M on GAV SAR 15.8B</span>
-              <span style="font-weight:800;color:var(--green-2);font-size:13px">6.4% vs 5.9%</span>
-            </div>
-          </div>
-          <div class="panel">
-            <div class="panel-head"><div class="panel-title">Below-WACC Properties <span class="panel-tag" style="background:var(--red-soft);color:var(--red-2);border-color:rgba(239,68,68,.3)">⚠️ Disposal Pipeline</span></div><div class="panel-meta">12 of 47 · SAR 1.84B drag</div></div>
-            <div style="display:flex;flex-direction:column;gap:8px;padding:6px 0">
-              <div style="padding:10px;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.22);border-radius:8px">
-                <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font-size:12px;font-weight:700;color:var(--t-1)">Olaya Tower B</div><div style="font-size:11px;color:var(--red-2);font-weight:700">−6 bps</div></div>
-                <div style="font-size:10.5px;color:var(--t-3);margin-top:3px">GAV SAR 620M · 67% occupancy · cap rate 4.2%</div>
-              </div>
-              <div style="padding:10px;background:rgba(239,68,68,.06);border:1px solid rgba(239,68,68,.22);border-radius:8px">
-                <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font-size:12px;font-weight:700;color:var(--t-1)">Sahafa Logistics Park</div><div style="font-size:11px;color:var(--red-2);font-weight:700">−5 bps</div></div>
-                <div style="font-size:10.5px;color:var(--t-3);margin-top:3px">GAV SAR 380M · 71% occupancy · cap rate 4.8%</div>
-              </div>
-              <div style="padding:10px;background:rgba(245,158,11,.06);border:1px solid rgba(245,158,11,.22);border-radius:8px">
-                <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font-size:12px;font-weight:700;color:var(--t-1)">Khaleej Plaza (Retail)</div><div style="font-size:11px;color:var(--amber-2);font-weight:700">−7 bps</div></div>
-                <div style="font-size:10.5px;color:var(--t-3);margin-top:3px">GAV SAR 340M · 62% occupancy · cap rate 3.8%</div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- 3. OPERATIONAL KPIs -->
-        <div class="cfo-block-title"><span class="n">3</span>Operational KPIs <span class="imp">Very Important</span> <span style="color:var(--green-2);font-size:12px;font-weight:700;margin-left:10px;text-transform:none;letter-spacing:.2px">→ Occupancy 87.4% · target 88% · −0.6pp gap · WAULT 4.6 yr</span></div>
-        <div>
-          <div class="panel">
-            <div class="panel-head"><div class="panel-title">Per-Asset-Class · Operational Scorecard <span class="panel-tag" style="background:rgba(139,26,107,.10);color:#8b1a6b;border-color:rgba(139,26,107,.32)">🏢 Yardi · REIDIN</span></div><div class="panel-meta">Q1 2026 · GAV / NOI / Occupancy / WAULT / Cap Rate</div></div>
-            <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:8px;padding:4px 0">
-              <div class="health-card" style="border-left:3px solid var(--green-2)">
-                <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font-size:11px;font-weight:700;color:var(--t-1)">Riyadh Office A</div><span class="stage-pill mature" style="font-size:9px;padding:1px 6px">Core</span></div>
-                <div style="font-size:16px;font-weight:800;color:var(--t-1);margin-top:3px">92.4%<span style="font-size:9px;color:var(--t-3);font-weight:600;margin-left:3px">occupancy</span></div>
-                <div style="font-size:10px;color:var(--t-3);margin-top:2px">GAV 4.82B · NOI 288 · WAULT 5.4y · cap 6.0%</div>
-                <div style="margin-top:4px;height:5px;background:rgba(34,197,94,.14);border-radius:3px;overflow:hidden"><div style="width:92.4%;height:100%;background:var(--green-2)"></div></div>
-              </div>
-              <div class="health-card" style="border-left:3px solid var(--amber-2)">
-                <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font-size:11px;font-weight:700;color:var(--t-1)">Hospitality</div><span class="stage-pill growth" style="font-size:9px;padding:1px 6px">REIT</span></div>
-                <div style="font-size:16px;font-weight:800;color:var(--t-1);margin-top:3px">78.6%<span style="font-size:9px;color:var(--t-3);font-weight:600;margin-left:3px">occupancy</span></div>
-                <div style="font-size:10px;color:var(--t-3);margin-top:2px">GAV 2.64B · NOI 190 · WAULT 3.2y · cap 7.2%</div>
-                <div style="margin-top:4px;height:5px;background:rgba(245,158,11,.14);border-radius:3px;overflow:hidden"><div style="width:78.6%;height:100%;background:var(--amber-2)"></div></div>
-              </div>
-              <div class="health-card" style="border-left:3px solid var(--green-2)">
-                <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font-size:11px;font-weight:700;color:var(--t-1)">Logistics</div><span class="stage-pill growth" style="font-size:9px;padding:1px 6px">Build</span></div>
-                <div style="font-size:16px;font-weight:800;color:var(--t-1);margin-top:3px">94.2%<span style="font-size:9px;color:var(--t-3);font-weight:600;margin-left:3px">occupancy</span></div>
-                <div style="font-size:10px;color:var(--t-3);margin-top:2px">GAV 1.92B · NOI 138 · WAULT 6.8y · cap 7.2%</div>
-                <div style="margin-top:4px;height:5px;background:rgba(34,197,94,.14);border-radius:3px;overflow:hidden"><div style="width:94.2%;height:100%;background:var(--green-2)"></div></div>
-              </div>
-              <div class="health-card" style="border-left:3px solid var(--amber-2)">
-                <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font-size:11px;font-weight:700;color:var(--t-1)">Retail</div><span class="stage-pill watch" style="font-size:9px;padding:1px 6px">Reposit</span></div>
-                <div style="font-size:16px;font-weight:800;color:var(--t-1);margin-top:3px">81.2%<span style="font-size:9px;color:var(--t-3);font-weight:600;margin-left:3px">occupancy</span></div>
-                <div style="font-size:10px;color:var(--t-3);margin-top:2px">GAV 1.64B · NOI 92 · WAULT 2.8y · cap 5.6%</div>
-                <div style="margin-top:4px;height:5px;background:rgba(245,158,11,.14);border-radius:3px;overflow:hidden"><div style="width:81.2%;height:100%;background:var(--amber-2)"></div></div>
-              </div>
-              <div class="health-card" style="border-left:3px solid var(--green-2)">
-                <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font-size:11px;font-weight:700;color:var(--t-1)">Mixed-Use</div><span class="stage-pill mature" style="font-size:9px;padding:1px 6px">Core</span></div>
-                <div style="font-size:16px;font-weight:800;color:var(--t-1);margin-top:3px">86.4%<span style="font-size:9px;color:var(--t-3);font-weight:600;margin-left:3px">occupancy</span></div>
-                <div style="font-size:10px;color:var(--t-3);margin-top:2px">GAV 1.38B · NOI 88 · WAULT 4.6y · cap 6.4%</div>
-                <div style="margin-top:4px;height:5px;background:rgba(34,197,94,.14);border-radius:3px;overflow:hidden"><div style="width:86.4%;height:100%;background:var(--green-2)"></div></div>
-              </div>
-              <div class="health-card" style="border-left:3px solid var(--green-2)">
-                <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font-size:11px;font-weight:700;color:var(--t-1)">Residential</div><span class="stage-pill mature" style="font-size:9px;padding:1px 6px">Core</span></div>
-                <div style="font-size:16px;font-weight:800;color:var(--t-1);margin-top:3px">91.8%<span style="font-size:9px;color:var(--t-3);font-weight:600;margin-left:3px">occupancy</span></div>
-                <div style="font-size:10px;color:var(--t-3);margin-top:2px">GAV 1.24B · NOI 78 · WAULT 2.1y · cap 6.3%</div>
-                <div style="margin-top:4px;height:5px;background:rgba(34,197,94,.14);border-radius:3px;overflow:hidden"><div style="width:91.8%;height:100%;background:var(--green-2)"></div></div>
-              </div>
-              <div class="health-card" style="border-left:3px solid var(--green-2)">
-                <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font-size:11px;font-weight:700;color:var(--t-1)">Healthcare</div><span class="stage-pill growth" style="font-size:9px;padding:1px 6px">Build</span></div>
-                <div style="font-size:16px;font-weight:800;color:var(--t-1);margin-top:3px">96.0%<span style="font-size:9px;color:var(--t-3);font-weight:600;margin-left:3px">occupancy</span></div>
-                <div style="font-size:10px;color:var(--t-3);margin-top:2px">GAV 0.82B · NOI 52 · WAULT 8.4y · cap 6.4%</div>
-                <div style="margin-top:4px;height:5px;background:rgba(34,197,94,.14);border-radius:3px;overflow:hidden"><div style="width:96%;height:100%;background:var(--green-2)"></div></div>
-              </div>
-              <div class="health-card" style="border-left:3px solid var(--red-2);background:rgba(239,68,68,.04)">
-                <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font-size:11px;font-weight:700;color:var(--t-1)">Olaya Tower B</div><span class="stage-pill stress" style="font-size:9px;padding:1px 6px">Sell</span></div>
-                <div style="font-size:16px;font-weight:800;color:var(--red-2);margin-top:3px">67.0%<span style="font-size:9px;color:var(--t-3);font-weight:600;margin-left:3px">occupancy</span></div>
-                <div style="font-size:10px;color:var(--t-3);margin-top:2px">GAV 0.62B · NOI 26 · WAULT 1.8y · cap 4.2%</div>
-                <div style="margin-top:4px;height:5px;background:rgba(239,68,68,.14);border-radius:3px;overflow:hidden"><div style="width:67%;height:100%;background:var(--red-2)"></div></div>
-              </div>
-              <div class="health-card" style="border-left:3px solid var(--red-2);background:rgba(239,68,68,.04)">
-                <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font-size:11px;font-weight:700;color:var(--t-1)">Sahafa Logistics</div><span class="stage-pill stress" style="font-size:9px;padding:1px 6px">Sell</span></div>
-                <div style="font-size:16px;font-weight:800;color:var(--red-2);margin-top:3px">71.0%<span style="font-size:9px;color:var(--t-3);font-weight:600;margin-left:3px">occupancy</span></div>
-                <div style="font-size:10px;color:var(--t-3);margin-top:2px">GAV 0.38B · NOI 18 · WAULT 2.4y · cap 4.8%</div>
-                <div style="margin-top:4px;height:5px;background:rgba(239,68,68,.14);border-radius:3px;overflow:hidden"><div style="width:71%;height:100%;background:var(--red-2)"></div></div>
-              </div>
-              <div class="health-card" style="border-left:3px solid var(--red-2);background:rgba(239,68,68,.04)">
-                <div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="font-size:11px;font-weight:700;color:var(--t-1)">Khaleej Plaza</div><span class="stage-pill stress" style="font-size:9px;padding:1px 6px">Sell</span></div>
-                <div style="font-size:16px;font-weight:800;color:var(--red-2);margin-top:3px">62.0%<span style="font-size:9px;color:var(--t-3);font-weight:600;margin-left:3px">occupancy</span></div>
-                <div style="font-size:10px;color:var(--t-3);margin-top:2px">GAV 0.34B · NOI 13 · WAULT 1.4y · cap 3.8%</div>
-                <div style="margin-top:4px;height:5px;background:rgba(239,68,68,.14);border-radius:3px;overflow:hidden"><div style="width:62%;height:100%;background:var(--red-2)"></div></div>
-              </div>
-            </div>
-            <div style="margin-top:10px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
-              <div style="padding:9px 11px;background:rgba(139,26,107,.06);border:1px solid rgba(139,26,107,.22);border-radius:8px">
-                <div style="font-size:10px;color:var(--t-3);font-weight:700;text-transform:uppercase;letter-spacing:.3px">Portfolio Occupancy</div>
-                <div style="font-size:18px;font-weight:800;color:var(--green-2);margin-top:2px">87.4%<span style="font-size:10px;color:var(--t-3);font-weight:600;margin-left:5px">target 88%</span></div>
-              </div>
-              <div style="padding:9px 11px;background:rgba(139,26,107,.06);border:1px solid rgba(139,26,107,.22);border-radius:8px">
-                <div style="font-size:10px;color:var(--t-3);font-weight:700;text-transform:uppercase;letter-spacing:.3px">Portfolio WAULT</div>
-                <div style="font-size:18px;font-weight:800;color:var(--t-1);margin-top:2px">4.6 yr</div>
-              </div>
-              <div style="padding:9px 11px;background:rgba(139,26,107,.06);border:1px solid rgba(139,26,107,.22);border-radius:8px">
-                <div style="font-size:10px;color:var(--t-3);font-weight:700;text-transform:uppercase;letter-spacing:.3px">Portfolio Cap Rate</div>
-                <div style="font-size:18px;font-weight:800;color:var(--t-1);margin-top:2px">6.4%</div>
-              </div>
-              <div style="padding:9px 11px;background:rgba(139,26,107,.06);border:1px solid rgba(139,26,107,.22);border-radius:8px">
-                <div style="font-size:10px;color:var(--t-3);font-weight:700;text-transform:uppercase;letter-spacing:.3px">Total Q1 NOI</div>
-                <div style="font-size:18px;font-weight:800;color:var(--t-1);margin-top:2px">SAR 248M</div>
-              </div>
-            </div>
-            <div style="margin-top:10px;padding:9px 11px;background:rgba(139,26,107,.05);border:1px dashed rgba(139,26,107,.22);border-radius:8px;font-size:11px;color:var(--t-2);line-height:1.55">
-              <b style="color:#8b1a6b">Operational read:</b> Occupancy 87.4% just below 88% target (−0.6pp gap). Retail soft (81.2%); 3 disposal assets account for 4% of GAV but 8% of occupancy drag. Healthcare RE strongest (96%). Lease renewals SAR 1.06B pending next 12 mo — SAR 720M LOI signed, SAR 100M at risk.
-            </div>
-          </div>
-        </div>
+        <!-- Returns & Performance and Operational KPIs blocks removed from RE pane -->
 
         <!-- 6. NET RENTAL INCOME TO RHG -->
         <div class="cfo-block-title"><span class="n">6</span>Net Rental Income to RHG <span style="color:var(--green-2);font-size:12px;font-weight:700;margin-left:10px;text-transform:none;letter-spacing:.2px">→ Q1 cash SAR 168M (NOI 248 − OPEX 80) · +5.6% YoY</span></div>
@@ -2425,6 +2067,23 @@ table.tbl th{font-size:11px !important;letter-spacing:.4px}
   </div>
 </div>
 <!-- ============ DRILL-DOWN MODAL ============ -->
+<!-- ============ CASH INFLOW & DISTRIBUTION TREND MODAL ============ -->
+<div class="modal-bg" id="cashTrendModal" onclick="if(event.target===this)closeCashTrend()">
+  <div class="modal" style="max-width:880px">
+    <button class="close" onclick="closeCashTrend()">✕</button>
+    <div class="modal-head">
+      <div class="modal-icon">📈</div>
+      <div class="modal-h"><span id="execTrendTitle">Group Cash Inflow &amp; Distribution Trend</span></div>
+      <div class="modal-tags">
+        <span class="panel-tag blue">📊 Treasury · SAP FI/CO</span>
+        <span class="panel-tag green">✓ Reconciled</span>
+      </div>
+    </div>
+    <div style="font-size:11px;color:var(--t-3);margin:-4px 0 14px" id="execTrendMeta">FY2021 — Q1 2026 · cash basis</div>
+    <div style="position:relative;height:360px"><canvas id="execTrendChart"></canvas></div>
+  </div>
+</div>
+
 <div class="modal-bg" id="drillModal" onclick="if(event.target===this)closeDrill()">
   <div class="modal">
     <button class="close" onclick="closeDrill()">✕</button>
@@ -3005,6 +2664,14 @@ function openDrill(id){
 }
 function closeDrill(){ document.getElementById('drillModal').classList.remove('open'); }
 
+// ============ CASH TREND MODAL ============
+function openCashTrend(){
+  document.getElementById('cashTrendModal').classList.add('open');
+  // Canvas was hidden in a display:none modal; resize so Chart.js picks up the real dimensions.
+  requestAnimationFrame(()=>{ if(chartInstances && chartInstances.execTrend){ chartInstances.execTrend.resize(); chartInstances.execTrend.update(); } });
+}
+function closeCashTrend(){ document.getElementById('cashTrendModal').classList.remove('open'); }
+
 // ============ COLLAPSIBLE PANEL HELPER (Tier 1 trim 18 May 2026) ============
 function toggleCollapse(panelId){
   const panel = document.getElementById(panelId);
@@ -3171,24 +2838,7 @@ const pillarData = {
       {nm:'T. Rowe Price',sec:'EM Frontier',geo:'EM',nav:'720',rev:'11.2%',eb:'9.4%',yoy:'+1.8pp',yoyCls:'green-2',stage:'mature',stageTxt:'Hold',id:'fi-trp'}
     ]
   },
-  re: {
-    title: 'Real Estate — Operational KPIs by Asset Class',
-    tag: '<span class="panel-tag blue">🏢 Yardi · REIDIN</span>',
-    meta: '47 properties · 6 systems → Yardi · SAR 15.8B GAV · 87.4% portfolio occupancy',
-    cols: ['Asset Class','Geo','GAV (SAR M)','NOI (SAR M)','Occupancy','Rental Yield','Cap Rate','Status'],
-    rows: [
-      {nm:'Riyadh Office (Class A)',sec:'Office',geo:'Riyadh',nav:'4,820',rev:'288',eb:'92.4%',yoy:'6.0%',yoyCls:'green-2',stage:'mature',stageTxt:'Core-Hold',id:'re-ryh-off'},
-      {nm:'Hospitality Portfolio',sec:'Hotels',geo:'KSA',nav:'2,640',rev:'190',eb:'78.6%',yoy:'7.2%',yoyCls:'green-2',stage:'divest',stageTxt:'⭐ REIT Carve',id:'arrei',hl:true},
-      {nm:'Logistics & Industrial',sec:'Logistics',geo:'Riyadh / DMM',nav:'1,920',rev:'138',eb:'94.2%',yoy:'7.2%',yoyCls:'green-2',stage:'growth',stageTxt:'Build-Out',id:'re-log'},
-      {nm:'Retail (High Street)',sec:'Retail',geo:'KSA',nav:'1,640',rev:'92',eb:'81.2%',yoy:'5.6%',yoyCls:'amber-2',stage:'watch',stageTxt:'Reposition',id:'re-ret'},
-      {nm:'Mixed-Use (Jeddah)',sec:'Mixed-Use',geo:'Jeddah',nav:'1,380',rev:'88',eb:'86.4%',yoy:'6.4%',yoyCls:'green-2',stage:'mature',stageTxt:'Core-Hold',id:'re-jed'},
-      {nm:'Residential (Compounds)',sec:'Residential',geo:'Riyadh',nav:'1,240',rev:'78',eb:'91.8%',yoy:'6.3%',yoyCls:'green-2',stage:'mature',stageTxt:'Core-Hold',id:'re-res'},
-      {nm:'Healthcare RE',sec:'Healthcare',geo:'KSA',nav:'820',rev:'52',eb:'96.0%',yoy:'6.4%',yoyCls:'green-2',stage:'growth',stageTxt:'Build-Out',id:'re-hc'},
-      {nm:'Olaya Tower B',sec:'Office',geo:'Riyadh',nav:'620',rev:'26',eb:'67.0%',yoy:'4.2%',yoyCls:'red-2',stage:'divest',stageTxt:'⭐ Disposal',id:'re-ola',hl:true},
-      {nm:'Sahafa Logistics Park',sec:'Logistics',geo:'Riyadh',nav:'380',rev:'18',eb:'71.0%',yoy:'4.8%',yoyCls:'red-2',stage:'divest',stageTxt:'⭐ Disposal',id:'re-sah',hl:true},
-      {nm:'Khaleej Plaza',sec:'Retail',geo:'Eastern Prov.',nav:'340',rev:'13',eb:'62.0%',yoy:'3.8%',yoyCls:'red-2',stage:'divest',stageTxt:'⭐ Disposal',id:'re-khj',hl:true}
-    ]
-  }
+  // re pillar table removed — RE view shows only the KPI strip + sidebar.
 };
 
 function renderGroupSnapshot(){
@@ -3218,6 +2868,7 @@ function renderGroupSnapshot(){
 
 function renderPillarTable(p){
   if(p === 'group') return;   // group snapshot lives in #execGroupSnapshotPanel and is rendered from renderExecKPIs
+  if(p === 're')    return;   // RE Operational KPIs table dropped — panel hidden by renderExecKPIs
   const d = pillarData[p] || pillarData.di;
   const head = document.getElementById('execPillarTitle');
   const meta = document.getElementById('execPillarMeta');
@@ -3903,7 +3554,8 @@ function renderExecKPIs(p){
   }
   if(row) row.style.display = '';
   if(snapPanel) snapPanel.style.display = 'none';
-  if(pillarPanel) pillarPanel.style.display = '';
+  // RE pillar no longer shows the Operational KPIs by Asset Class table — KPI strip is sufficient.
+  if(pillarPanel) pillarPanel.style.display = (p === 're') ? 'none' : '';
   if(!row) return;
   let list, cls;
   if(pillarKPIs[p]){ list = pillarKPIs[p]; cls = 'k5'; }
@@ -3940,8 +3592,6 @@ const pillarChartData = {
   di: {
     titleNAV:'Inflows from DI — by Subsidiary',
     metaNAV:'Q1 2026 · cash to RHG · SAR M · click bar for detail',
-    titleTrend:'DI Cash to RHG & Subsidiary EBITDA Margin',
-    metaTrend:'FY2021 — Q1 2026 · cash basis',
     titlePeer:'Dividend Pay-out Ratio vs Peers',
     metaPeer:'3Y avg · dividend / sub net income',
     nav:{
@@ -3950,19 +3600,12 @@ const pillarChartData = {
       budget:[120,72,52,42,8,22,84],
       q1_26:[118,66,52,44,4,20,108]
     },
-    trend:{
-      labels:['FY21','FY22','FY23','FY24','FY25','Q1 26'],
-      navData:[1180,1320,1460,1580,1720,412],navLabel:'DI Cash to RHG (SAR M)',
-      kpiData:[16.2,17.1,17.8,18.4,18.6,18.9],kpiLabel:'EBITDA %',kpiUnit:'%',kpiMin:14,kpiMax:22
-    },
     peer:{labels:['RHG (DI)','Almarai','Olayan','ADQ','Mubadala','Kingdom'],data:[58,42,46,38,34,28]},
     color:'rgba(217,53,156,0.85)',border:'#c92a8e'
   },
   fi: {
     titleNAV:'FI Returns to RHG — by Asset Class',
     metaNAV:'Q1 2026 · realised + distributions · SAR M · click bar for detail',
-    titleTrend:'FI Income to RHG & Portfolio Return',
-    metaTrend:'FY2021 — Q1 2026 · cash basis',
     titlePeer:'Cash Yield vs Endowment & SWF Peers',
     metaPeer:'3Y avg · distributable cash / AUM',
     nav:{
@@ -3971,19 +3614,12 @@ const pillarChartData = {
       budget:[88,134,42,22,8,6],
       q1_26:[92,128,38,20,6,2]
     },
-    trend:{
-      labels:['FY21','FY22','FY23','FY24','FY25','Q1 26'],
-      navData:[620,780,920,1040,1160,286],navLabel:'FI Cash to RHG (SAR M)',
-      kpiData:[10.2,11.4,12.0,12.4,12.2,12.4],kpiLabel:'Portfolio Return %',kpiUnit:'%',kpiMin:7,kpiMax:14
-    },
     peer:{labels:['Yale','RHG (FI)','Wellcome','Calpers','GIC','Temasek'],data:[5.2,4.6,4.4,3.8,2.4,2.2]},
     color:'rgba(147,51,168,0.85)',border:'#b94dc8'
   },
   re: {
     titleNAV:'RE Net Rental Income — by Asset Class',
     metaNAV:'Q1 2026 · cash to RHG net of OPEX · SAR M',
-    titleTrend:'RE Rental Income & Portfolio Occupancy',
-    metaTrend:'FY2021 — Q1 2026 · cash basis',
     titlePeer:'Net Rental Yield vs Regional Peers',
     metaPeer:'3Y net yield · GCC + listed REIT peers',
     nav:{
@@ -3991,11 +3627,6 @@ const pillarChartData = {
       q1_25:[48,32,22,18,14,12],
       budget:[52,38,24,20,16,14],
       q1_26:[54,40,26,20,16,12]
-    },
-    trend:{
-      labels:['FY21','FY22','FY23','FY24','FY25','Q1 26'],
-      navData:[420,520,620,720,840,168],navLabel:'RE Net Rental (SAR M)',
-      kpiData:[82.4,84.6,85.8,87.1,86.8,87.4],kpiLabel:'Occupancy %',kpiUnit:'%',kpiMin:78,kpiMax:92
     },
     peer:{labels:['Emaar','GLP','Aldar','RHG (RE)','Mubadala RE','Dar Al Arkan'],data:[6.2,6.0,5.8,5.6,5.2,4.8]},
     color:'rgba(139,26,107,0.85)',border:'#c92a8e'
@@ -4034,7 +3665,7 @@ function updateExecCharts(p){
       c.data.datasets[0].borderColor     = c.data.labels.map(()=> '#c92a8e');
       c.update();
     }
-    ['execTrendPanel','execGroupPerfPanel'].forEach(id=>{
+    ['execGroupPerfPanel'].forEach(id=>{
       const el = document.getElementById(id); if(!el) return;
       el.classList.remove('chart-pulse'); void el.offsetWidth; el.classList.add('chart-pulse');
     });
@@ -4043,25 +3674,10 @@ function updateExecCharts(p){
 
   const d = pillarChartData[p] || pillarChartData.di;
   // execNAV chart was retired in favour of the Group Performance Summary table — title/meta refs removed.
-  set('execTrendTitle', d.titleTrend);
-  set('execTrendMeta',  d.metaTrend);
+  // execTrend chart now lives in the Cash Management trend dialog and always shows the group view —
+  // it is no longer repurposed by pillar.
   set('execPeerTitle',  d.titlePeer);
   set('execPeerMeta',   d.metaPeer);
-
-  if(chartInstances.execTrend){
-    const c = chartInstances.execTrend;
-    c.data.labels = d.trend.labels;
-    c.data.datasets[0].label = d.trend.navLabel;
-    c.data.datasets[0].data  = d.trend.navData;
-    c.data.datasets[1].label = d.trend.kpiLabel;
-    c.data.datasets[1].data  = d.trend.kpiData;
-    if(c.options.scales.y1){
-      c.options.scales.y1.min = d.trend.kpiMin;
-      c.options.scales.y1.max = d.trend.kpiMax;
-      c.options.scales.y1.ticks.callback = v => v + d.trend.kpiUnit;
-    }
-    c.update();
-  }
 
   if(chartInstances.execPeer){
     const c = chartInstances.execPeer;
@@ -4073,7 +3689,7 @@ function updateExecCharts(p){
     c.update();
   }
 
-  ['execTrendPanel','execGroupPerfPanel'].forEach(id=>{
+  ['execGroupPerfPanel'].forEach(id=>{
     const el = document.getElementById(id); if(!el) return;
     el.classList.remove('chart-pulse'); void el.offsetWidth; el.classList.add('chart-pulse');
   });
@@ -4303,112 +3919,7 @@ function initFICharts(){
       ]
     },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:12,font:{size:10.5},color:'#4a3a5a',padding:8}},tooltip:{callbacks:{label:c=>c.dataset.label+': '+c.parsed.y+'%'}}},scales:{y:{beginAtZero:true,ticks:{callback:v=>v+'%',font:{size:10},color:'#6b5a7a'},grid:{color:'rgba(160,34,110,0.08)'}},x:{ticks:{font:{size:10},color:'#4a3a5a'},grid:{display:false}}}}});
   }
-  // Liquid vs illiquid stack — horizontal stacked bar
-  destroyChart('fiLiquidityStack');
-  const c5 = document.getElementById('fiLiquidityStackChart');
-  if(c5){
-    chartInstances.fiLiquidityStack = new Chart(c5,{type:'bar',data:{
-      labels:['Liquidity Tiers'],
-      datasets:[
-        {label:'T+0 Cash / MMF',data:[460],backgroundColor:'#10b981',borderColor:'#0a9268',borderWidth:1},
-        {label:'T+5 Public Equity',data:[4520],backgroundColor:'#3b82f6',borderColor:'#2563eb',borderWidth:1},
-        {label:'T+5 Sukuk',data:[4080],backgroundColor:'#9333a8',borderColor:'#6b1748',borderWidth:1},
-        {label:'T+30 Hedge Funds',data:[1320],backgroundColor:'#d97706',borderColor:'#b45309',borderWidth:1},
-        {label:'Lock-up PE / Real Assets',data:[3820],backgroundColor:'#dc2626',borderColor:'#991b1b',borderWidth:1}
-      ]
-    },options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:11,font:{size:9.5},color:'#4a3a5a',padding:6}},tooltip:{callbacks:{label:c=>c.dataset.label+': SAR '+c.parsed.x+'M ('+(c.parsed.x/142.0).toFixed(1)+'%)'}}},scales:{x:{stacked:true,ticks:{callback:v=>'SAR '+(v/1000).toFixed(1)+'B',font:{size:10},color:'#6b5a7a'},grid:{color:'rgba(160,34,110,0.06)'}},y:{stacked:true,display:false}}}});
-  }
-  // Capital deployment — horizontal stacked bar (Drawn + Pending per mandate) + per-bar % label
-  destroyChart('fiCapitalDeploy');
-  const c6 = document.getElementById('fiCapitalDeployChart');
-  if(c6){
-    const commitments = [220, 160, 120, 80];
-    const drawn       = [220, 160,  40, 80];
-    const pending     = drawn.map((d,i)=>commitments[i]-d);
-    const pctLabelPlugin = {
-      id:'fiCapPctLabel',
-      afterDatasetsDraw(chart){
-        const ctx = chart.ctx;
-        const drawnMeta = chart.getDatasetMeta(0);
-        if(!drawnMeta || !drawnMeta.data) return;
-        ctx.save();
-        ctx.textAlign = 'left';
-        ctx.textBaseline = 'middle';
-        ctx.font = '700 10.5px system-ui,-apple-system,sans-serif';
-        drawnMeta.data.forEach((bar, i)=>{
-          const pct = Math.round((drawn[i]/commitments[i])*100);
-          const total = commitments[i];
-          const barLen = bar.width || (bar.x - bar.base);
-          const barEnd = bar.x;
-          const barStart = bar.base;
-          if(barLen < 40) return;
-          ctx.fillStyle = '#ffffff';
-          ctx.fillText(pct + '%  ·  SAR ' + drawn[i] + 'M / ' + total + 'M', barStart + 8, bar.y);
-        });
-        ctx.restore();
-      }
-    };
-    chartInstances.fiCapitalDeploy = new Chart(c6,{type:'bar',data:{
-      labels:['Saudi Equity Active','GCC Sukuk','Healthcare PE','EM Frontier'],
-      datasets:[
-        {
-          label:'Drawn YTD',
-          data:drawn,
-          backgroundColor:['#10b981','#10b981','#d97706','#10b981'],
-          borderColor:['#0a9268','#0a9268','#b45309','#0a9268'],
-          borderWidth:1.5,
-          borderRadius:{topLeft:5,bottomLeft:5,topRight:0,bottomRight:0},
-          borderSkipped:false,
-          barPercentage:0.7,
-          categoryPercentage:0.78
-        },
-        {
-          label:'Pending Draw',
-          data:pending,
-          backgroundColor:'rgba(217,119,6,0.22)',
-          borderColor:'rgba(217,119,6,0.5)',
-          borderWidth:1,
-          borderRadius:{topLeft:0,bottomLeft:0,topRight:5,bottomRight:5},
-          borderSkipped:false,
-          barPercentage:0.7,
-          categoryPercentage:0.78
-        }
-      ]
-    },options:{
-      indexAxis:'y',
-      responsive:true,
-      maintainAspectRatio:false,
-      layout:{padding:{top:4,right:14,bottom:0,left:0}},
-      plugins:{
-        legend:{position:'bottom',labels:{boxWidth:12,font:{size:10.5},color:'#4a3a5a',padding:8}},
-        tooltip:{
-          backgroundColor:'rgba(26,15,42,0.92)',
-          padding:10,
-          titleFont:{size:11,weight:'700'},
-          bodyFont:{size:10.5},
-          callbacks:{
-            title:ctx=>ctx[0].label,
-            label:ctx=>{
-              const i = ctx.dataIndex;
-              const isDrawn = ctx.datasetIndex === 0;
-              const pct = Math.round((drawn[i]/commitments[i])*100);
-              if(isDrawn) return 'Drawn: SAR ' + drawn[i] + 'M  (' + pct + '% of commitment)';
-              return 'Pending: SAR ' + pending[i] + 'M  (capital call next ' + (i===2 ? 'Q2 2026' : 'cycle') + ')';
-            },
-            afterBody:ctx=>{
-              const i = ctx[0].dataIndex;
-              const tags = ['Jadwa Top-Up · Public Equity · KSA','SFC Add-On · Sukuk · AMEA','KKR Vision Vehicle · PE · MENA','T. Rowe Price · Public Equity · EM'];
-              return ['', tags[i], 'Total commitment: SAR ' + commitments[i] + 'M'];
-            }
-          }
-        }
-      },
-      scales:{
-        x:{stacked:true,beginAtZero:true,ticks:{callback:v=>'SAR '+v+'M',font:{size:10},color:'#6b5a7a'},grid:{color:'rgba(160,34,110,0.06)'}},
-        y:{stacked:true,ticks:{font:{size:10.5,weight:'600'},color:'#1a0f2a'},grid:{display:false}}
-      }
-    },plugins:[pctLabelPlugin]});
-  }
+  // Liquidity Profile + Capital Deployment charts removed alongside their panels.
 }
 
 function initDICharts(){
@@ -4526,18 +4037,7 @@ function initRECharts(){
       datasets:[{data:[7440,2740,2640,1640,1340],backgroundColor:['#10b981','#3b82f6','#9333a8','#d97706','#dc2626'],borderColor:'#ffffff',borderWidth:2}]
     },options:{responsive:true,maintainAspectRatio:false,cutout:'60%',plugins:{legend:{position:'right',labels:{boxWidth:10,font:{size:10},color:'#4a3a5a'}},tooltip:{callbacks:{label:c=>c.label+': SAR '+c.parsed+'M ('+(c.parsed/158).toFixed(1)+'%)'}}}}});
   }
-  // RE Net Yield vs Benchmark — grouped bar per asset class
-  destroyChart('reNetYield');
-  const c4 = document.getElementById('reNetYieldChart');
-  if(c4){
-    chartInstances.reNetYield = new Chart(c4,{type:'bar',data:{
-      labels:['Office A','Hospitality','Logistics','Retail','Mixed-Use','Residential','Healthcare'],
-      datasets:[
-        {label:'Portfolio Cap Rate',data:[6.0,7.2,7.2,5.6,6.4,6.3,6.4],backgroundColor:'#8b1a6b',borderColor:'#6b1748',borderWidth:1,borderRadius:4,barPercentage:0.7,categoryPercentage:0.65},
-        {label:'REIDIN Benchmark',data:[5.8,6.4,6.6,6.2,6.2,6.0,6.0],backgroundColor:'rgba(160,34,110,0.32)',borderColor:'rgba(160,34,110,0.55)',borderWidth:1,borderRadius:4,barPercentage:0.7,categoryPercentage:0.65}
-      ]
-    },options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom',labels:{boxWidth:12,font:{size:10.5},color:'#4a3a5a',padding:8}},tooltip:{callbacks:{label:c=>c.dataset.label+': '+c.parsed.y+'%'}}},scales:{y:{beginAtZero:false,min:4,max:8,ticks:{callback:v=>v+'%',font:{size:10},color:'#6b5a7a'},grid:{color:'rgba(160,34,110,0.08)'}},x:{ticks:{font:{size:10},color:'#4a3a5a'},grid:{display:false}}}}});
-  }
+  // RE Net Yield vs Benchmark chart removed alongside the Returns & Performance block.
 }
 
 function initInvCharts(){ switchDIFI('di'); }
@@ -4737,31 +4237,22 @@ const CHART_TITLE_TOOLTIPS = {
   'Invested Capital by Subsidiary':'Cumulative equity + IC funding deployed by RHG HoldCo into each subsidiary. Used to size dividend-yield expectations. Source: SAP FI/CO IC ledger.',
   'Cash Components — Dividends, IC Repayments, Interest':'Breakdown of cash returning from subsidiaries: declared dividends, intercompany loan repayments, and interest on IC loans. Source: TMS + SAP FI/CO.',
   'Net Cash to RHG · Returning vs Consuming':'Per-subsidiary net = cash returned to RHG minus capital injections/IC drawdowns. Positive = self-funding; negative = consuming HoldCo cash.',
-  'Subsidiary Health Scorecard':'Per-subsidiary composite score: profitability, cash conversion, reporting timeliness, IC reconciliation, covenant headroom. Source: SAP FI/CO + subsidiary close packs.',
-  'Open IC Balances by Subsidiary':'Open intercompany balances (>30 days) where RHG HoldCo and subsidiary positions diverge. 60-day cap is policy. Source: SAP IC ledger.',
-  'IC Health Indicators':'IC matching efficiency: target 97% auto-match, max 60-day aging. Tracks Finance Ops execution.',
   'Allocation by Asset Class':'Financial Investments portfolio split by asset class (Equity, Sukuk, PE, HF, Real Assets, Cash). Compared to Investment Policy Statement (IPS) targets. Source: Bloomberg + custodian.',
   'Allocation by Geography':'FI portfolio by geographic exposure. AMEA = Africa/Middle East/Asia. Source: IPS aggregations.',
   'Allocation by Fund Manager':'FI portfolio by external fund manager. Concentration limits monitored. Source: IPS.',
   'Portfolio Return vs Benchmark':'Portfolio total return (cash + MTM) vs blended benchmark (60/40 sukuk-equity or custom IPS bench). YTD, 3Y, ITD. Source: Bloomberg.',
   'Underperforming Mandates':'Funds/mandates below benchmark by > -150bp on a 3Y basis. Watchlist for replacement.',
-  'Liquid vs Illiquid · Redemption Window':'Portfolio realisable cash by horizon (T+1 / T+5 / 30d / 90d / >90d). Drives liquidity stress-test results. Source: Treasury.',
   'Fees Paid & Liquidity KPIs':'Total external fees (management + performance) paid YTD vs IPS budget. Liquidity ratio = % portfolio liquid in 30 days.',
-  'New FI Investments YTD':'New deployments YTD — by mandate, ticket size, and IPS bucket.',
-  'Dividends / Distributions':'Cash returns received from FI holdings (interest, coupons, distributions) booked through the period.',
-  'Realised Gains':'Closed-position gains/losses crystallised through book sales.',
   'Unrealised Gains':'Mark-to-market gains/losses on open positions vs cost basis.',
   'Project Cost Status — Budget vs Actual':'Per-project: budget, committed, booked actual, accrued (not booked), and % progress. PMO feed + SAP FI/CO.',
   'HoldCo OPEX Trend — 12 Months':'Monthly HoldCo OPEX vs flexed monthly budget. Watch for trend breaks / one-offs. Source: SAP FI/CO.',
   'Cost Booking Status':'Q1 close cockpit: how much OPEX has been booked vs accrued (estimate not yet invoiced) vs unaccrued. Discipline metric.',
-  'Real Estate — Operational KPIs':'Per-property: occupancy, WAULT (weighted-average unexpired lease term), gross-to-net yield, like-for-like NOI growth. Source: Yardi + REIDIN.',
   'Function-Level Cost Performance':'OPEX YTD by HoldCo function (Legal, IT, Personnel, Travel, etc.) vs budget. CFO discipline lens.',
   'Bank Counterparty · % of HoldCo cash':'HoldCo cash distributed across approved bank counterparties. Top-3 concentration capped at 75% by policy. Single dimension shown in one brand colour.',
   'FX Cash Exposure · by Currency':'HoldCo + subsidiary cash by currency of denomination. Highlights unhedged emerging-market exposure (EGP, SDG).',
   'Allocation by Lifecycle Stage':'Real Estate portfolio by strategic stage (Core-Hold / Build-Out / REIT Carve / Reposition / Disposal). Drives capital-recycling decisions. Source: Yardi + RE strategy.',
   'Net Yield vs Benchmark':'Per-asset-class cap rate compared to REIDIN / Bloomberg KSA benchmark caps. Alpha = portfolio yield minus benchmark. Source: REIDIN + Bloomberg.',
   'Below-WACC Properties':'Properties whose net yield falls below the group weighted-average cost of capital — drag candidates for the disposal pipeline. Source: Yardi + Treasury WACC.',
-  'Per-Asset-Class · Operational Scorecard':'Per-asset-class operational KPIs: GAV, NOI, occupancy, WAULT (weighted-average unexpired lease term), cap rate. Source: Yardi + REIDIN.',
   'Yardi Migration & Disposal Pipeline · FY26':'Combined workstream tracker: 3 Yardi migration phases (29/47 props consolidated) + 3 active disposal mandates (SAR 1.34B unlock). Source: PMO.',
   'Gross NOI — Q1 2026':'Quarterly gross Net Operating Income across all 47 properties before property OPEX. Source: Yardi.',
   'Net to RHG · after OPEX':'Net cash to RHG HoldCo after property management fees, maintenance/capex, insurance and tax. Source: TMS.',
@@ -4769,7 +4260,6 @@ const CHART_TITLE_TOOLTIPS = {
   'Geographic Exposure':'Invested capital by country of operation. Bubble size = invested SAR; bubble colour = risk-adjusted performance (green KSA · amber Egypt · red Sudan · grey UAE no exposure). Source: Treasury FX register.',
   'Capital Flow · FY26 YTD':'Capital movement waterfall: starting balance → new investments YTD → cash returned this period → undrawn commitments → ending net exposure. Drives capital-recycling and pacing discussions. Source: S/4HANA + TMS.',
   'Subsidiary Risk Matrix':'2x2 quadrant of Cash Return (X) vs Capital Exposure (Y). Top-right = healthy core (high exposure, high return); top-left = high exposure but low return (growth phase); bottom-right = emerging growth; bottom-left = capital-consuming (Atbara, Al Safa). Drives concentration + monetisation decisions.',
-  'Capital Allocation Heatmap':'Treemap of invested capital: tile size = SAR invested, tile colour = exposure status (Returning / Drawing / Watchlist / Consuming). Hover any tile for AI commentary on the position. Source: SAP FI/CO IC ledger + subsidiary close packs.',
   'Project Cost Waterfall':'Per-project waterfall: Total FY26 budget less each project’s booked + accrued YTD spend, ending in remaining budget. ADEC + S/4HANA are the two largest spend lines; Atbara Risk Mitigation is over budget. Source: SAP FI/CO + PMO feed.',
   'Cost Centres':'HoldCo OPEX allocation by function. Employee costs are the largest (60%); Legal is the variance driver (+35.7% over plan). IT Operations and Finance Ops running under plan. Source: SAP FI/CO.',
   'HoldCo OPEX Trend — 12 Months':'Monthly HoldCo OPEX vs flexed monthly budget. Each data point colour-coded: red if actual > budget+SAR 1M; green if under; magenta on plan. Hover shows monthly variance. Watch for sustained over-runs. Source: SAP FI/CO.',
